@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — amamau</title>
+  <meta name="description" content="Pagina non trovata — amamau.">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="logo-amamau.svg" />
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Segoe UI", sans-serif;
+      color: #fff;
+      overflow: hidden;
+      animation: bodyFade 1.3s ease-out both;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+      padding: 24px;
+      animation: blockIntro 1.6s cubic-bezier(0.19, 1, 0.22, 1) 0.1s both;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo img {
+      display: block;
+      max-width: min(260px, 55vw);
+      height: auto;
+      transform-origin: center;
+      transition: transform 350ms ease, opacity 350ms ease;
+    }
+
+    .logo:hover img {
+      transform: scale(1.03);
+    }
+
+    .code {
+      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .text {
+      font-size: 0.95rem;
+      opacity: 0.65;
+      max-width: 320px;
+    }
+
+    .link-home {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding-bottom: 3px;
+      border-bottom: 1px solid rgba(255,255,255,0.28);
+      opacity: 0.8;
+      transition: opacity 200ms ease, border-color 200ms ease, transform 200ms ease;
+    }
+
+    .link-home:hover {
+      opacity: 1;
+      border-color: rgba(255,255,255,0.6);
+      transform: translateY(-1px);
+    }
+
+    @keyframes bodyFade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes blockIntro {
+      0% {
+        opacity: 0;
+        transform: translateY(24px) scale(0.96);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(0) scale(1.02);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1.00);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="logo">
+      <img src="logo-amamau.svg" alt="amamau logo">
+    </div>
+    <div class="code">404</div>
+    <p class="text">
+      La pagina che stai cercando non esiste o è stata spostata.
+    </p>
+    <a class="link-home" href="/">torna a amamau</a>
+  </main>
+</body>
+</html>
