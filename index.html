@@ -4,69 +4,79 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Domain Scout – Domain research for small, serious teams | amamau</title>
-  <meta name="description" content="Domain Scout is a fast, registry-aware domain scanner for naming, domain scouting and brand validation. Built for small, serious teams.">
-  <link rel="canonical" href="https://www.amamau.com/">
+  <title>amamau — design-first tools for small businesses</title>
+  <meta name="description" content="amamau builds design-first, noise-free digital tools for small businesses: domain research, brand naming and lean digital services made in Europe." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://amamau.com/" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="mark-amamau-white.svg" />
+  <!-- Favicon & basic assets -->
+  <link rel="icon" type="image/svg+xml" href="logo-amamau.svg" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Domain Scout – Domain research for small, serious teams | amamau">
-  <meta property="og:description" content="Fast domain availability scanner with bulk search, custom wordlists, scoring and multi-TLD support.">
-  <meta property="og:url" content="https://www.amamau.com/">
-  <meta property="og:image" content="https://www.amamau.com/og-image-domain-scout.png">
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://amamau.com/" />
+  <meta property="og:title" content="amamau — design-first tools for small businesses" />
+  <meta property="og:description" content="We turn ideas into icons. Domain research, brand naming and digital services crafted for small European businesses." />
+  <meta property="og:image" content="https://amamau.com/og-image.jpg" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Domain Scout – Domain research for small, serious teams">
-  <meta name="twitter:description" content="Bulk domain scanning with no API quotas. Built for makers, studios and lean businesses.">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="amamau — design-first tools for small businesses" />
+  <meta name="twitter:description" content="We turn ideas into icons. Domain research, brand naming and digital services crafted for small European businesses." />
+  <meta name="twitter:image" content="https://amamau.com/og-image.jpg" />
 
-  <!-- Structured Data -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Domain Scout",
-    "operatingSystem": "Web",
-    "applicationCategory": "Utility",
-    "description": "Fast domain availability scanner with bulk search, custom wordlists, scoring system and multi-TLD support.",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "What is Domain Scout?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Domain Scout is a registry-aware domain scanner for naming, domain scouting and brand validation. It runs bulk checks without API quotas and scores each available domain."
+        "@type": "Organization",
+        "name": "amamau",
+        "url": "https://amamau.com/",
+        "logo": "https://amamau.com/logo-amamau.svg",
+        "slogan": "We turn ideas into icons",
+        "description": "Design-first, noise-free digital tools for small businesses.",
+        "areaServed": "Europe",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "name": "amamau",
+        "url": "https://amamau.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://amamau.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
         }
       },
       {
-        "@type": "Question",
-        "name": "Who is Domain Scout for?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Domain Scout is designed for solo founders, small studios, agencies and developers who need serious domain research, not just a one-off availability check."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does Domain Scout use external APIs?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Domain Scout is built to work without per-request API fees. It combines DNS prefiltering and registry-level checks for .com/.net, .it, .ch and more."
-        }
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who is amamau for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "amamau is built for founders, small teams and studios that need sharp, design-first tools to validate names, domains and digital presence without enterprise pricing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Domain Scout?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Domain Scout is amamau's advanced domain research service. It scans multiple registries, filters results by length, language and brandability, and returns a scored short-list ready for decision making."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you work only with European businesses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "amamau is based in Europe and optimised for EU markets and currencies, but we collaborate with clients worldwide who share the same attention to design and detail."
+            }
+          }
+        ]
       }
     ]
   }
@@ -74,625 +84,1580 @@
 
   <style>
     :root {
-      color-scheme: dark;
+      --bg: #050509;
+      --bg-elevated: #0c0c12;
+      --bg-soft: #11111a;
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --primary: #f5f5f7;
+      --primary-soft: rgba(245, 245, 247, 0.78);
+      --accent: #f5f5f7;
+      --accent-muted: rgba(245, 245, 247, 0.25);
+      --muted: rgba(255, 255, 255, 0.6);
+      --muted-soft: rgba(255, 255, 255, 0.38);
+      --danger: #ff5555;
+
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 999px;
+
+      --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.75);
+      --shadow-subtle: 0 12px 40px rgba(0, 0, 0, 0.65);
+
+      --transition-fast: 180ms ease-out;
+      --transition-med: 260ms ease;
+
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
+    }
+
+    html,
+    body {
       margin: 0;
       padding: 0;
+      background: radial-gradient(circle at top, #14141f 0, #050509 48%, #000000 100%);
+      color: var(--primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
     }
 
     body {
       min-height: 100vh;
-      background: #000;
-      color: #f9fafb;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                   "Segoe UI", sans-serif;
-      -webkit-font-smoothing: antialiased;
     }
 
-    .page {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page-shell {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    .shell {
-      width: min(1040px, 100% - 3.5rem);
+    .shell-inner {
+      width: 100%;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 2.4rem 0 3.2rem;
+      padding: 18px 16px 40px;
     }
 
-    /* TOP STRIP */
+    @media (min-width: 960px) {
+      .shell-inner {
+        padding: 26px 24px 64px;
+      }
+    }
 
-    .top-strip {
+    .skip-link {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -120%);
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #000;
+      font-size: 14px;
+      text-decoration: none;
+      z-index: 1000;
+      transition: transform var(--transition-fast);
+    }
+
+    .skip-link:focus {
+      transform: translate(-50%, 12px);
+    }
+
+    /* NAVIGATION */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5, 5, 9, 0.96), rgba(5, 5, 9, 0.82) 48%, rgba(5, 5, 9, 0));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #6b7280;
-      margin-bottom: 2.6rem;
+      gap: 12px;
+      padding: 12px 16px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 960px) {
+      .nav-bar {
+        padding: 12px 24px;
+      }
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 10px;
     }
 
-    .brand img {
-      display: block;
-      height: 24px;
-      width: auto;
-    }
-
-    .brand span {
-      white-space: nowrap;
-    }
-
-    .top-strip-right {
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #ffffff, #f5f5f7 26%, #15151f 70%, #050509 100%);
       display: flex;
-      gap: 1.6rem;
-      white-space: nowrap;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-subtle);
     }
 
-    .top-strip-right span {
-      opacity: 0.75;
+    .brand-mark-inner {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1.4px solid rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 0%, #fff, #f2f2f5 70%, #dcdce3 100%);
+      font-size: 12px;
+      font-weight: 600;
+      color: #15151f;
     }
 
-    /* HERO AREA */
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .brand-tagline {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted-soft);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 4px 0;
+      color: var(--muted);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #0077ff, #00c88c, #f5f5f7);
+      transition: width var(--transition-med);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.is-active::after {
+      width: 100%;
+    }
+
+    .nav-link.is-active {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    .nav-cta button {
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      background: rgba(245, 245, 247, 0.06);
+      padding: 7px 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .nav-cta button span.arrow {
+      display: inline-block;
+      transform: translateY(0.5px);
+    }
+
+    .nav-cta button:hover {
+      background: rgba(245, 245, 247, 0.12);
+      border-color: rgba(245, 245, 247, 0.25);
+      box-shadow: var(--shadow-subtle);
+      transform: translateY(-0.5px);
+    }
+
+    .nav-toggle {
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      background: rgba(12, 12, 18, 0.9);
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 6px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .nav-toggle-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: #40ffb7;
+    }
+
+    .nav-mobile-menu {
+      display: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(5, 5, 9, 0.98);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-mobile-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .nav-mobile-link {
+      padding: 6px 0;
+      color: var(--muted);
+    }
+
+    .nav-mobile-link strong {
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    @media (min-width: 800px) {
+      .nav-links {
+        display: flex;
+      }
+      .nav-cta {
+        display: block;
+      }
+      .nav-toggle,
+      .nav-mobile-menu {
+        display: none !important;
+      }
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      flex: 1;
+    }
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
-      gap: 3rem;
-      align-items: flex-start;
-      margin-bottom: 3rem;
+      padding-top: 32px;
     }
 
-    @media (max-width: 880px) {
+    @media (min-width: 960px) {
       .hero {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 2.4rem;
+        padding-top: 60px;
       }
     }
 
-    .hero-left {
-      padding-right: 1rem;
-    }
-
-    .hero-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #6b7280;
-      margin-bottom: 0.7rem;
-    }
-
-    h1 {
-      font-size: clamp(2.1rem, 3vw, 2.5rem);
-      line-height: 1.2;
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-
-    .hero-baseline {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: #4b5563;
-      margin-bottom: 1.6rem;
-    }
-
-    .hero-lead {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #d1d5db;
-      max-width: 34rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-meta {
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    .hero-right {
-      border-left: 1px solid #111827;
-      padding-left: 1.8rem;
-    }
-
-    @media (max-width: 880px) {
-      .hero-right {
-        border-left: none;
-        border-top: 1px solid #111827;
-        padding-left: 0;
-        padding-top: 1.8rem;
-      }
-    }
-
-    .hero-right-title {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #6b7280;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-right-grid {
+    .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
-      gap: 0.7rem 1rem;
-      font-size: 0.82rem;
+      grid-template-columns: minmax(0, 1.4fr);
+      gap: 32px;
     }
 
-    .cell-label {
+    @media (min-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 56px;
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 10px 4px 4px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 10, 16, 0.94);
+      color: var(--muted);
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.7rem;
-      color: #6b7280;
-      white-space: nowrap;
+      letter-spacing: 0.18em;
+      margin-bottom: 16px;
     }
 
-    .cell-value {
-      color: #e5e7eb;
-      text-align: right;
+    .eyebrow-pill {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(245, 245, 247, 0.12);
+      color: var(--primary);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+      margin: 0 0 18px;
+    }
+
+    .hero-title span.muted {
+      display: block;
+      color: var(--muted);
+      font-size: 0.58em;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero-copy {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 22px;
+    }
+
+    .hero-copy strong {
+      color: var(--primary-soft);
+      font-weight: 500;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(15, 15, 22, 0.94);
+      border: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--muted-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #40ffb7;
+      box-shadow: 0 0 0 4px rgba(64, 255, 183, 0.12);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background var(--transition-med), transform var(--transition-fast), box-shadow var(--transition-med), border-color var(--transition-med), color var(--transition-med);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ffffff, #f5f5f7);
+      color: #050509;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 15, 22, 0.9);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(245, 245, 247, 0.35);
+      color: var(--primary);
+      background: rgba(15, 15, 22, 1);
+    }
+
+    .btn-icon {
+      font-size: 14px;
+    }
+
+    .hero-footnote {
+      font-size: 11px;
+      color: var(--muted-soft);
+      max-width: 26rem;
+    }
+
+    .hero-footnote span {
+      color: var(--primary-soft);
+    }
+
+    .hero-panel {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top left, rgba(245, 245, 247, 0.08), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.9), rgba(5, 5, 9, 0.98));
+      padding: 16px 16px 18px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 960px) {
+      .hero-panel {
+        padding: 18px 18px 20px;
+      }
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at -10% -20%, rgba(255, 255, 255, 0.18), transparent 50%);
+      opacity: 0.6;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-panel-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .panel-title {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .panel-tag {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(5, 5, 9, 0.9);
+      color: var(--muted-soft);
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 960px) {
+      .panel-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        gap: 16px;
+      }
+    }
+
+    .panel-main {
+      border-radius: 20px;
+      padding: 14px;
+      background: rgba(10, 10, 16, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .panel-main-heading {
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .panel-main-title {
+      font-size: 18px;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .panel-main-copy {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--muted-soft);
+      margin-bottom: 8px;
+    }
+
+    .panel-main-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted-soft);
+    }
+
+    .panel-main-meta span {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(5, 5, 9, 0.9);
+    }
+
+    .panel-side {
+      border-radius: 18px;
+      padding: 10px 10px 11px;
+      border: 1px dashed rgba(255, 255, 255, 0.16);
+      background: rgba(5, 5, 9, 0.92);
+      font-size: 11px;
+      color: var(--muted-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .panel-side-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .panel-score {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel-score-value {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .panel-score-chip {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(64, 255, 183, 0.06);
+      border: 1px solid rgba(64, 255, 183, 0.6);
+      color: #8cffd3;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .panel-score-bar {
+      position: relative;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      overflow: hidden;
+    }
+
+    .panel-score-bar-fill {
+      position: absolute;
+      inset: 0;
+      width: 86%;
+      background: linear-gradient(90deg, #40ffb7, #f5f5f7);
+      box-shadow: 0 0 18px rgba(64, 255, 183, 0.6);
+    }
+
+    .panel-footer {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--muted-soft);
+    }
+
+    .panel-footer strong {
+      color: var(--primary-soft);
+    }
+
+    .panel-footer-pill {
+      padding: 5px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(5, 5, 9, 0.98);
+    }
+
+    /* GENERIC SECTION STYLES */
+    section {
+      padding-top: 40px;
+    }
+
+    @media (min-width: 960px) {
+      section {
+        padding-top: 64px;
+      }
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+    }
+
+    .section-title {
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .section-description {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 32rem;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    @media (min-width: 880px) {
+      .services-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    .service-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(135deg, rgba(17, 17, 26, 0.96), rgba(5, 5, 9, 0.98));
+      padding: 18px 16px 16px;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 55%);
+      opacity: 0;
+      transition: opacity var(--transition-med);
+      pointer-events: none;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+    }
+
+    .service-name {
+      font-size: 18px;
+      margin: 2px 0 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .service-copy {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .service-meta {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--muted-soft);
+    }
+
+    .service-meta span {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .service-link {
+      margin-top: 10px;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary-soft);
+    }
+
+    .service-link span.arrow {
+      font-size: 13px;
+      transform: translateY(0.5px);
+    }
+
+    .service-list {
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      background: rgba(5, 5, 9, 0.94);
+      padding: 14px 14px 12px;
+      font-size: 12px;
+      color: var(--muted-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .service-list ul {
+      list-style: none;
+      margin: 4px 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .service-list li::before {
+      content: "•";
+      margin-right: 6px;
+      color: var(--accent);
+    }
+
+    /* HOW IT WORKS */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    @media (min-width: 780px) {
+      .steps-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .step-card {
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(9, 9, 15, 0.96);
+      padding: 12px 12px 11px;
+      font-size: 12px;
+      color: var(--muted-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .step-index {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .step-title {
+      font-size: 14px;
+      margin: 0;
+      color: var(--primary-soft);
+    }
+
+    /* SPLIT SECTIONS (ABOUT / WHY) */
+    .split-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    @media (min-width: 880px) {
+      .split-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    .card-soft {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 10, 16, 0.96);
+      padding: 16px 16px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .card-soft h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: -0.01em;
     }
 
     .pill-row {
-      grid-column: 1 / -1;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.4rem;
+      gap: 6px;
+      margin-top: 8px;
     }
 
     .pill {
-      padding: 0.28rem 0.7rem;
+      font-size: 11px;
+      padding: 4px 8px;
       border-radius: 999px;
-      border: 1px solid #1f2937;
-      font-size: 0.72rem;
-      color: #d1d5db;
-      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(5, 5, 9, 0.98);
+      color: var(--muted-soft);
     }
 
-    .hero-note {
-      margin-top: 0.8rem;
-      font-size: 0.78rem;
-      color: #6b7280;
-      line-height: 1.5;
+    /* FAQ */
+    .faq-list {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: rgba(7, 7, 12, 0.96);
+      overflow: hidden;
     }
 
-    /* BODY CONTENT */
-
-    main {
-      border-top: 1px solid #111827;
-      padding-top: 2.3rem;
+    .faq-item {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .body-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-      gap: 2.8rem;
-      align-items: flex-start;
+    .faq-item:last-child {
+      border-bottom: none;
     }
 
-    @media (max-width: 880px) {
-      .body-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 2.4rem;
-      }
-    }
-
-    section {
-      margin-bottom: 2.2rem;
-    }
-
-    section:last-of-type {
-      margin-bottom: 0;
-    }
-
-    section h2 {
-      font-size: 0.9rem;
+    .faq-question {
+      font-size: 13px;
       font-weight: 500;
-      margin-bottom: 0.6rem;
+      margin-bottom: 4px;
     }
 
-    section p {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: #d1d5db;
-    }
-
-    .list {
-      margin-top: 0.5rem;
-    }
-
-    .list-item {
-      font-size: 0.86rem;
-      line-height: 1.6;
-      color: #9ca3af;
-    }
-
-    .list-item + .list-item {
-      margin-top: 0.16rem;
-    }
-
-    .faq-block {
-      margin-top: 0.7rem;
-    }
-
-    .faq-item + .faq-item {
-      margin-top: 0.9rem;
-    }
-
-    .faq-q {
-      font-size: 0.88rem;
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-    }
-
-    .faq-a {
-      font-size: 0.86rem;
-      line-height: 1.6;
-      color: #9ca3af;
+    .faq-answer {
+      font-size: 12px;
+      color: var(--muted-soft);
     }
 
     /* CONTACT */
-
-    .contact-section {
-      border-top: 1px solid #111827;
-      padding-top: 2.2rem;
-      margin-top: 2.8rem;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
     }
 
-    .contact-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: baseline;
-      margin-bottom: 1.3rem;
-    }
-
-    .contact-header h2 {
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-bottom: 0;
-    }
-
-    .contact-header p {
-      font-size: 0.82rem;
-      color: #6b7280;
-      max-width: 22rem;
-      text-align: right;
-    }
-
-    @media (max-width: 720px) {
-      .contact-header {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (min-width: 880px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
       }
-      .contact-header p {
-        text-align: left;
-      }
+    }
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(135deg, rgba(245, 245, 247, 0.06), rgba(7, 7, 12, 0.98));
+      padding: 18px 16px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-card h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .contact-card p {
+      margin: 0 0 12px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
     .contact-form {
       display: grid;
-      grid-template-columns: 1.1fr 1.1fr;
-      gap: 1.2rem 1.8rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 6px;
     }
 
-    @media (max-width: 720px) {
-      .contact-form {
-        grid-template-columns: 1fr;
+    @media (min-width: 640px) {
+      .contact-form-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
       }
     }
 
     .field {
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 4px;
+      font-size: 12px;
     }
 
     .field label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6b7280;
+      color: var(--muted-soft);
     }
 
     .field input,
-    .field textarea {
-      border: none;
-      border-bottom: 1px solid #1f2937;
-      padding: 0.4rem 0 0.5rem;
-      font-size: 0.9rem;
-      background: transparent;
-      color: #e5e7eb;
+    .field textarea,
+    .field select {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(5, 5, 9, 0.96);
+      color: var(--primary);
+      padding: 8px 12px;
+      font-size: 13px;
+      font-family: inherit;
       outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
     }
 
-    .field input::placeholder,
-    .field textarea::placeholder {
-      color: #4b5563;
+    .field textarea {
+      border-radius: 18px;
+      min-height: 96px;
+      resize: vertical;
+      line-height: 1.5;
     }
 
     .field input:focus,
-    .field textarea:focus {
-      border-bottom-color: #e5e7eb;
+    .field textarea:focus,
+    .field select:focus {
+      border-color: rgba(245, 245, 247, 0.65);
+      box-shadow: 0 0 0 1px rgba(245, 245, 247, 0.5);
+      background: rgba(7, 7, 14, 1);
     }
 
-    .field textarea {
-      resize: vertical;
-      min-height: 90px;
-      grid-column: 1 / -1;
+    .field small {
+      font-size: 11px;
+      color: var(--muted-soft);
     }
 
-    .form-footnote {
-      grid-column: 1 / -1;
+    .contact-meta {
+      font-size: 12px;
+      color: var(--muted-soft);
+      margin-top: 10px;
+    }
+
+    .contact-meta a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .contact-side {
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      background: rgba(5, 5, 9, 0.96);
+      padding: 14px 14px 12px;
+      font-size: 12px;
+      color: var(--muted-soft);
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 0.2rem;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    .form-footnote p {
-      font-size: 0.78rem;
-      color: #6b7280;
-    }
-
-    .button {
-      appearance: none;
-      border: 1px solid #e5e7eb;
-      background: transparent;
-      color: #e5e7eb;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      padding: 0.55rem 1.8rem;
-      border-radius: 999px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .button:hover {
-      background: #e5e7eb;
-      color: #020617;
-    }
-
-    .button:active {
-      transform: translateY(1px);
+    .contact-side strong {
+      color: var(--primary-soft);
     }
 
     /* FOOTER */
+    .site-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 40px;
+      padding-top: 18px;
+      padding-bottom: 16px;
+      font-size: 11px;
+      color: var(--muted-soft);
+    }
 
-    footer {
-      border-top: 1px solid #111827;
-      margin-top: auto;
+    @media (min-width: 960px) {
+      .site-footer {
+        margin-top: 56px;
+      }
     }
 
     .footer-inner {
-      width: min(1040px, 100% - 3.5rem);
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 1.5rem 0 2rem;
-      font-size: 0.78rem;
-      color: #6b7280;
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 800px) {
+      .footer-inner {
+        padding: 0 24px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-links {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.5rem;
-      align-items: center;
+      gap: 10px;
     }
 
-    footer a {
-      color: #9ca3af;
-      text-decoration: none;
+    .footer-links a {
+      color: var(--muted-soft);
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    /* REVEAL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 420ms ease, transform 420ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="shell">
-      <div class="top-strip">
-        <div class="brand">
-          <img src="logo-amamau.svg" alt="amamau logo">
-          <span>amamau / domain scout</span>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="page-shell">
+    <header class="site-header" aria-label="Primary">
+      <div class="nav-bar">
+        <a href="#hero" class="brand" aria-label="amamau home">
+          <div class="brand-mark" aria-hidden="true">
+            <div class="brand-mark-inner">a</div>
+          </div>
+          <div class="brand-text">
+            <div class="brand-name">amamau</div>
+            <div class="brand-tagline">We turn ideas into icons</div>
+          </div>
+        </a>
+        <nav class="nav-links" aria-label="Main">
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#how" class="nav-link">How it works</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <div class="nav-cta">
+          <button type="button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">
+            <span>Request a scan</span>
+            <span class="arrow">↗</span>
+          </button>
         </div>
-        <div class="top-strip-right">
-          <span>tools for small, serious teams</span>
-          <span>eu-based</span>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="nav-toggle-dot" aria-hidden="true"></span>
+          <span>Menu</span>
+        </button>
+      </div>
+      <div class="nav-mobile-menu" aria-hidden="true">
+        <div class="nav-mobile-inner">
+          <a href="#services" class="nav-mobile-link"><strong>Services</strong> · what we ship</a>
+          <a href="#how" class="nav-mobile-link"><strong>How it works</strong> · from brief to shortlist</a>
+          <a href="#about" class="nav-mobile-link"><strong>About</strong> · why amamau</a>
+          <a href="#faq" class="nav-mobile-link"><strong>FAQ</strong> · practical details</a>
+          <a href="#contact" class="nav-mobile-link"><strong>Contact</strong> · start a project</a>
         </div>
       </div>
+    </header>
 
-      <!-- HERO -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-left">
-          <p class="hero-label">tool 01 · domain</p>
-          <h1 id="hero-title">Domain Scout is domain research built for real businesses, not one-off checks.</h1>
-          <p class="hero-baseline">We turn ideas into icons.</p>
-          <p class="hero-lead">
-            A registry-aware domain scanner for naming, domain scouting and brand validation.
-            Bulk checks without API quotas, custom wordlists and a simple scoring layer that
-            surfaces only names worth discussing.
-          </p>
-          <p class="hero-meta">
-            .com/.net (Verisign), .it, .ch and more. Designed to run locally or on a VPS as part
-            of your own workflow.
-          </p>
-        </div>
-
-        <aside class="hero-right" aria-label="Domain Scout snapshot">
-          <p class="hero-right-title">Snapshot</p>
-          <div class="hero-right-grid">
-            <span class="cell-label">Status</span>
-            <span class="cell-value">Internal / early access</span>
-
-            <span class="cell-label">Use cases</span>
-            <span class="cell-value">Naming, domain scouting, brand checks</span>
-
-            <span class="cell-label">Teams</span>
-            <span class="cell-value">Solo founders, studios, small teams</span>
-
-            <div class="pill-row" aria-label="Key features">
-              <span class="pill">Bulk scans</span>
-              <span class="pill">No API quotas</span>
-              <span class="pill">Custom wordlists</span>
-              <span class="pill">Multi-TLD</span>
-              <span class="pill">0–100 scoring</span>
-              <span class="pill">TXT / CSV / Markdown</span>
+    <main id="main">
+      <div class="shell-inner">
+        <!-- HERO -->
+        <section id="hero" class="hero">
+          <div class="hero-grid">
+            <div class="hero-left reveal">
+              <div class="eyebrow">
+                <span class="eyebrow-pill">B2B • design-first</span>
+                <span>Digital tools for small businesses</span>
+              </div>
+              <h1 class="hero-title">
+                <span class="muted">amamau studio</span>
+                We turn ideas into icons.
+              </h1>
+              <p class="hero-copy">
+                amamau is a small studio building <strong>design-first, noise-free tools</strong> for founders and lean teams.
+                We start with <strong>Domain Scout</strong> — an advanced domain &amp; name research service crafted for
+                European small businesses.
+              </p>
+              <div class="hero-badges">
+                <div class="badge"><span class="badge-dot"></span> No APIs, no subscriptions — only results.</div>
+                <div class="badge">Hand-curated shortlists · export-ready reports</div>
+              </div>
+              <div class="hero-actions">
+                <button class="btn-primary" type="button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">
+                  <span>Request Domain Scout</span>
+                  <span class="btn-icon">↗</span>
+                </button>
+                <button class="btn-ghost" type="button" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'});">
+                  <span>Explore services</span>
+                </button>
+              </div>
+              <div class="hero-footnote">
+                <span>Optimised for Europe.</span> Pricing in EUR, data stored in the EU, and a workflow calibrated for
+                small, time-poor teams.
+              </div>
             </div>
-          </div>
-          <p class="hero-note">
-            We use Domain Scout for our own naming and domain work.
-            This page documents what it does today and how it can fit inside other stacks.
-          </p>
-        </aside>
-      </section>
 
-      <!-- BODY -->
-      <main>
-        <div class="body-grid">
-          <div>
-            <section aria-labelledby="why">
-              <h2 id="why">Why this exists</h2>
-              <p>
-                Most domain tools are built to answer “is this one domain free?”, powered by third-party
-                APIs, rate limits and subscriptions. Naming a product or studio is a different problem:
-                you work with lists, patterns and constraints. Domain Scout is built for that layer:
-                predictable runs, transparent logic and outputs you can actually read.
-              </p>
-            </section>
-
-            <section aria-labelledby="what">
-              <h2 id="what">What Domain Scout actually does</h2>
-              <p>
-                Under the hood, Domain Scout combines DNS prefiltering, registry-level checks and a
-                light scoring model:
-              </p>
-              <div class="list" aria-label="Key capabilities">
-                <p class="list-item">• bulk scanning of large wordlists or generated names;</p>
-                <p class="list-item">• dedicated handlers for .com/.net (Verisign), .it and .ch;</p>
-                <p class="list-item">• filters for length, prefixes, suffixes and blacklist words;</p>
-                <p class="list-item">• 0–100 score per free domain based on length, TLD value, readability;</p>
-                <p class="list-item">• exports as TXT, CSV and Markdown for internal docs and client decks.</p>
-              </div>
-            </section>
-          </div>
-
-          <div>
-            <section aria-labelledby="who">
-              <h2 id="who">Who it is for</h2>
-              <p>
-                Domain Scout is not a consumer product. It is meant for teams that ship things:
-              </p>
-              <div class="list" aria-label="Ideal users">
-                <p class="list-item">• solo founders validating names before design and legal;</p>
-                <p class="list-item">• studios and agencies doing naming rounds for clients;</p>
-                <p class="list-item">• developers and makers who prefer a script-friendly scanner.</p>
-              </div>
-            </section>
-
-            <section aria-labelledby="faq">
-              <h2 id="faq">FAQ</h2>
-              <div class="faq-block">
-                <div class="faq-item">
-                  <p class="faq-q">Does it use external APIs?</p>
-                  <p class="faq-a">
-                    Domain Scout is built to work without per-request API pricing. It leans on DNS
-                    prefiltering and registry-level checks, so you can run thousands of candidates
-                    without worrying about quotas.
-                  </p>
+            <aside class="hero-panel reveal" aria-label="Domain Scout preview">
+              <div class="hero-panel-inner">
+                <div class="panel-header">
+                  <div class="panel-title">Domain Scout — live session</div>
+                  <div class="panel-tag">Brandable .com focus</div>
                 </div>
-                <div class="faq-item">
-                  <p class="faq-q">Can we plug in our own wordlists?</p>
-                  <p class="faq-a">
-                    Yes. Wordlists are the core of how it works: you bring your own data, apply
-                    blacklist rules and, if needed, generate brandable variations on top.
-                  </p>
+                <div class="panel-grid">
+                  <div class="panel-main">
+                    <div>
+                      <div class="panel-main-heading">Session brief</div>
+                      <h2 class="panel-main-title">Naming for a design-led SaaS</h2>
+                      <p class="panel-main-copy">
+                        We scan multiple registries, filter by length and complexity, and score each candidate by
+                        clarity, memorability and visual rhythm.
+                      </p>
+                      <div class="panel-main-meta">
+                        <span>Length: 5–8 chars</span>
+                        <span>.com · .io · .it</span>
+                        <span>No numbers or hyphens</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="panel-side-label">Sample shortlist</div>
+                      <div class="panel-side">
+                        <div>1. <strong>amamau.com</strong></div>
+                        <div>2. <strong>mabyer.com</strong></div>
+                        <div>3. <strong>stazze.com</strong></div>
+                        <div>4. <strong>outrib.com</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-side">
+                    <div class="panel-side-label">Brandability score</div>
+                    <div class="panel-score">
+                      <div>
+                        <div class="panel-score-value">86/100</div>
+                        <div class="panel-score-chip">Strong candidate</div>
+                      </div>
+                      <div class="panel-score-bar">
+                        <div class="panel-score-bar-fill"></div>
+                      </div>
+                    </div>
+                    <div>Balanced across <strong>clarity</strong>, <strong>sound</strong> and
+                      <strong>visual symmetry</strong>.
+                    </div>
+                  </div>
                 </div>
-                <div class="faq-item">
-                  <p class="faq-q">Is there a hosted version?</p>
-                  <p class="faq-a">
-                    Today, Domain Scout runs locally or on a VPS. A hosted layer can sit on top of
-                    the same engine later, adding UI, automation and team access.
-                  </p>
+                <div class="panel-footer">
+                  <div>
+                    <strong>Export:</strong> PDF report · CSV shortlist · TXT notes
+                  </div>
+                  <div class="panel-footer-pill">No auto-registration — you stay in control.</div>
                 </div>
               </div>
-            </section>
+            </aside>
           </div>
-        </div>
+        </section>
 
-        <!-- CONTACT -->
-        <section class="contact-section" aria-labelledby="contact">
-          <div class="contact-header">
-            <h2 id="contact">Work with Domain Scout</h2>
-            <p>
-              If you want Domain Scout inside your studio, agency or product, send a short note.
-              We’ll get back with options, formats and technical details.
+        <!-- SERVICES -->
+        <section id="services" aria-labelledby="services-title">
+          <div class="section-header reveal">
+            <div class="section-kicker">Services</div>
+            <h2 id="services-title" class="section-title">Tools that respect your focus and your budget.</h2>
+            <p class="section-description">
+              We design compact, opinionated services instead of noisy platforms. Start with Domain Scout and add
+              branding support only when you need it.
             </p>
           </div>
-
-          <form class="contact-form" action="#" method="post">
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required
-                     placeholder="Your name or studio">
-            </div>
-
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required
-                     placeholder="you@example.com">
-            </div>
-
-            <div class="field">
-              <label for="company">Team / company (optional)</label>
-              <input id="company" name="company" type="text"
-                     placeholder="Startup, agency, lab…">
-            </div>
-
-            <div class="field">
-              <label for="usecase">What are you working on?</label>
-              <input id="usecase" name="usecase" type="text"
-                     placeholder="Naming round, client work, internal tool…">
-            </div>
-
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message"
-                        placeholder="Short context is enough."></textarea>
-            </div>
-
-            <div class="form-footnote">
-              <p>
-                This form is visual only for now. Backend and automation will be wired in later.
+          <div class="services-grid">
+            <article class="service-card reveal" aria-label="Domain Scout service">
+              <div class="service-label">Flagship service</div>
+              <h3 class="service-name">Domain Scout</h3>
+              <p class="service-copy">
+                Advanced domain &amp; name research, run by a custom-built scanner and refined by a human eye.
+                Multi-TLD support (.com, .it, .ch and more), scoring from 0–100 and exports ready to share with your
+                team or investors.
               </p>
-              <button class="button" type="submit">Send request</button>
-            </div>
-          </form>
-        </section>
-      </main>
-    </div>
+              <div class="service-meta">
+                <span>Multi-registry scan</span>
+                <span>Length &amp; language filters</span>
+                <span>Brandability scoring</span>
+              </div>
+              <a href="#contact" class="service-link">
+                <span>Request your Domain Scout session</span>
+                <span class="arrow">↗</span>
+              </a>
+            </article>
 
-    <footer>
+            <div class="service-list reveal">
+              <div><strong>Upcoming add-ons</strong> — built on the same design-first philosophy:</div>
+              <ul>
+                <li><strong>Naming Lab.</strong> Collaborative sessions to refine your brand name and narrative around
+                  your Domain Scout shortlist.</li>
+                <li><strong>Presence Audit.</strong> A compact audit of your current site, socials and search footprint
+                  with a clear, prioritised checklist.</li>
+                <li><strong>Starter Stack.</strong> Guidance on domains, email, hosting and basic security for new
+                  ventures.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section id="how" aria-labelledby="how-title">
+          <div class="section-header reveal">
+            <div class="section-kicker">Process</div>
+            <h2 id="how-title" class="section-title">A focused workflow, from brief to shortlist.</h2>
+            <p class="section-description">
+              No dashboards. We keep the process lightweight, async-friendly and documented from day one.
+            </p>
+          </div>
+          <div class="steps-grid">
+            <div class="step-card reveal">
+              <div class="step-index">01 · Brief</div>
+              <h3 class="step-title">We define the search.</h3>
+              <p>
+                You share a short brief: industry, tone of voice, markets, must-have and no-go elements. We turn it into
+                a clear search profile.
+              </p>
+            </div>
+            <div class="step-card reveal">
+              <div class="step-index">02 · Scan</div>
+              <h3 class="step-title">We run Domain Scout.</h3>
+              <p>
+                Our custom script scans DNS and registry-level sources, applies filters and scores each candidate by
+                length, readability and brandability.
+              </p>
+            </div>
+            <div class="step-card reveal">
+              <div class="step-index">03 · Report</div>
+              <h3 class="step-title">You receive your shortlist.</h3>
+              <p>
+                We deliver a structured report (PDF + CSV + TXT) with top picks, notes and a simple action plan for
+                registration.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ABOUT & WHY -->
+        <section id="about" aria-labelledby="about-title">
+          <div class="section-header reveal">
+            <div class="section-kicker">Studio</div>
+            <h2 id="about-title" class="section-title">Why amamau exists.</h2>
+            <p class="section-description">
+              amamau started from a simple frustration: small teams deserve the same research quality as big companies,
+              without enterprise tools or noisy dashboards.
+            </p>
+          </div>
+          <div class="split-grid">
+            <article class="card-soft reveal">
+              <h3>Design-first, technology-backed.</h3>
+              <p>
+                Domain Scout was born while building our own brands. Existing tools were either too shallow or locked
+                behind expensive APIs.
+                We built our internal scanner and added a layer of design thinking on top.
+              </p>
+              <p>
+                Every decision in amamau balances <strong>signal over noise</strong>: minimal interfaces, clear language
+                and outputs you can actually use in a meeting.
+              </p>
+              <div class="pill-row">
+                <div class="pill">Made in Europe</div>
+                <div class="pill">Small-team friendly</div>
+                <div class="pill">Privacy-aware workflow</div>
+              </div>
+            </article>
+            <article class="card-soft reveal">
+              <h3>Built for small, serious teams.</h3>
+              <p>
+                Our clients are founders, designers and small studios who care about names, details and infrastructure
+                — but have limited time.
+              </p>
+              <p>
+                Instead of yet another SaaS, amamau offers <strong>focused services</strong> you can book, run and close
+                in days, not months.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" aria-labelledby="faq-title">
+          <div class="section-header reveal">
+            <div class="section-kicker">FAQ</div>
+            <h2 id="faq-title" class="section-title">Practical details, upfront.</h2>
+            <p class="section-description">
+              A few quick answers before we start working together.
+            </p>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item reveal">
+              <div class="faq-question">Do you register domains for us?</div>
+              <div class="faq-answer">
+                We do <strong>not</strong> auto-register domains. You remain fully in control. Our job is to research,
+                shortlist and explain. You decide what to register and where.
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <div class="faq-question">Which TLDs do you support?</div>
+              <div class="faq-answer">
+                Domain Scout is optimised for <strong>.com</strong> and major European TLDs like <strong>.it</strong>
+                and <strong>.ch</strong>. Other extensions can be added on request, depending on registry access.
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <div class="faq-question">How is pricing structured?</div>
+              <div class="faq-answer">
+                We work with a <strong>per-session flat fee</strong>, quoted in EUR, with clear limits on how many
+                domains we scan and how many top candidates we deliver. No surprise costs.
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <div class="faq-question">Is amamau available outside Europe?</div>
+              <div class="faq-answer">
+                Yes. While we are based in Europe and price in EUR, we work remotely with teams worldwide. Time zones
+                and currencies can be adapted on a case-by-case basis.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" aria-labelledby="contact-title">
+          <div class="section-header reveal">
+            <div class="section-kicker">Contact</div>
+            <h2 id="contact-title" class="section-title">Ready for a Domain Scout session?</h2>
+            <p class="section-description">
+              Share a few details about your project. We reply with availability, an estimated scope and a flat-fee
+              quote in EUR.
+            </p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-card reveal" aria-label="Contact form">
+              <h3>Tell us about your project.</h3>
+              <p>
+                No long forms. Just enough to understand if we are the right match.
+              </p>
+              <form class="contact-form" method="post" action="#">
+                <!-- TODO: replace # with your backend endpoint or automation URL -->
+                <div class="contact-form-row">
+                  <div class="field">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" autocomplete="name" required />
+                  </div>
+                  <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required />
+                  </div>
+                </div>
+                <div class="contact-form-row">
+                  <div class="field">
+                    <label for="company">Company / project</label>
+                    <input id="company" name="company" type="text" />
+                  </div>
+                  <div class="field">
+                    <label for="budget">Budget range (EUR)</label>
+                    <select id="budget" name="budget">
+                      <option value="" selected>Choose a range</option>
+                      <option value="under-500">Under 500</option>
+                      <option value="500-1500">500 – 1.500</option>
+                      <option value="1500-3000">1.500 – 3.000</option>
+                      <option value="over-3000">Over 3.000</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="message">What do you need help with?</label>
+                  <textarea id="message" name="message" required placeholder="Short context, markets, timeline and any names you already considered."></textarea>
+                </div>
+                <div class="field">
+                  <label for="source">How did you hear about amamau?</label>
+                  <input id="source" name="source" type="text" />
+                </div>
+                <div class="field">
+                  <button class="btn-primary" type="submit">
+                    <span>Send request</span>
+                    <span class="btn-icon">↗</span>
+                  </button>
+                </div>
+                <div class="contact-meta">
+                  By sending this form you agree that we may store your details to reply to your request. No newsletters,
+                  no ads.
+                </div>
+              </form>
+            </div>
+            <aside class="contact-side reveal">
+              <div><strong>Prefer email?</strong></div>
+              <div>
+                Reach us at <a href="mailto:info@amamau.com">info@amamau.com</a> and include "Domain Scout" in the
+                subject line.
+              </div>
+              <div>
+                For privacy or data access requests, you can also contact us via our dedicated address
+                <a href="mailto:privacy@amamau.com">privacy@amamau.com</a>.
+              </div>
+              <div>
+                We usually respond within <strong>1–2 business days</strong>.
+              </div>
+            </aside>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
       <div class="footer-inner">
-        <span>© <span id="year">2025</span> amamau — Domain Scout.</span>
-        <span><a href="mailto:hello@amamau.com">hello@amamau.com</a></span>
+        <div>
+          © <span id="year"></span> amamau · We turn ideas into icons.
+        </div>
+        <div class="footer-links">
+          <a href="#hero">Back to top</a>
+          <span>·</span>
+          <a href="#">Imprint</a>
+          <span>·</span>
+          <a href="#">Privacy</a>
+        </div>
       </div>
     </footer>
   </div>
 
   <script>
+    // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMobile = document.querySelector('.nav-mobile-menu');
+    if (navToggle && navMobile) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navMobile.style.display === 'block';
+        navMobile.style.display = isOpen ? 'none' : 'block';
+        navToggle.setAttribute('aria-expanded', String(!isOpen));
+        navMobile.setAttribute('aria-hidden', String(isOpen));
+      });
+
+      navMobile.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMobile.style.display = 'none';
+          navToggle.setAttribute('aria-expanded', 'false');
+          navMobile.setAttribute('aria-hidden', 'true');
+        });
+      });
+    }
+
+    // Active nav link on scroll
+    const sections = ['hero', 'services', 'how', 'about', 'faq', 'contact'];
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function updateActiveNav() {
+      let current = 'hero';
+      const scrollY = window.scrollY;
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const offsetTop = el.offsetTop - 120;
+          if (scrollY >= offsetTop) {
+            current = id;
+          }
+        }
+      });
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.slice(1) === current) {
+          link.classList.add('is-active');
+        } else {
+          link.classList.remove('is-active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('load', updateActiveNav);
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('is-visible'));
+    }
   </script>
 </body>
 </html>
