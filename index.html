@@ -23,7 +23,7 @@
   <title>amamau — We turn ideas into icons</title>
 
   <meta name="description"
-        content="amamau builds minimal, high-impact digital tools for ambitious small businesses. Domain Scout and more — design-first, no noise." />
+        content="amamau builds lean, high-impact digital tools for ambitious small businesses. Domain Scout and more — no noise, no fluff." />
 
   <link rel="icon" href="mark-amamau-white.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap"
@@ -41,7 +41,6 @@
       --golden: #c9a74c;
       --white: #ffffff;
 
-      /* Gradient underline / buttons (brand-ish) */
       --brand-grad-start: #ffffff;
       --brand-grad-mid: #c7c8ff;
       --brand-grad-end: #ffffff;
@@ -101,7 +100,6 @@
       cursor: pointer;
     }
 
-    /* Gradient underline (brand) */
     nav a::after {
       content: "";
       position: absolute;
@@ -126,7 +124,7 @@
     }
 
     nav a[aria-current="page"]::after {
-      width: 0; /* no fixed underline, only hover */
+      width: 0;
     }
 
     nav a:hover,
@@ -277,18 +275,6 @@
       border-color: rgba(255,255,255,0.4);
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
-    }
-
-    .btn span.icon {
-      margin-left: 6px;
-      font-size: 1rem;
-      display: inline-block;
-      transform: translateX(0);
-      transition: transform var(--transition);
-    }
-
-    .btn:hover span.icon {
-      transform: translateX(4px);
     }
 
     /* MAIN LAYOUT */
@@ -444,19 +430,9 @@
       gap: 0.35rem;
     }
 
-    .project-link span.icon {
-      font-size: 0.9rem;
-      transform: translate(0, 0);
-      transition: transform var(--transition);
-    }
-
     .project-card:hover .project-link {
       color: var(--accent);
       border-bottom-color: rgba(255, 255, 255, 0.4);
-    }
-
-    .project-card:hover .project-link span.icon {
-      transform: translate(3px, -1px);
     }
 
     /* CONTACT CTA */
@@ -632,15 +608,15 @@
     <div class="hero-inner">
       <div class="hero-pill">
         <span class="hero-pill-dot"></span>
-        Design-first tools for small teams
+        Pragmatic tools for small teams
       </div>
       <h1>
-        We turn <span>ideas</span> into quiet, high-impact tools.
+        We turn <span>ideas</span> into lean, high-impact tools.
       </h1>
       <p>
-        amamau builds minimal, well-designed digital products for ambitious small businesses.
-        We start with the unsexy layer — domains, brand basics, infrastructure — so your
-        company looks serious before you spend on marketing.
+        amamau builds reliable, well-structured digital products for ambitious small
+        businesses. We start with the unsexy layer — domains, brand basics,
+        infrastructure — so your company looks serious before you spend on marketing.
       </p>
 
       <div class="hero-meta">
@@ -653,11 +629,11 @@
 
       <div class="hero-actions">
         <a href="#products" class="btn btn-primary">
-          Explore first products <span class="icon">↓</span>
+          View current products
         </a>
         <a href="mailto:hello@amamau.com?subject=Project%20enquiry"
            class="btn btn-ghost">
-          Talk about a project <span class="icon">↗</span>
+          Discuss a project
         </a>
       </div>
     </div>
@@ -667,12 +643,12 @@
     <!-- SECTION: amamau in short -->
     <section class="section reveal">
       <div class="tagline">amamau in short</div>
-      <h3>Design-driven tools for founders who care about details.</h3>
+      <h3>Tools engineered for founders who care about execution.</h3>
       <p>
         We created amamau because most tools for early-stage teams are either
         too generic, too expensive, or visually neglected. Our products sit in
-        the middle: <strong>minimal, opinionated, and good-looking enough</strong> to
-        feel reliable in front of clients, investors and partners.
+        the middle: <strong>lean, opinionated, and precise</strong>, so they look
+        and feel solid in front of clients, investors and partners.
       </p>
       <p style="margin-top: 1rem;">
         Our focus is Europe-first, with transparent pricing in EUR and setups
@@ -684,7 +660,7 @@
     <!-- SECTION: Products -->
     <section id="products" class="section reveal">
       <div class="tagline">First products</div>
-      <h3>Tools we are building and running today.</h3>
+      <h3>What we are building and running today.</h3>
 
       <div class="projects-grid">
         <!-- Domain Scout -->
@@ -707,7 +683,7 @@
             <span>Perfect for: brand studios, founders, micro-agencies.</span>
             <a class="project-link"
                href="mailto:hello@amamau.com?subject=Domain%20Scout%20beta">
-              Request a beta run <span class="icon">↗</span>
+              Request a beta run
             </a>
           </div>
         </article>
@@ -732,7 +708,7 @@
             <span>Use before ads, investor decks or a repositioning.</span>
             <a class="project-link"
                href="mailto:hello@amamau.com?subject=Brand%20Snapshot%20waitlist">
-              Join the waitlist <span class="icon">↗</span>
+              Join the waitlist
             </a>
           </div>
         </article>
@@ -757,7 +733,7 @@
             <span>Designed for teams moving away from a single inbox.</span>
             <a class="project-link"
                href="mailto:hello@amamau.com?subject=Inbox%20Grid%20early%20access">
-              Talk about your setup <span class="icon">↗</span>
+              Talk about your setup
             </a>
           </div>
         </article>
@@ -767,18 +743,18 @@
     <!-- SECTION: Approach -->
     <section id="approach" class="section reveal">
       <div class="tagline">How we work</div>
-      <h3>Few products, strong boundaries, obsessive details.</h3>
+      <h3>Few products, clear limits, obsessive details.</h3>
       <p>
         We keep the roadmap intentionally narrow. Each tool has a clear scope,
-        written limits and a simple story. That lets us care about typography,
-        motion, microcopy and infrastructure without shipping a feature zoo.
+        written limits and a simple story. That lets us focus on clarity,
+        performance and reliability instead of chasing feature lists.
       </p>
 
-      <h4>01 — Design first, then features</h4>
+      <h4>01 — Clarity first, then features</h4>
       <p>
-        Every product starts from the feeling: clean, trustworthy, quiet.
-        Only after that we lock the feature set. If something doesn’t earn
-        its place, we don’t add it — even if “everyone else has it”.
+        Every product starts from a clear use case and a simple outcome:
+        what it should do, and what it will never do. Only after that we
+        lock the feature set. If something doesn’t earn its place, we don’t add it.
       </p>
 
       <h4>02 — Transparent constraints</h4>
@@ -819,7 +795,7 @@
           <div style="margin-top: 1.4rem;">
             <a href="mailto:hello@amamau.com?subject=Project%20enquiry"
                class="btn btn-primary">
-              Email hello@amamau.com <span class="icon">↗</span>
+              Email hello@amamau.com
             </a>
           </div>
         </div>
@@ -845,8 +821,8 @@
     <div class="footer-col">
       <h4>amamau</h4>
       <p>
-        We build design-first, minimal tools for small teams that care about
-        details — starting from domains, brand basics and infrastructure.
+        We build lean, minimal tools for small teams that care about details —
+        starting from domains, brand basics and infrastructure.
       </p>
     </div>
     <div class="footer-col">
