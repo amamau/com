@@ -1,1224 +1,886 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Cookie Script (replace SCRIPT_ID.js with your amamau script id) -->
+  <script type="text/javascript" charset="UTF-8"
+          src="//cdn.cookie-script.com/s/SCRIPT_ID.js"></script>
+
+  <!-- Google tag (gtag.js) - BLOCKED until consent -->
+  <script type="text/plain" data-cookieconsent="statistics" async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+
+  <script type="text/plain" data-cookieconsent="statistics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+  <!-- end cookie -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>amamau — We turn ideas into icons</title>
-  <meta name="description" content="amamau builds minimal, high-impact digital tools for ambitious small businesses. Design-first, noise-free products like Domain Scout and more.">
 
-  <!-- Favicon & Logo -->
-  <link rel="icon" type="image/svg+xml" href="mark-amamau-white.svg" />
+  <meta name="description"
+        content="amamau builds minimal, high-impact digital tools for ambitious small businesses. Domain Scout and more — design-first, no noise." />
 
-  <!-- Basic Open Graph -->
-  <meta property="og:title" content="amamau — We turn ideas into icons">
-  <meta property="og:description" content="Design-first digital tools for ambitious small businesses.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://amamau.com/">
-  <meta property="og:image" content="https://amamau.com/mark-amamau-white.svg">
+  <link rel="icon" href="mark-amamau-white.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap"
+        rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #040406;
-      --bg-soft: #090a10;
-      --bg-elevated: #0d0f16;
-      --border-subtle: rgba(255, 255, 255, 0.06);
-      --border-strong: rgba(255, 255, 255, 0.14);
-      --text-main: #f7f7f7;
-      --text-soft: #b3b8c5;
-      --text-mute: #747b8c;
+      --carbon: #050507;
+      --carbon-deep: #030305;
+      --panel: #101018;
       --accent: #ffffff;
-      --accent-soft: rgba(255, 255, 255, 0.12);
-      --pill-bg: rgba(255, 255, 255, 0.06);
-      --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.85);
-      --radius-lg: 24px;
-      --radius-md: 16px;
-      --radius-pill: 999px;
-      --pad-page-x: 6vw;
-      --max-width: 1120px;
-      --transition-fast: 180ms ease-out;
-      --transition-med: 220ms ease-out;
+      --accent-soft: #c7c8ff;
+      --muted: #b3b3b3;
+      --soft: #7d8390;
+      --golden: #c9a74c;
+      --white: #ffffff;
+
+      /* Gradient underline / buttons (brand-ish) */
+      --brand-grad-start: #ffffff;
+      --brand-grad-mid: #c7c8ff;
+      --brand-grad-end: #ffffff;
+
+      --transition: 0.3s ease-in-out;
+      --border-radius: 20px;
+      --error-red: #cc4444;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    html {
+    html, body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle at top, #191b2a 0, #040407 45%, #020206 100%);
+      color: var(--white);
       scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #151729 0, #040406 48%, #020206 100%);
-      color: var(--text-main);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                   -system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    .page {
+      -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
-    .shell {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 24px var(--pad-page-x) 72px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Ambient glow */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.12) 0, transparent 32%),
-        radial-gradient(circle at 90% 10%, rgba(120, 115, 255, 0.18) 0, transparent 40%);
-      opacity: 0.35;
-      mix-blend-mode: screen;
-      z-index: 0;
-    }
-
-    /* HEADER */
-
+    /* NAVBAR */
     header {
+      backdrop-filter: blur(16px);
+      background: rgba(8, 8, 12, 0.78);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom,
-                rgba(4, 4, 6, 0.92),
-                rgba(4, 4, 6, 0.78),
-                transparent);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      z-index: 1100;
+      box-shadow: 0 2px 25px rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .nav-inner {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 14px var(--pad-page-x) 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 14px;
-      background: radial-gradient(circle at 30% 0%, #ffffff 0, #b3b8ff 28%, #4b4f80 52%, #050509 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.12),
-        0 18px 40px rgba(0, 0, 0, 0.9);
-      overflow: hidden;
-    }
-
-    .brand-mark img {
-      width: 72%;
-      height: 72%;
-      display: block;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-text strong {
-      font-size: 15px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .brand-text span {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-mute);
-    }
-
-    nav ul {
-      list-style: none;
-      display: inline-flex;
-      gap: 18px;
-      align-items: center;
-      font-size: 13px;
+    .logo {
+      height: 40px;
+      filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.8));
+      user-select: none;
     }
 
     nav a {
-      color: var(--text-soft);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 11px;
-      padding: 6px 0;
       position: relative;
-      transition: color var(--transition-fast);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 2.2rem;
+      padding-bottom: 4px;
+      font-size: 0.95rem;
+      user-select: none;
+      transition: color var(--transition);
+      cursor: pointer;
     }
 
+    /* Gradient underline (brand) */
     nav a::after {
       content: "";
       position: absolute;
-      left: 0;
       bottom: 0;
+      left: 0;
       width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #ffffff, #9f9dff, #ffffff);
-      transition: width var(--transition-med);
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        var(--brand-grad-start),
+        var(--brand-grad-mid),
+        var(--brand-grad-end)
+      );
+      border-radius: 3px 3px 0 0;
+      transition: width var(--transition);
+      pointer-events: none;
     }
 
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    nav a:hover::after {
+    nav a:hover::after,
+    nav a:focus-visible::after {
       width: 100%;
     }
 
-    .nav-cta {
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-strong);
-      padding: 7px 14px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+    nav a[aria-current="page"]::after {
+      width: 0; /* no fixed underline, only hover */
     }
 
-    .nav-cta span {
-      font-size: 14px;
-      translate: 0 0;
-      transition: translate var(--transition-fast);
-    }
-
-    .nav-cta:hover span {
-      translate: 2px -1px;
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--accent-soft);
+      outline: none;
     }
 
     /* HERO */
-
     .hero {
-      margin-top: 32px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-      gap: 32px;
-      align-items: center;
-    }
-
-    .hero-left {
+      height: 100vh;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255,255,255,0.06) 0, transparent 45%),
+        radial-gradient(circle at 100% 0%, rgba(150,150,255,0.16) 0, transparent 40%),
+        linear-gradient(160deg, #050507, #030308 45%, #050509);
       display: flex;
       flex-direction: column;
-      gap: 22px;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      justify-content: center;
       align-items: center;
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      animation: fadeIn 1.5s ease;
     }
 
-    .pill {
-      padding: 6px 12px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-strong);
-      background: var(--pill-bg);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-soft);
+    .hero-inner {
+      max-width: 900px;
+    }
+
+    .hero-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 1rem;
     }
 
-    .pill-dot {
-      width: 6px;
-      height: 6px;
+    .hero-pill-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 999px;
       background: #52ff9f;
-      box-shadow: 0 0 0 4px rgba(82, 255, 159, 0.18);
+      box-shadow: 0 0 0 4px rgba(82, 255, 159, 0.22);
     }
 
-    .pill-ghost {
-      background: transparent;
-      border-style: dashed;
-      border-color: rgba(255, 255, 255, 0.25);
+    .hero h1 {
+      font-size: 3.1rem;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      text-shadow: 0 4px 14px rgba(0, 0, 0, 0.85);
+      animation: fadeUp 1.2s ease;
     }
 
-    .hero-title {
-      font-size: clamp(32px, 4vw, 44px);
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-    }
-
-    .hero-title span.highlight {
-      display: inline-block;
-      background: linear-gradient(120deg, #ffffff, #bdbbff, #ffffff);
+    .hero h1 span {
+      background: linear-gradient(120deg, #ffffff, #c7c8ff, #ffffff);
       -webkit-background-clip: text;
       color: transparent;
     }
 
-    .hero-sub {
-      font-size: 15px;
-      color: var(--text-soft);
-      max-width: 460px;
-      line-height: 1.6;
-    }
-
-    .hero-sub strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-top: 4px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 11px 20px;
-      border-radius: var(--radius-pill);
-      border: 1px solid transparent;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      text-decoration: none;
-      cursor: pointer;
-      white-space: nowrap;
-      transition:
-        background var(--transition-med),
-        color var(--transition-med),
-        border-color var(--transition-med),
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast);
-    }
-
-    .btn-primary {
-      background: linear-gradient(130deg, #ffffff, #bdbbff);
-      color: #050509;
-      border-color: rgba(255, 255, 255, 0.92);
-      box-shadow:
-        0 12px 36px rgba(0, 0, 0, 0.9),
-        0 0 0 1px rgba(255, 255, 255, 0.6);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.95),
-        0 0 0 1px rgba(255, 255, 255, 0.7);
-    }
-
-    .btn-ghost {
-      background: rgba(255, 255, 255, 0.02);
-      border-color: var(--border-strong);
-      color: var(--text-soft);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--accent);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .btn span.icon {
-      font-size: 14px;
-      margin-left: 6px;
-      translate: 0 0;
-      transition: translate var(--transition-fast);
-    }
-
-    .btn:hover span.icon {
-      translate: 3px 0;
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 720px;
+      color: var(--muted);
+      margin: 1.2rem auto 0;
+      line-height: 1.85;
+      animation: fadeUp 1.6s ease;
     }
 
     .hero-meta {
-      margin-top: 10px;
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      font-size: 11px;
-      color: var(--text-mute);
+      gap: 0.9rem;
+      justify-content: center;
+      margin-top: 1.4rem;
+      font-size: 0.85rem;
+      color: var(--soft);
+      animation: fadeUp 1.8s ease;
     }
 
     .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-meta strong {
-      font-weight: 500;
-      color: var(--text-soft);
+      opacity: 0.9;
     }
 
     .hero-meta-dot {
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.34);
-    }
-
-    /* HERO RIGHT PANEL */
-
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .panel {
-      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.08) 0, transparent 46%),
-                  var(--bg-elevated);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      padding: 18px 18px 16px;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.09) 0, transparent 46%),
-        radial-gradient(circle at 90% 0%, rgba(150, 150, 255, 0.18) 0, transparent 55%);
-      opacity: 0.35;
-      mix-blend-mode: screen;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .panel-title {
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-mute);
-    }
-
-    .panel-chip {
-      font-size: 11px;
-      padding: 4px 9px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(4, 4, 6, 0.7);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--text-soft);
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
+      width: 4px;
+      height: 4px;
       border-radius: 999px;
-      background: #55ff9c;
-      box-shadow: 0 0 0 4px rgba(85, 255, 156, 0.24);
+      background: rgba(255,255,255,0.4);
+      align-self: center;
     }
 
-    .panel-main {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .panel-main h2 {
-      font-size: 18px;
-      letter-spacing: -0.02em;
-      margin-bottom: 6px;
-    }
-
-    .panel-main p {
-      font-size: 13px;
-      color: var(--text-soft);
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-
-    .strip {
-      list-style: none;
+    /* Buttons */
+    .hero-actions {
+      margin-top: 1.8rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 1rem;
+      justify-content: center;
+      animation: fadeUp 2s ease;
     }
 
-    .strip li {
-      font-size: 11px;
-      padding: 4px 9px;
-      border-radius: var(--radius-pill);
-      background: rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-soft);
-    }
-
-    .mini-metric-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      font-size: 11px;
-      color: var(--text-soft);
-    }
-
-    .mini-metric {
-      padding: 8px 9px;
-      border-radius: 11px;
-      background: rgba(0, 0, 0, 0.62);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .mini-metric label {
-      display: block;
-      font-size: 10px;
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-mute);
-      margin-bottom: 2px;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: all var(--transition);
+      cursor: pointer;
+      user-select: none;
     }
 
-    .mini-metric strong {
-      font-size: 13px;
+    .btn-primary {
+      background: linear-gradient(
+        90deg,
+        var(--brand-grad-start),
+        var(--brand-grad-mid),
+        var(--brand-grad-end)
+      );
+      color: #050507;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.85);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.95);
+      border-color: rgba(0,0,0,0.4);
+    }
+
+    .btn-ghost {
+      background: rgba(0, 0, 0, 0.4);
+      color: var(--muted);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .btn-ghost:hover {
+      color: var(--accent);
+      border-color: rgba(255,255,255,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn span.icon {
+      margin-left: 6px;
+      font-size: 1rem;
+      display: inline-block;
+      transform: translateX(0);
+      transition: transform var(--transition);
+    }
+
+    .btn:hover span.icon {
+      transform: translateX(4px);
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      max-width: 1120px;
+      margin: auto;
+      padding: 4rem 2rem 4.5rem;
+    }
+
+    .section {
+      background: radial-gradient(circle at 0 0, rgba(255,255,255,0.08) 0, transparent 40%),
+                  var(--carbon-deep);
+      border-radius: 20px;
+      padding: 2.6rem 2.4rem;
+      box-shadow: 0 12px 52px rgba(0, 0, 0, 0.5);
+      margin-bottom: 3.3rem;
+      backdrop-filter: blur(10px);
+      transition: transform var(--transition), box-shadow var(--transition),
+                  border-color var(--transition), background var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 70px rgba(0, 0, 0, 0.7);
+      border-color: rgba(255, 255, 255, 0.16);
+      background: radial-gradient(circle at 0 0, rgba(255,255,255,0.12) 0, transparent 45%),
+                  var(--panel);
+    }
+
+    .section h3 {
+      font-size: 2rem;
+      margin-bottom: 1.1rem;
+      color: var(--white);
+    }
+
+    .section h4 {
+      font-size: 1.25rem;
+      margin: 1.2rem 0 0.4rem;
       color: var(--accent);
     }
 
-    /* SECTION WRAPPER */
-
-    section {
-      margin-top: 56px;
+    .section p,
+    .section li {
+      font-size: 1.02rem;
+      line-height: 1.9;
+      color: var(--muted);
     }
 
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 18px;
-      margin-bottom: 22px;
+    ul {
+      padding-left: 1.5rem;
     }
 
-    .section-title-block h2 {
-      font-size: 18px;
-      letter-spacing: 0.16em;
+    .tagline {
+      font-size: 0.9rem;
       text-transform: uppercase;
-      color: var(--text-mute);
+      letter-spacing: 0.18em;
+      color: var(--soft);
+      margin-bottom: 0.8rem;
     }
-
-    .section-title-block p {
-      margin-top: 6px;
-      font-size: 14px;
-      color: var(--text-soft);
-      max-width: 360px;
-    }
-
-    .section-meta {
-      font-size: 12px;
-      color: var(--text-mute);
-      text-align: right;
-    }
-
-    /* PROJECTS GRID */
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+      margin-top: 1.4rem;
     }
 
     .project-card {
-      position: relative;
-      border-radius: var(--radius-md);
-      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.10) 0, transparent 40%),
-                  var(--bg-soft);
-      border: 1px solid var(--border-subtle);
-      padding: 16px 16px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      overflow: hidden;
-      cursor: default;
-      transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast),
-        background var(--transition-med);
-    }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      opacity: 0;
-      background:
-        radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.11) 0, transparent 40%),
-        radial-gradient(circle at 90% 100%, rgba(150, 150, 255, 0.18) 0, transparent 50%);
-      mix-blend-mode: screen;
-      transition: opacity var(--transition-med);
-      pointer-events: none;
+      background: rgba(3, 3, 7, 0.95);
+      border-radius: 16px;
+      padding: 1.6rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 38px rgba(0, 0, 0, 0.6);
+      transition: transform var(--transition), box-shadow var(--transition),
+                  border-color var(--transition), background var(--transition);
     }
 
     .project-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.24);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
-      background: radial-gradient(circle at 10% 0, rgba(255, 255, 255, 0.18) 0, transparent 42%),
-                  var(--bg-elevated);
-    }
-
-    .project-card:hover::before {
-      opacity: 1;
+      box-shadow: 0 18px 54px rgba(0, 0, 0, 0.85);
+      border-color: rgba(255, 255, 255, 0.22);
+      background: radial-gradient(circle at 0 0, rgba(255,255,255,0.12) 0, transparent 48%),
+                  #080812;
     }
 
     .project-pill-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 8px;
-      font-size: 11px;
-    }
-
-    .project-pill {
-      padding: 4px 9px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(0, 0, 0, 0.7);
-      color: var(--text-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .project-label {
-      color: var(--text-mute);
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--soft);
       text-transform: uppercase;
       letter-spacing: 0.14em;
     }
 
+    .project-pill {
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .project-label {
+      opacity: 0.8;
+    }
+
     .project-name {
-      font-size: 16px;
-      letter-spacing: -0.01em;
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
     }
 
-    .project-tagline {
-      font-size: 13px;
-      color: var(--text-soft);
-      line-height: 1.5;
+    .project-sub {
+      font-size: 0.95rem;
+      color: var(--soft);
+      margin-bottom: 0.6rem;
     }
 
-    .project-list {
-      margin-top: 4px;
-      list-style: none;
-      font-size: 12px;
-      color: var(--text-soft);
+    .project-card ul {
+      padding-left: 1.1rem;
+      margin-top: 0.4rem;
     }
 
-    .project-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .project-list li::before {
-      content: "•";
-      color: var(--text-mute);
-      margin-top: 1px;
+    .project-card li {
+      font-size: 0.95rem;
+      margin: 0.25rem 0;
     }
 
     .project-footer {
-      margin-top: 10px;
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+      color: var(--soft);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      color: var(--text-mute);
+      gap: 0.7rem;
+      flex-wrap: wrap;
     }
 
     .project-link {
       text-decoration: none;
-      font-size: 11px;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-soft);
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 0;
-      border-bottom: 1px solid transparent;
-      transition:
-        color var(--transition-fast),
-        border-color var(--transition-fast),
-        translate var(--transition-fast);
+      gap: 0.35rem;
+    }
+
+    .project-link span.icon {
+      font-size: 0.9rem;
+      transform: translate(0, 0);
+      transition: transform var(--transition);
     }
 
     .project-card:hover .project-link {
       color: var(--accent);
-      border-color: rgba(255, 255, 255, 0.36);
-      translate: 0 -1px;
-    }
-
-    .project-link span.icon {
-      font-size: 13px;
-      translate: 0 0;
-      transition: translate var(--transition-fast);
+      border-bottom-color: rgba(255, 255, 255, 0.4);
     }
 
     .project-card:hover .project-link span.icon {
-      translate: 3px -1px;
+      transform: translate(3px, -1px);
     }
 
-    /* HOW WE WORK */
-
-    .principles {
+    /* CONTACT CTA */
+    .contact-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 8px;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+      gap: 1.8rem;
+      align-items: center;
     }
 
-    .principle-card {
-      border-radius: var(--radius-md);
-      padding: 16px 15px 14px;
-      background: rgba(2, 2, 4, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      font-size: 13px;
-      color: var(--text-soft);
+    .contact-note {
+      font-size: 0.95rem;
+      color: var(--soft);
+      margin-top: 0.7rem;
     }
 
-    .principle-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-mute);
-      margin-bottom: 4px;
+    .contact-box {
+      border-radius: 16px;
+      background: rgba(3, 3, 7, 0.95);
+      padding: 1.6rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.95rem;
+      color: var(--muted);
     }
 
-    .principle-card strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 4px;
+    .contact-box strong {
       color: var(--accent);
+    }
+
+    .contact-box a {
+      color: var(--accent-soft);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.4);
+    }
+
+    .contact-box a:hover {
+      color: var(--accent);
+      border-bottom-style: solid;
     }
 
     /* FOOTER */
-
     footer {
-      margin-top: 56px;
-      padding-top: 18px;
+      background: var(--carbon-deep);
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 12px;
-      color: var(--text-mute);
     }
 
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 10px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 11px;
-    }
-
-    .footer-links a {
-      color: var(--text-soft);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .footer-links a:hover {
+    .footer-col h4 {
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
       color: var(--accent);
+    }
+
+    .footer-col p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .footer-col ul li {
+      margin: 0.55rem 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-col ul li a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--white);
     }
 
     .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      font-size: 11px;
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--soft);
     }
 
-    .footer-bottom a {
-      color: var(--text-soft);
-      text-decoration: none;
+    /* Animazioni reveal */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
 
-    .footer-bottom a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
-
-      .hero-right {
-        order: -1;
-      }
-
-      .panel-main {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .principles {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .shell {
-        padding-inline: 20px;
-      }
-
-      .nav-inner {
-        padding-inline: 20px;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    @media (max-width: 640px) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1.1s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
       header {
-        position: static;
-        backdrop-filter: none;
-        background: transparent;
-        border-bottom-color: transparent;
+        padding: 0.9rem 1.2rem;
       }
 
-      .nav-inner {
-        padding-top: 18px;
-        padding-bottom: 0;
-      }
-
-      nav ul {
-        display: none;
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.85rem;
       }
 
       .hero {
-        margin-top: 24px;
+        height: auto;
+        padding-top: 5rem;
+        padding-bottom: 3rem;
       }
 
-      .hero-sub {
-        max-width: none;
+      .hero h1 {
+        font-size: 2.4rem;
       }
 
-      .section-head {
-        flex-direction: column;
-        align-items: flex-start;
+      .hero p {
+        font-size: 1rem;
       }
 
-      .section-meta {
-        text-align: left;
+      main {
+        padding: 3rem 1.4rem 3.5rem;
       }
 
-      .projects-grid {
+      .section {
+        padding: 2.1rem 1.6rem;
+      }
+
+      .contact-grid {
         grid-template-columns: minmax(0, 1fr);
-      }
-
-      .principles {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .footer-top,
-      .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        scroll-behavior: auto !important;
-        animation: none !important;
-        transition: none !important;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="nav-inner">
-        <a href="#top" class="brand">
-          <div class="brand-mark">
-            <!-- Mark logo -->
-            <img src="mark-amamau-white.svg" alt="amamau mark">
-          </div>
-          <div class="brand-text">
-            <strong>amamau</strong>
-            <span>We turn ideas into icons</span>
-          </div>
+  <header>
+    <a href="#top">
+      <img src="logo-amamau.svg" alt="amamau logo" class="logo" />
+    </a>
+    <nav>
+      <a href="#top" aria-current="page">Home</a>
+      <a href="#products">Products</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="hero">
+    <div class="hero-inner">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        Design-first tools for small teams
+      </div>
+      <h1>
+        We turn <span>ideas</span> into quiet, high-impact tools.
+      </h1>
+      <p>
+        amamau builds minimal, well-designed digital products for ambitious small businesses.
+        We start with the unsexy layer — domains, brand basics, infrastructure — so your
+        company looks serious before you spend on marketing.
+      </p>
+
+      <div class="hero-meta">
+        <span>01 • Domain &amp; name research</span>
+        <span class="hero-meta-dot"></span>
+        <span>02 • Brand validation &amp; first impression</span>
+        <span class="hero-meta-dot"></span>
+        <span>03 • Email &amp; inbox hygiene (coming soon)</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-primary">
+          Explore first products <span class="icon">↓</span>
         </a>
+        <a href="mailto:hello@amamau.com?subject=Project%20enquiry"
+           class="btn btn-ghost">
+          Talk about a project <span class="icon">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <nav>
+  <main>
+    <!-- SECTION: amamau in short -->
+    <section class="section reveal">
+      <div class="tagline">amamau in short</div>
+      <h3>Design-driven tools for founders who care about details.</h3>
+      <p>
+        We created amamau because most tools for early-stage teams are either
+        too generic, too expensive, or visually neglected. Our products sit in
+        the middle: <strong>minimal, opinionated, and good-looking enough</strong> to
+        feel reliable in front of clients, investors and partners.
+      </p>
+      <p style="margin-top: 1rem;">
+        Our focus is Europe-first, with transparent pricing in EUR and setups
+        that work with standard infrastructure (shared hosting, basic VPS,
+        popular registrars and mail providers).
+      </p>
+    </section>
+
+    <!-- SECTION: Products -->
+    <section id="products" class="section reveal">
+      <div class="tagline">First products</div>
+      <h3>Tools we are building and running today.</h3>
+
+      <div class="projects-grid">
+        <!-- Domain Scout -->
+        <article class="project-card">
+          <div class="project-pill-row">
+            <span class="project-pill">Phase • Private beta</span>
+            <span class="project-label">01 — Domain research</span>
+          </div>
+          <div class="project-name">Domain Scout</div>
+          <div class="project-sub">
+            Advanced domain discovery for .com, .it and .ch — built for naming
+            sessions where “just available” is not enough.
+          </div>
           <ul>
-            <li><a href="#projects">Products</a></li>
-            <li><a href="#how-we-work">How we work</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li>
-              <a class="nav-cta" href="mailto:hello@amamau.com?subject=Project%20enquiry">
-                Let&apos;s talk
-                <span>↗</span>
-              </a>
-            </li>
+            <li>Multi-TLD scan engine with DNS + registry-level checks.</li>
+            <li>Scoring (0–100) based on length, patterns, blacklist and brandability.</li>
+            <li>Resume-safe runs, TXT/CSV exports and a human-readable report.</li>
           </ul>
-        </nav>
+          <div class="project-footer">
+            <span>Perfect for: brand studios, founders, micro-agencies.</span>
+            <a class="project-link"
+               href="mailto:hello@amamau.com?subject=Domain%20Scout%20beta">
+              Request a beta run <span class="icon">↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Brand Snapshot -->
+        <article class="project-card">
+          <div class="project-pill-row">
+            <span class="project-pill">Phase • In design</span>
+            <span class="project-label">02 — Brand layer</span>
+          </div>
+          <div class="project-name">Brand Snapshot</div>
+          <div class="project-sub">
+            A focused, one-shot review of your name, domain and landing page —
+            answering “does this look investable?” in a few pages.
+          </div>
+          <ul>
+            <li>Audit of name + domain pair, messaging and on-page visuals.</li>
+            <li>Pass / Fix / Drop decisions with short, concrete explanations.</li>
+            <li>Checklist for the next 30–60 days of brand housekeeping.</li>
+          </ul>
+          <div class="project-footer">
+            <span>Use before ads, investor decks or a repositioning.</span>
+            <a class="project-link"
+               href="mailto:hello@amamau.com?subject=Brand%20Snapshot%20waitlist">
+              Join the waitlist <span class="icon">↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Inbox Grid -->
+        <article class="project-card">
+          <div class="project-pill-row">
+            <span class="project-pill">Phase • Prototype</span>
+            <span class="project-label">03 — Infra hygiene</span>
+          </div>
+          <div class="project-name">Inbox Grid</div>
+          <div class="project-sub">
+            A simple framework to keep domains, mailboxes and aliases under
+            control, so deliverability doesn’t become your hidden risk.
+          </div>
+          <ul>
+            <li>Alias and role-based address structure, independent from provider.</li>
+            <li>Templates for autoresponders, privacy/legal, support and billing.</li>
+            <li>Practical, low-maintenance setup for small teams.</li>
+          </ul>
+          <div class="project-footer">
+            <span>Designed for teams moving away from a single inbox.</span>
+            <a class="project-link"
+               href="mailto:hello@amamau.com?subject=Inbox%20Grid%20early%20access">
+              Talk about your setup <span class="icon">↗</span>
+            </a>
+          </div>
+        </article>
       </div>
-    </header>
+    </section>
 
-    <main id="top">
-      <div class="shell">
+    <!-- SECTION: Approach -->
+    <section id="approach" class="section reveal">
+      <div class="tagline">How we work</div>
+      <h3>Few products, strong boundaries, obsessive details.</h3>
+      <p>
+        We keep the roadmap intentionally narrow. Each tool has a clear scope,
+        written limits and a simple story. That lets us care about typography,
+        motion, microcopy and infrastructure without shipping a feature zoo.
+      </p>
 
-        <!-- HERO -->
-        <section class="hero">
-          <div class="hero-left">
-            <div class="pill-row">
-              <div class="pill">
-                <span class="pill-dot"></span>
-                Design-first digital tools
-              </div>
-              <div class="pill pill-ghost">
-                EU-based • Pricing in EUR
-              </div>
-            </div>
+      <h4>01 — Design first, then features</h4>
+      <p>
+        Every product starts from the feeling: clean, trustworthy, quiet.
+        Only after that we lock the feature set. If something doesn’t earn
+        its place, we don’t add it — even if “everyone else has it”.
+      </p>
 
-            <h1 class="hero-title">
-              We build <span class="highlight">quietly powerful</span><br>
-              tools for ambitious small businesses.
-            </h1>
+      <h4>02 — Transparent constraints</h4>
+      <p>
+        Our tools are built to run on realistic setups: small VPS, shared
+        hosting, regular registrars. We prefer stating hard limits
+        (max domains per run, supported TLDs, export formats) instead of
+        hiding them in the fine print.
+      </p>
 
-            <p class="hero-sub">
-              amamau designs and ships <strong>high-quality, minimal</strong> products that solve real
-              problems for lean teams — starting from <strong>domain discovery</strong> and
-              brand infrastructure.
-            </p>
+      <h4>03 — Europe-first, but global-ready</h4>
+      <p>
+        Pricing in EUR, focus on EU privacy rules, and documentation that
+        doesn’t assume a huge team. But the outputs — domains, reports,
+        structures — work globally.
+      </p>
+    </section>
 
-            <div class="hero-cta-row">
-              <a href="#projects" class="btn btn-primary">
-                Explore first products
-                <span class="icon">↓</span>
-              </a>
-              <a href="mailto:hello@amamau.com?subject=Domain%20%2F%20brand%20research"
-                 class="btn btn-ghost">
-                Discuss a project
-                <span class="icon">↗</span>
-              </a>
-            </div>
+    <!-- SECTION: Contact -->
+    <section id="contact" class="section reveal">
+      <div class="tagline">Contact</div>
+      <h3>Ready to run a scan or shape a new product?</h3>
 
-            <div class="hero-meta">
-              <span><strong>01</strong> • Domain &amp; brand research</span>
-              <span class="hero-meta-dot"></span>
-              <span><strong>02</strong> • Email &amp; infra hygiene</span>
-              <span class="hero-meta-dot"></span>
-              <span><strong>03</strong> • Future tools for founders</span>
-            </div>
+      <div class="contact-grid">
+        <div>
+          <p>
+            If you&apos;re exploring a new brand, rethinking your domain, or
+            cleaning up your infrastructure, send us a short brief. A few
+            bullet points about your company, current setup and goals are
+            enough to start.
+          </p>
+          <p class="contact-note">
+            We&apos;ll reply with what we can realistically do for you, a
+            rough timeline, and an estimate in EUR — without pressure to
+            “upgrade later”.
+          </p>
+
+          <div style="margin-top: 1.4rem;">
+            <a href="mailto:hello@amamau.com?subject=Project%20enquiry"
+               class="btn btn-primary">
+              Email hello@amamau.com <span class="icon">↗</span>
+            </a>
           </div>
+        </div>
 
-          <aside class="hero-right">
-            <div class="panel">
-              <div class="panel-header">
-                <span class="panel-title">Current focus</span>
-                <span class="panel-chip">
-                  <span class="status-dot"></span>
-                  Private beta
-                </span>
-              </div>
-
-              <div class="panel-main">
-                <div>
-                  <h2>Domain Scout</h2>
-                  <p>
-                    An advanced scanning engine to find <strong>clean, brandable domains</strong>
-                    without noisy APIs or inflated pricing.
-                  </p>
-                  <ul class="strip">
-                    <li>.com / .it / .ch ready</li>
-                    <li>Scoring 0–100</li>
-                    <li>Resume-safe scans</li>
-                    <li>TXT / CSV exports</li>
-                  </ul>
-                </div>
-
-                <div class="mini-metric-grid">
-                  <div class="mini-metric">
-                    <label>Scan depth</label>
-                    <strong>Up to 100k</strong>
-                    <div>domains per run*</div>
-                  </div>
-                  <div class="mini-metric">
-                    <label>Delivery</label>
-                    <strong>Report + files</strong>
-                    <div>ready to plug into your workflow</div>
-                  </div>
-                  <div class="mini-metric">
-                    <label>Profile</label>
-                    <strong>FAST / SAFE</strong>
-                    <div>configurable per project</div>
-                  </div>
-                  <div class="mini-metric">
-                    <label>Ideal for</label>
-                    <strong>Founders</strong>
-                    <div>and lean marketing teams</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="panel" style="margin-top: 4px; padding: 14px 16px;">
-              <div class="panel-header" style="margin-bottom: 10px;">
-                <span class="panel-title">Why amamau</span>
-              </div>
-              <p style="font-size: 12px; color: var(--text-soft); max-width: 420px;">
-                We prefer <strong>fewer, better tools</strong>. Every project ships with
-                opinionated defaults, clear limits, and transparent pricing — no dark patterns,
-                no upsell maze.
-              </p>
-            </div>
-          </aside>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects">
-          <div class="section-head">
-            <div class="section-title-block">
-              <h2>First products</h2>
-              <p>
-                A focused lineup of tools built around one idea:
-                help small teams move like big ones — without the noise.
-              </p>
-            </div>
-            <div class="section-meta">
-              Roadmap: we start narrow (domain &amp; brand) and expand into<br>
-              email infrastructure and lightweight analytics over time.
-            </div>
-          </div>
-
-          <div class="projects-grid">
-            <!-- PROJECT 1: DOMAIN SCOUT -->
-            <article class="project-card">
-              <div class="project-pill-row">
-                <span class="project-pill">Phase • Private beta</span>
-                <span class="project-label">01 — Domain research</span>
-              </div>
-
-              <div>
-                <div class="project-name">
-                  Domain Scout
-                </div>
-                <div class="project-tagline">
-                  Advanced domain discovery for .com, .it and .ch, built for founders
-                  who care about naming, not just availability.
-                </div>
-              </div>
-
-              <ul class="project-list">
-                <li>Multi-TLD scanning with DNS + registry-level checks.</li>
-                <li>Brandability score (0–100) with filters for length, patterns and blacklist rules.</li>
-                <li>Resume-safe scans with progress tracking and structured exports (TXT / CSV).</li>
-              </ul>
-
-              <div class="project-footer">
-                <span>Ideal for: brand studios, early-stage startups, solo founders.</span>
-                <a class="project-link" href="mailto:hello@amamau.com?subject=Domain%20Scout%20beta">
-                  Request a beta run
-                  <span class="icon">↗</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- PROJECT 2: BRAND SNAPSHOT -->
-            <article class="project-card">
-              <div class="project-pill-row">
-                <span class="project-pill">Phase • Design</span>
-                <span class="project-label">02 — Brand layer</span>
-              </div>
-
-              <div>
-                <div class="project-name">
-                  Brand Snapshot
-                </div>
-                <div class="project-tagline">
-                  A compact review of your domain, landing page and basic assets —
-                  built to answer one question: “Does this feel investable?”
-                </div>
-              </div>
-
-              <ul class="project-list">
-                <li>Quick audit of name, domain and first-impression UX.</li>
-                <li>Clear pass / fix / drop recommendations in a single PDF.</li>
-                <li>Actionable checklist for the next 30–60 days.</li>
-              </ul>
-
-              <div class="project-footer">
-                <span>Perfect before ads, investor calls or a rebrand.</span>
-                <a class="project-link" href="mailto:hello@amamau.com?subject=Brand%20Snapshot%20waitlist">
-                  Join the waitlist
-                  <span class="icon">↗</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- PROJECT 3: INBOX GRID -->
-            <article class="project-card">
-              <div class="project-pill-row">
-                <span class="project-pill">Phase • Prototype</span>
-                <span class="project-label">03 — Infra hygiene</span>
-              </div>
-
-              <div>
-                <div class="project-name">
-                  Inbox Grid
-                </div>
-                <div class="project-tagline">
-                  A structured way to keep domains, mailboxes and aliases under control,
-                  before deliverability becomes a problem.
-                </div>
-              </div>
-
-              <ul class="project-list">
-                <li>Blueprints for alias structure, role addresses and routing.</li>
-                <li>Simple, vendor-agnostic setup steps for popular providers.</li>
-                <li>Optional templates for autoresponders, privacy and support flows.</li>
-              </ul>
-
-              <div class="project-footer">
-                <span>For teams that outgrew “one inbox for everything”.</span>
-                <a class="project-link" href="mailto:hello@amamau.com?subject=Inbox%20Grid%20early%20access">
-                  Talk about your setup
-                  <span class="icon">↗</span>
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- HOW WE WORK -->
-        <section id="how-we-work">
-          <div class="section-head">
-            <div class="section-title-block">
-              <h2>How we work</h2>
-              <p>
-                Small details, strong boundaries. We design for clarity, not overload.
-              </p>
-            </div>
-          </div>
-
-          <div class="principles">
-            <div class="principle-card">
-              <div class="principle-label">01 • Design first</div>
-              <strong>Minimal, not basic.</strong>
-              We care about typography, motion and the feeling you get in the first
-              five seconds — because your customers do too.
-            </div>
-
-            <div class="principle-card">
-              <div class="principle-label">02 • No noise</div>
-              <strong>Focused feature sets.</strong>
-              Each tool ships with a sharp scope and honest limits. If a feature
-              doesn&apos;t earn its place, it doesn&apos;t ship.
-            </div>
-
-            <div class="principle-card">
-              <div class="principle-label">03 • Built for small teams</div>
-              <strong>Founder-friendly.</strong>
-              Transparent pricing in EUR, realistic timelines and deliverables
-              you can plug directly into your existing stack.
-            </div>
-          </div>
-        </section>
-
-        <!-- CONTACT / FOOTER -->
-        <section id="contact">
-          <footer>
-            <div class="footer-top">
-              <div>
-                <div class="principle-label" style="margin-bottom: 4px;">
-                  Contact
-                </div>
-                <div style="font-size: 13px; color: var(--text-soft);">
-                  Ready to run a domain scan, review your brand, or just explore ideas?
-                  Send a short brief and we&apos;ll come back with concrete next steps.
-                </div>
-              </div>
-
-              <div class="footer-links">
-                <a href="mailto:hello@amamau.com">Email</a>
-                <a href="#projects">Products</a>
-                <a href="#how-we-work">Approach</a>
-              </div>
-            </div>
-
-            <div class="footer-bottom">
-              <span>© <span id="year">2025</span> amamau. All rights reserved.</span>
-              <span>
-                Operating from Europe • Pricing in EUR • Built design-first
-              </span>
-            </div>
-          </footer>
-        </section>
-
+        <div class="contact-box">
+          <strong>What to include in your first email:</strong>
+          <ul style="margin-top: 0.6rem;">
+            <li>1–2 sentences about your product or service.</li>
+            <li>Your current domain(s) and main email provider.</li>
+            <li>What you want from us (scan, review, structure, etc.).</li>
+            <li>Rough timing and budget range (it can be broad).</li>
+          </ul>
+          <p style="margin-top: 0.8rem;">
+            Prefer forms? For now we keep it simple:
+            write us at <a href="mailto:hello@amamau.com">hello@amamau.com</a>.
+          </p>
+        </div>
       </div>
-    </main>
-  </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-col">
+      <h4>amamau</h4>
+      <p>
+        We build design-first, minimal tools for small teams that care about
+        details — starting from domains, brand basics and infrastructure.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@amamau.com">hello@amamau.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      © 2025 amamau — All rights reserved.
+    </div>
+  </footer>
 
   <script>
-    // Keep year in footer fresh
-    (function () {
-      var y = new Date().getFullYear();
-      var el = document.getElementById("year");
-      if (el) el.textContent = y;
-    })();
+    // reveal-on-scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1 }
+    );
+    reveals.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
