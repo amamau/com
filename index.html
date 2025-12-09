@@ -90,7 +90,7 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(18px);
-      background: rgba(245, 245, 247, 0.94);
+      background: rgba(245, 245, 247, 0.96);
       border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
 
@@ -181,10 +181,10 @@
     }
 
     main {
-      background: radial-gradient(circle at top, #ffffff 0, #f5f5f7 55%, #f0f0f4 100%);
+      background: #f5f5f7;
     }
 
-    /* HERO (mobile-first: colonna singola) */
+    /* HERO */
     .hero-wrap {
       padding: 3.2rem 0 2.8rem;
     }
@@ -192,7 +192,7 @@
     .hero {
       display: flex;
       flex-direction: column;
-      gap: 2.3rem;
+      gap: 2.2rem;
     }
 
     @media (min-width: 960px) {
@@ -251,17 +251,13 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem 1rem;
-      margin-top: 1.4rem;
+      margin-top: 1.3rem;
       font-size: 0.83rem;
       color: var(--text-mute);
     }
 
-    .hero-meta-tag {
-      /* IMPORTANTE: niente nowrap per non rompere su mobile */
-    }
-
     .hero-actions {
-      margin-top: 1.9rem;
+      margin-top: 1.8rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
@@ -342,7 +338,7 @@
       font-size: 0.9rem;
       color: var(--text-soft);
       line-height: 1.7;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .hero-side ul {
@@ -369,12 +365,12 @@
     @media (min-width: 768px) {
       .section {
         margin-top: 3.3rem;
-        padding: 2.4rem 2.2rem;
+        padding: 2.3rem 2.2rem;
       }
     }
 
     .section-header {
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.5rem;
     }
 
     .tagline {
@@ -388,7 +384,7 @@
     .section-title {
       font-size: 1.5rem;
       letter-spacing: -0.01em;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
     .section-sub {
@@ -480,7 +476,7 @@
     }
 
     .project-footer {
-      margin-top: 0.8rem;
+      margin-top: 0.75rem;
       font-size: 0.8rem;
       color: var(--text-mute);
       display: flex;
@@ -509,13 +505,13 @@
     .approach-cols {
       display: flex;
       flex-direction: column;
-      gap: 1.8rem;
+      gap: 1.7rem;
     }
 
     @media (min-width: 880px) {
       .approach-cols {
         flex-direction: row;
-        gap: 2.4rem;
+        gap: 2.3rem;
       }
       .approach-cols > div {
         flex: 1;
@@ -525,17 +521,17 @@
     .approach-cols p {
       font-size: 0.95rem;
       color: var(--text-soft);
-      line-height: 1.85;
+      line-height: 1.8;
       margin-bottom: 0.9rem;
     }
 
     .approach-item {
-      margin-bottom: 1.1rem;
+      margin-bottom: 1rem;
     }
 
     .approach-item h4 {
       font-size: 0.98rem;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
     .approach-item p {
@@ -555,7 +551,7 @@
     @media (min-width: 880px) {
       .contact-grid {
         flex-direction: row;
-        gap: 2.4rem;
+        gap: 2.3rem;
       }
       .contact-grid > div {
         flex: 1;
@@ -610,15 +606,15 @@
 
     /* FOOTER */
     footer {
-      margin-top: 3.3rem;
-      padding-top: 2.2rem;
+      margin-top: 3.2rem;
+      padding-top: 2.1rem;
       border-top: 1px solid #dfdfe6;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 1.8rem;
+      gap: 1.7rem;
       font-size: 0.9rem;
     }
 
@@ -665,7 +661,7 @@
     }
 
     .footer-bottom {
-      margin-top: 2rem;
+      margin-top: 1.9rem;
       font-size: 0.8rem;
       color: var(--text-mute);
       text-align: center;
@@ -674,7 +670,7 @@
     /* REVEAL */
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
+      transform: translateY(16px);
       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
 
@@ -717,10 +713,10 @@
               before you spend on growth.
             </p>
             <div class="hero-meta-row">
-              <span class="hero-meta-tag">Domain &amp; name research</span>
-              <span class="hero-meta-tag">AI-assisted wordlists</span>
-              <span class="hero-meta-tag">amamau Insight AI</span>
-              <span class="hero-meta-tag">Inbox &amp; infra hygiene</span>
+              <span>Domain &amp; name research</span>
+              <span>AI-assisted wordlists</span>
+              <span>amamau Insight AI</span>
+              <span>Inbox &amp; infra hygiene</span>
             </div>
             <div class="hero-actions">
               <a href="#products" class="btn btn-primary">
@@ -739,13 +735,13 @@
               Few products, clear limits, serious details.
             </div>
             <p>
-              We don’t try to solve everything. We focus on the parts that
-              make you look precise: good names, clean domains, a tidy inbox
-              and a private AI layer that stays on brief.
+              We focus on the parts that make you look precise: good names,
+              clean domains, a tidy inbox and a private AI layer that stays
+              on brief.
             </p>
             <ul>
               <li>Europe-first mindset, pricing and documentation.</li>
-              <li>Outputs you can drop into decks, docs and investor emails.</li>
+              <li>Outputs you can paste into decks, docs and investor emails.</li>
               <li>Roadmap guided by real projects, not feature slides.</li>
             </ul>
           </aside>
@@ -872,8 +868,8 @@
           <div class="tagline">How we work</div>
           <h2 class="section-title">Simple stack, tight scope, honest limits.</h2>
           <p class="section-sub">
-            amamau is intentionally small. We’d rather have a few tools that feel
-            serious than a catalogue nobody actually uses.
+            amamau is intentionally small. We prefer a few tools that feel
+            serious over a catalogue nobody actually uses.
           </p>
         </div>
 
@@ -1004,16 +1000,12 @@
   </main>
 
   <script>
-    // reveal-on-scroll
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      },
-      { threshold: 0.12 }
-    );
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
   </script>
 </body>
