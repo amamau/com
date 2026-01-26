@@ -3,33 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>amamau — farsi trovare, restare in alto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <title>amamau | Ti facciamo trovare subito e ti aiutiamo a restare in alto</title>
+  <meta name="description" content="Servizi e strumenti per aziende, freelance e startup: SEO, domini e naming, email e infrastruttura, AI workspace. Domain Scout, Analyzer, Wordlist Generator con motore AI e chatbot con workspace." />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon (se ce l’hai) -->
+  <!-- <link rel="icon" href="mark-amamau-white.svg" type="image/svg+xml" /> -->
 
   <style>
     :root{
+      /* miniutti gold */
+      --gold:#c9a24b;
+      --gold2:#e0c36c;
+
+      --bg:#07070c;
       --fg:#f4f6ff;
-      --muted:rgba(244,246,255,.72);
-      --muted2:rgba(244,246,255,.52);
+      --muted:rgba(244,246,255,.74);
+      --muted2:rgba(244,246,255,.54);
 
       --glass:rgba(255,255,255,.06);
       --glass2:rgba(255,255,255,.10);
       --stroke:rgba(255,255,255,.12);
       --stroke2:rgba(255,255,255,.18);
 
-      --r-xl:36px;
+      --r-xl:38px;
       --r-lg:26px;
       --r-md:18px;
       --pill:999px;
 
-      --shadow: 0 40px 160px rgba(0,0,0,.58);
-      --shadow2: 0 22px 90px rgba(0,0,0,.34);
+      --shadow: 0 44px 170px rgba(0,0,0,.58);
+      --shadow2: 0 24px 95px rgba(0,0,0,.34);
 
       --ease:cubic-bezier(.18,.92,.18,1);
 
-      --a: 255, 72, 140;
-      --b: 120, 130, 255;
-
+      --a: 201, 162, 75;   /* gold glow */
+      --b: 120, 130, 255;  /* cold accent */
       --bar: 0%;
     }
 
@@ -37,25 +47,26 @@
     html,body{
       height:100%;
       font-family:'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background:#07070c;
+      background:var(--bg);
       color:var(--fg);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
     body{ overflow:hidden; }
 
-    /* FULL PAGE BACKGROUND */
+    /* ===== Background cinematic ===== */
     .bg{
       position:fixed; inset:0; z-index:-2; overflow:hidden;
       background:
         radial-gradient(1200px 900px at 18% 12%, rgba(var(--a), .30), transparent 60%),
-        radial-gradient(900px 700px at 82% 34%, rgba(var(--b), .23), transparent 62%),
+        radial-gradient(900px 700px at 82% 34%, rgba(var(--b), .20), transparent 62%),
         radial-gradient(1200px 900px at 50% 120%, rgba(255,255,255,.06), transparent 62%),
-        linear-gradient(180deg, rgba(255,255,255,.03), transparent 35%, rgba(0,0,0,.52));
+        linear-gradient(180deg, rgba(255,255,255,.03), transparent 35%, rgba(0,0,0,.56));
+      transition: filter .45s var(--ease);
     }
     .orb{
       position:absolute;
-      width:min(72vw, 820px);
+      width:min(72vw, 860px);
       aspect-ratio:1/1;
       left:52%; top:58%;
       transform:translate(-50%,-50%);
@@ -63,7 +74,7 @@
       background:
         radial-gradient(closest-side at 30% 30%, rgba(255,255,255,.20), transparent 60%),
         radial-gradient(closest-side at 70% 70%, rgba(255,255,255,.10), transparent 62%),
-        radial-gradient(closest-side, rgba(var(--a), .42), rgba(var(--b), .22), transparent 72%);
+        radial-gradient(closest-side, rgba(var(--a), .42), rgba(var(--b), .18), transparent 72%);
       mix-blend-mode:screen;
       filter: blur(2px) saturate(1.05);
       opacity:.95;
@@ -79,43 +90,56 @@
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
     }
 
-    /* TOP NAV (overlay) */
+    /* ===== Header overlay ===== */
     header{
       position:fixed; left:0; right:0; top:0;
       z-index:50;
       padding-top: env(safe-area-inset-top);
-      background: linear-gradient(180deg, rgba(0,0,0,.62), rgba(0,0,0,.18), transparent);
+      background: linear-gradient(180deg, rgba(0,0,0,.68), rgba(0,0,0,.18), transparent);
       backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
     .nav{
       max-width:1200px;
       margin:0 auto;
-      padding:.9rem 1.2rem .7rem;
+      padding:.95rem 1.2rem .65rem;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:1rem;
     }
+
     .brand{
-      display:flex; align-items:center; gap:.6rem;
-      color:rgba(255,255,255,.88);
+      display:flex; align-items:center; gap:.65rem;
+      color:rgba(255,255,255,.90);
       text-decoration:none;
+      user-select:none;
       letter-spacing:.08em;
       font-size:.92rem;
-      opacity:.9;
-      user-select:none;
+      opacity:.92;
     }
     .mark{
-      width:22px; height:22px; border-radius:7px;
+      width:24px; height:24px;
+      border-radius:8px;
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
       box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
     }
+    .mark::after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(220px 140px at 35% 30%, rgba(201,162,75,.55), transparent 62%);
+      filter: blur(10px);
+      opacity:.9;
+    }
+
     nav{ display:flex; gap:1rem; flex-wrap:wrap; justify-content:flex-end; }
     nav a{
-      color:rgba(244,246,255,.70);
+      color:rgba(244,246,255,.72);
       text-decoration:none;
-      font-size:.9rem;
+      font-size:.92rem;
       padding-bottom:.18rem;
       position:relative;
       transition:color .18s var(--ease);
@@ -125,17 +149,20 @@
       position:absolute; left:0; bottom:0;
       width:0; height:2px;
       border-radius:999px;
-      background:rgba(255,255,255,.85);
+      background: linear-gradient(90deg, rgba(201,162,75,.95), rgba(255,255,255,.85));
       transition:width .22s var(--ease);
+      opacity:.95;
     }
     nav a[aria-current="page"]{ color:rgba(255,255,255,.95); }
     nav a[aria-current="page"]::after{ width:100%; }
+    nav a:hover{ color:rgba(255,255,255,.95); }
+    nav a:hover::after{ width:100%; }
 
-    /* PROGRESS BAR (top, premium) */
+    /* ===== Progress bar ===== */
     .progressWrap{
       max-width:1200px;
       margin:0 auto;
-      padding: 0 1.2rem .7rem;
+      padding: 0 1.2rem .75rem;
     }
     .progress{
       height: 6px;
@@ -152,20 +179,20 @@
       border-radius: 999px;
       background:
         linear-gradient(90deg,
-          rgba(var(--a), .75),
-          rgba(var(--b), .70),
+          rgba(201,162,75,.95),
+          rgba(224,195,108,.88),
           rgba(255,255,255,.70));
       box-shadow: 0 10px 30px rgba(0,0,0,.35);
       transition: width .18s var(--ease);
     }
 
-    /* SCROLLER (snap pages) */
+    /* ===== Scroller ===== */
     main{
       height:100svh;
       overflow-y:auto;
       scroll-snap-type:y mandatory;
       scroll-behavior:smooth;
-      padding-top: calc(98px + env(safe-area-inset-top));
+      padding-top: calc(102px + env(safe-area-inset-top));
     }
     section{
       height:100svh;
@@ -175,7 +202,7 @@
       padding: 1.2rem;
     }
 
-    /* FULL-PAGE LAYOUT (NO FRAME NEL NERO) */
+    /* ===== Page layout (full-bleed content, no “frame nel nero”) ===== */
     .page{
       width:min(1200px, 100%);
       margin:0 auto;
@@ -183,6 +210,11 @@
       grid-template-columns: 1.2fr .8fr;
       gap: 1.4rem;
       align-items:center;
+
+      transform: translateY(calc((1 - var(--k, 1)) * 18px));
+      opacity: calc(.35 + var(--k, 1) * .65);
+      filter: blur(calc((1 - var(--k, 1)) * 2px));
+      will-change: transform, opacity, filter;
     }
     @media (max-width: 980px){
       .page{ grid-template-columns:1fr; }
@@ -194,46 +226,66 @@
       text-transform:uppercase;
       color: var(--muted2);
       margin-bottom:.65rem;
+      position:relative;
+      padding-left: 14px;
     }
+    .eyebrow::before{
+      content:"";
+      position:absolute;
+      left:0; top:.55em;
+      width:8px; height:2px;
+      border-radius:999px;
+      background: rgba(201,162,75,.92);
+      opacity:.9;
+    }
+
     .h{
-      font-size: clamp(2.4rem, 3.2vw + 1rem, 3.8rem);
+      font-size: clamp(2.5rem, 3.4vw + 1rem, 3.9rem);
       line-height:1.03;
       letter-spacing:-0.035em;
       margin-bottom:.85rem;
     }
     .h span{ color: rgba(255,255,255,.72); }
+
     .p{
       color: var(--muted);
       font-size: 1.06rem;
       line-height: 1.95;
       max-width: 62ch;
     }
-    .p strong{ color: rgba(255,255,255,.92); font-weight:600; }
+    .p strong{ color: rgba(255,255,255,.94); font-weight:700; }
 
     .chips{ display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1.05rem; }
     .chip{
       display:inline-flex; align-items:center; gap:.5rem;
-      padding:.42rem .75rem;
+      padding:.44rem .78rem;
       border-radius: var(--pill);
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
       color: var(--muted2);
       box-shadow: 0 14px 44px rgba(0,0,0,.25);
-      font-size:.86rem;
+      font-size:.88rem;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease), background .22s var(--ease);
+    }
+    .chip:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.20);
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 26px 120px rgba(0,0,0,.50);
     }
     .dot{ width:6px; height:6px; border-radius:999px; background: rgba(255,255,255,.65); }
 
     .actions{ display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.15rem; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:.95rem 1.2rem;
+      padding:.98rem 1.24rem;
       border-radius: var(--pill);
       text-decoration:none;
       font-size:.84rem;
-      font-weight:750;
+      font-weight:800;
       letter-spacing:.14em;
       text-transform:uppercase;
-      transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease), color .22s var(--ease);
       user-select:none;
       will-change:transform;
     }
@@ -241,16 +293,47 @@
       background: rgba(255,255,255,.92);
       color: rgba(0,0,0,.92);
       box-shadow: 0 18px 70px rgba(0,0,0,.38);
+      position:relative;
+      overflow:hidden;
     }
-    .btn.primary:hover{ transform: translateY(-2px); box-shadow: 0 28px 100px rgba(0,0,0,.48); }
+    .btn.primary::after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(520px 240px at 40% 40%, rgba(201,162,75,.30), transparent 62%);
+      opacity:.0;
+      transition: opacity .22s var(--ease);
+    }
+    .btn.primary:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 28px 110px rgba(0,0,0,.50), 0 0 0 1px rgba(201,162,75,.22), 0 18px 70px rgba(201,162,75,.16);
+    }
+    .btn.primary:hover::after{ opacity:.9; }
+    .btn.primary span, .btn.ghost span{ position:relative; z-index:1; }
+
     .btn.ghost{
       border:1px solid rgba(255,255,255,.18);
       background: rgba(255,255,255,.08);
       color: rgba(255,255,255,.92);
+      position:relative;
+      overflow:hidden;
     }
-    .btn.ghost:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.26); }
+    .btn.ghost::before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(90deg, rgba(201,162,75,.95), rgba(224,195,108,.92));
+      opacity:0;
+      transform: translateY(6px);
+      transition: opacity .22s var(--ease), transform .22s var(--ease);
+    }
+    .btn.ghost:hover{
+      transform: translateY(-2px);
+      border-color: rgba(201,162,75,.35);
+      color: rgba(10,10,12,.94);
+      box-shadow: 0 0 0 1px rgba(201,162,75,.22), 0 18px 70px rgba(201,162,75,.16);
+    }
+    .btn.ghost:hover::before{ opacity:1; transform: translateY(0); }
 
-    /* RIGHT “CARD” – premium, non cringe */
+    /* ===== Premium cards ===== */
     .card{
       border-radius: var(--r-xl);
       border:1px solid rgba(255,255,255,.14);
@@ -259,19 +342,30 @@
       padding: 1.25rem 1.2rem;
       position:relative;
       overflow:hidden;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease), background .22s var(--ease);
     }
     .card::before{
       content:"";
       position:absolute; inset:-40%;
       background:
         radial-gradient(700px 260px at 20% 20%, rgba(255,255,255,.22), transparent 62%),
-        radial-gradient(900px 520px at 90% 50%, rgba(var(--b), .12), transparent 66%);
+        radial-gradient(900px 520px at 90% 50%, rgba(201,162,75,.18), transparent 66%);
       opacity:.55;
       pointer-events:none;
       filter: blur(8px);
     }
+    .card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(201,162,75,.28);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.14),
+        0 26px 120px rgba(0,0,0,.50),
+        0 0 0 1px rgba(201,162,75,.22),
+        0 18px 70px rgba(201,162,75,.16);
+    }
     .card > *{ position:relative; z-index:1; }
-    .card .kicker{
+
+    .kicker{
       font-size:.78rem;
       letter-spacing:.22em;
       text-transform:uppercase;
@@ -297,15 +391,98 @@
     }
     .card li{ margin:.22rem 0; }
 
-    /* subtle entrance/exit (JS sets --k) */
-    .page{
-      transform: translateY(calc((1 - var(--k, 1)) * 18px));
-      opacity: calc(.35 + var(--k, 1) * .65);
-      filter: blur(calc((1 - var(--k, 1)) * 2px));
-      transition:none;
-      will-change: transform, opacity, filter;
+    /* ===== Tools list (continuous, premium hover) ===== */
+    .list{
+      border-radius: var(--r-xl);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+      margin-top: 1.05rem;
+    }
+    .row{
+      padding: 1.05rem 1.05rem;
+      border-top:1px solid rgba(255,255,255,.10);
+      display:grid;
+      grid-template-columns: 220px 1fr 170px;
+      gap:1rem;
+      align-items:center;
+      transition: background .22s var(--ease), transform .22s var(--ease);
+    }
+    .row:first-child{ border-top:none; }
+    .row:hover{
+      background: rgba(255,255,255,.07);
+      transform: translateY(-1px);
+    }
+    .meta{
+      color: var(--muted2);
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .name{ font-size: 1.05rem; margin-bottom:.25rem; }
+    .desc{ color: var(--muted); line-height:1.75; font-size:.93rem; max-width: 78ch; }
+    .link{
+      justify-self:end;
+      text-decoration:none;
+      font-size: .78rem;
+      letter-spacing:.16em;
+      text-transform: uppercase;
+      padding-bottom:2px;
+      white-space:nowrap;
+      color: rgba(255,255,255,.92);
+      border-bottom:1px solid rgba(255,255,255,0);
+      opacity:.9;
+      transition: border-color .2s var(--ease), opacity .2s var(--ease), transform .2s var(--ease), color .2s var(--ease);
+    }
+    .row:hover .link{
+      border-color: rgba(201,162,75,.75);
+      color: rgba(224,195,108,.98);
+      opacity:1;
+      transform: translateY(-1px);
+    }
+    @media (max-width: 980px){
+      .row{ grid-template-columns: 1fr; }
+      .link{ justify-self:start; }
     }
 
+    /* ===== Footer ===== */
+    footer{
+      margin-top: .6rem;
+      color: var(--muted2);
+      font-size: .86rem;
+      line-height: 1.7;
+    }
+    .footgrid{
+      display:grid;
+      grid-template-columns: 1.2fr .9fr .9fr;
+      gap: 1.2rem;
+      padding: 1.1rem 0 0;
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+    .footgrid h4{
+      font-size: .98rem;
+      color: rgba(255,255,255,.88);
+      margin-bottom: .6rem;
+    }
+    .footgrid a{
+      color: rgba(244,246,255,.78);
+      text-decoration:none;
+      border-bottom: 1px solid rgba(201,162,75,0);
+      transition: border-color .2s var(--ease), color .2s var(--ease);
+    }
+    .footgrid a:hover{
+      color: rgba(224,195,108,.98);
+      border-color: rgba(201,162,75,.75);
+    }
+    .footbottom{
+      text-align:center;
+      margin-top: .9rem;
+      padding: .8rem 0 0;
+      color: rgba(244,246,255,.50);
+    }
+
+    /* motion safety */
     @media (prefers-reduced-motion: reduce){
       main{ scroll-snap-type:none; }
       .orb{ animation:none; }
@@ -320,10 +497,11 @@
 
   <header>
     <div class="nav">
-      <a class="brand" href="#seo">
+      <a class="brand" href="#seo" aria-label="amamau">
         <span class="mark" aria-hidden="true"></span>
         <span>amamau</span>
       </a>
+
       <nav id="nav">
         <a href="#seo" data-nav aria-current="page">SEO</a>
         <a href="#domini" data-nav>Domini</a>
@@ -341,39 +519,46 @@
   </header>
 
   <main id="scroller">
-    <!-- SEO -->
+    <!-- SEO / HERO -->
     <section id="seo" data-i="0">
       <div class="page">
         <div>
           <div class="eyebrow">SERVIZI PER AZIENDE, FREELANCE E STARTUP</div>
-          <div class="h">Ti facciamo trovare subito<br><span>e ti aiutiamo a restare in alto.</span></div>
+
+          <div class="h">
+            Ti facciamo trovare subito<br>
+            <span>e ti aiutiamo a restare in alto.</span>
+          </div>
+
           <div class="p">
-            Prima mettiamo ordine in ciò che conta (struttura, contenuti, tecnica).
-            Poi lavoriamo sulla continuità: aggiornamenti mirati, misurabili, senza cambiare strada ogni due settimane.
-            <strong>È così che il posizionamento regge.</strong>
+            Mettiamo online una presenza che regge davvero: <strong>struttura, contenuti e tecnica</strong>.
+            Poi lavoriamo sulla continuità: piccoli interventi costanti, misurati, che tengono il progetto vicino alle prime posizioni
+            anche dopo l’onboarding.
           </div>
 
           <div class="chips">
             <span class="chip"><span class="dot"></span>SEO e posizionamento</span>
-            <span class="chip"><span class="dot"></span>Landing e copy credibile</span>
-            <span class="chip"><span class="dot"></span>Tracking e continuità</span>
+            <span class="chip"><span class="dot"></span>Landing e copy che converte</span>
+            <span class="chip"><span class="dot"></span>Tracking e miglioramenti continui</span>
           </div>
 
           <div class="actions">
-            <a class="btn primary" href="#contatti">Inizia da qui</a>
-            <a class="btn ghost" href="#contatti">Preventivo rapido</a>
+            <a class="btn primary" href="#contatti"><span>Inizia da qui</span></a>
+            <a class="btn ghost" href="#contatti"><span>Preventivo rapido</span></a>
           </div>
         </div>
 
         <aside class="card">
           <div class="kicker">COSA OTTIENI</div>
           <h3>Una presenza che convince.</h3>
-          <p>Prima impressione, fiducia e conversione. Tutto allineato.</p>
+          <p>
+            Non basta esserci. Devi essere chiaro in 10 secondi e solido anche sotto.
+          </p>
           <ul>
-            <li>Pagine veloci e pulite, pensate per convertire.</li>
-            <li>Messaggio chiaro: cosa fai, per chi, perché sceglierti.</li>
-            <li>Continuità: aggiornamenti mirati per restare su.</li>
-            <li>Tecnica e contenuti allineati, senza compromessi.</li>
+            <li>Pagine veloci, pulite, pensate per convertire.</li>
+            <li>Messaggio netto: cosa fai, per chi, perché sceglierti.</li>
+            <li>SEO curata nel tempo, senza “partenza e poi sparizione”.</li>
+            <li>Priorità chiare: dati, interventi piccoli ma frequenti.</li>
           </ul>
         </aside>
       </div>
@@ -384,10 +569,16 @@
       <div class="page">
         <div>
           <div class="eyebrow">DOMINI E NAMING</div>
-          <div class="h">Nome e dominio<br><span>sono la prima stretta di mano.</span></div>
+
+          <div class="h">
+            Nome e dominio<br>
+            <span>sono la prima stretta di mano.</span>
+          </div>
+
           <div class="p">
-            Non è “trova qualcosa di libero”. È scegliere qualcosa che regge: leggibilità, brandabilità, tono, mercato.
-            Ti lasciamo una shortlist chiara e difendibile.
+            Qui non si tratta di “trovare qualcosa di libero”.
+            Si tratta di scegliere qualcosa che regge: leggibilità, brandabilità, tono e mercato.
+            Ti consegniamo una shortlist difendibile, pronta da usare.
           </div>
 
           <div class="chips">
@@ -397,33 +588,42 @@
           </div>
 
           <div class="actions">
-            <a class="btn primary" href="#contatti">Naming sprint</a>
-            <a class="btn ghost" href="#contatti">Check dominio</a>
+            <a class="btn primary" href="#contatti"><span>Naming sprint</span></a>
+            <a class="btn ghost" href="#contatti"><span>Check dominio</span></a>
           </div>
         </div>
 
         <aside class="card">
-          <div class="kicker">APPROCCIO</div>
-          <h3>Poche proposte, buone.</h3>
-          <p>Meglio 12 candidati forti che 300 idee: output pronto per decisioni e deck.</p>
+          <div class="kicker">COME LAVORIAMO</div>
+          <h3>Poche proposte. Buone.</h3>
+          <p>
+            Meglio 12 candidati forti che 300 idee.
+            Ogni nome arriva con un motivo e un ordine di priorità.
+          </p>
           <ul>
             <li>Vincoli chiari fin dall’inizio.</li>
             <li>Razionale semplice da spiegare.</li>
-            <li>Scelte ordinate per priorità.</li>
+            <li>Decisione più veloce, meno indecisione.</li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <!-- AI -->
+    <!-- AI WORKSPACE -->
     <section id="ai" data-i="2">
       <div class="page">
         <div>
           <div class="eyebrow">AI PER LAVORO</div>
-          <div class="h">AI utile, per lavorare meglio<br><span>non per riempire pagine.</span></div>
+
+          <div class="h">
+            AI utile, per lavorare meglio<br>
+            <span>non per riempire pagine.</span>
+          </div>
+
           <div class="p">
-            Stiamo costruendo un chatbot con <strong>spazio personale</strong> e <strong>workspace</strong>:
-            ricerca, sintesi, checklist e output condivisibili. Deve far risparmiare tempo, punto.
+            Stiamo costruendo un chatbot con <strong>spazio personale</strong> e <strong>workspace</strong>.
+            Serve per ricerca, sintesi, checklist e output condivisibili.
+            Deve far risparmiare tempo e alzare la qualità delle scelte.
           </div>
 
           <div class="chips">
@@ -433,18 +633,20 @@
           </div>
 
           <div class="actions">
-            <a class="btn primary" href="#contatti">Caso d’uso</a>
-            <a class="btn ghost" href="#contatti">Accesso selezionato</a>
+            <a class="btn primary" href="#contatti"><span>Raccontaci il caso</span></a>
+            <a class="btn ghost" href="#contatti"><span>Accesso selezionato</span></a>
           </div>
         </div>
 
         <aside class="card">
-          <div class="kicker">PER TEAM</div>
-          <h3>Standard alti, anche qui.</h3>
-          <p>Vincoli chiari e output chiari: l’AI deve aumentare qualità delle scelte e ridurre il tempo perso.</p>
+          <div class="kicker">STANDARD</div>
+          <h3>Stesso metodo, stessi dettagli.</h3>
+          <p>
+            L’AI deve essere ordinata e concreta. Se non migliora decisioni e tempi, non la pubblichiamo.
+          </p>
           <ul>
             <li>Template e processi ripetibili.</li>
-            <li>Handoff veloce: checklist, report, decisioni.</li>
+            <li>Handoff veloce: report, checklist, decisioni.</li>
             <li>Workspace per team, non chat isolate.</li>
           </ul>
         </aside>
@@ -456,55 +658,94 @@
       <div class="page">
         <div>
           <div class="eyebrow">IN SVILUPPO</div>
-          <div class="h">Strumenti che stiamo costruendo<br><span>e che usiamo davvero.</span></div>
-          <div class="p">
+
+          <div class="h">
+            Strumenti che stiamo costruendo<br>
+            <span>e che usiamo davvero.</span>
+          </div>
+
+          <div class="p" style="max-width:80ch;">
             Domain Scout e Analyzer, Wordlist Generator con <strong>motore AI</strong> per risultati migliori,
             e il chatbot con spazio personale e workspace.
           </div>
 
-          <div class="actions">
-            <a class="btn primary" href="mailto:hello@amamau.com?subject=Richiesta%20early%20access">Early access</a>
-            <a class="btn ghost" href="#contatti">Parliamone</a>
+          <div class="list">
+            <div class="row">
+              <div class="meta">PRIVATE BETA</div>
+              <div>
+                <div class="name">Domain Scout</div>
+                <div class="desc">Scansioni multi-TLD, scoring e export puliti. Pensato per naming con vincoli reali.</div>
+              </div>
+              <a class="link" href="mailto:hello@amamau.com?subject=Domain%20Scout%20beta">RICHIEDI RUN</a>
+            </div>
+
+            <div class="row">
+              <div class="meta">ALPHA INTERNA</div>
+              <div>
+                <div class="name">Wordlist Generator</div>
+                <div class="desc">Genera, filtra e ordina wordlist con un motore AI. Nasce per alimentare Domain Scout e velocizzare decisioni.</div>
+              </div>
+              <a class="link" href="mailto:hello@amamau.com?subject=Wordlist%20Generator%20early%20access">EARLY ACCESS</a>
+            </div>
+
+            <div class="row">
+              <div class="meta">INTERNAL TOOL</div>
+              <div>
+                <div class="name">Domain Scout Analyzer</div>
+                <div class="desc">Trasforma export in shortlist pronte da presentare: raggruppamenti, filtri, output Markdown.</div>
+              </div>
+              <a class="link" href="mailto:hello@amamau.com?subject=Domain%20Scout%20Analyzer">INFO</a>
+            </div>
+
+            <div class="row">
+              <div class="meta">PROTOTYPING</div>
+              <div>
+                <div class="name">amamau AI Chatbot + Workspace</div>
+                <div class="desc">Ricerca, sintesi, checklist e flussi condivisi. Spazio personale e workspace per team.</div>
+              </div>
+              <a class="link" href="mailto:hello@amamau.com?subject=amamau%20AI%20workspace">PARLIAMONE</a>
+            </div>
           </div>
+
+          <footer>
+            <div class="footgrid">
+              <div>
+                <h4>amamau</h4>
+                <p>Strumenti e servizi per chi vuole partire bene e restare su. SEO, domini, naming, AI workspace e “ordine” tecnico.</p>
+              </div>
+              <div>
+                <h4>Sezioni</h4>
+                <p><a href="#seo">SEO</a><br><a href="#domini">Domini</a><br><a href="#ai">AI Workspace</a><br><a href="#strumenti">Strumenti</a></p>
+              </div>
+              <div>
+                <h4>Contatti</h4>
+                <p>
+                  <a href="mailto:hello@amamau.com?subject=Richiesta%20progetto%20amamau">hello@amamau.com</a><br>
+                  <a href="tel:05119471903">051 1947 1903</a><br>
+                  <a href="tel:3791128232">379 112 8232</a> (WhatsApp/Telegram)
+                </p>
+              </div>
+            </div>
+            <div class="footbottom">© 2025–2026 amamau. Tutti i diritti riservati.</div>
+          </footer>
         </div>
 
-        <aside class="card">
-          <div class="kicker">CONTATTI VELOCI</div>
-          <h3>Quando scrivi, basta poco.</h3>
+        <aside class="card" id="contatti">
+          <div class="kicker">CONTATTI</div>
+          <h3>Scrivici due righe, basta davvero.</h3>
+          <p>
+            Contesto, obiettivo, vincoli. Noi rispondiamo con priorità e un piano corto, chiaro.
+          </p>
           <ul>
             <li>1–2 frasi su prodotto/servizio e target.</li>
-            <li>Dominio/sito attuale (se esiste).</li>
-            <li>Obiettivo: SEO, naming, email, AI workspace.</li>
+            <li>Link al sito o dominio attuale (se esiste).</li>
+            <li>Obiettivo principale: SEO, naming, AI workspace.</li>
             <li>Tempistiche e range budget.</li>
           </ul>
-        </aside>
-      </div>
-    </section>
-
-    <!-- CONTATTI -->
-    <section id="contatti" data-i="4">
-      <div class="page">
-        <div>
-          <div class="eyebrow">CONTATTI</div>
-          <div class="h">Scrivici due righe<br><span>e capiamo se ha senso.</span></div>
-          <div class="p">Contesto, obiettivo, vincoli. Risposta breve: cosa fare, cosa evitare, priorità e tempi.</div>
-
-          <div class="actions">
-            <a class="btn primary" href="mailto:hello@amamau.com?subject=Richiesta%20progetto%20amamau">hello@amamau.com</a>
-            <a class="btn ghost" href="tel:05119471903">051 1947 1903</a>
-            <a class="btn ghost" href="tel:3791128232">379 112 8232</a>
+          <div class="actions" style="margin-top:1rem;">
+            <a class="btn primary" href="mailto:hello@amamau.com?subject=Richiesta%20progetto%20amamau"><span>Email</span></a>
+            <a class="btn ghost" href="tel:3791128232"><span>WhatsApp</span></a>
           </div>
-        </div>
-
-        <aside class="card">
-          <div class="kicker">WHATSAPP / TELEGRAM</div>
-          <h3>379 112 8232</h3>
-          <p>Se preferisci messaggio rapido: obiettivo + link al sito + tempistiche.</p>
-          <ul>
-            <li>Obiettivo principale</li>
-            <li>Link / dominio</li>
-            <li>Deadline</li>
-          </ul>
         </aside>
       </div>
     </section>
@@ -515,27 +756,27 @@
     const sections = [...scroller.querySelectorAll('section')];
     const navLinks = [...document.querySelectorAll('nav a[data-nav]')];
 
+    // palette per sezione (gold resta sempre, cambiamo solo "b" per mood)
     const palettes = [
-      { a:[255,72,140], b:[120,130,255] },   // SEO
-      { a:[120,255,200], b:[255,220,120] },  // Domini
-      { a:[150,205,255], b:[255,120,200] },  // AI
-      { a:[255,255,255], b:[180,180,255] },  // Strumenti
-      { a:[160,255,230], b:[255,255,255] },  // Contatti
+      { a:[201,162,75], b:[120,130,255] },   // SEO
+      { a:[201,162,75], b:[255,220,120] },   // Domini (caldo)
+      { a:[201,162,75], b:[150,205,255] },   // AI (freddo)
+      { a:[201,162,75], b:[180,180,255] },   // Strumenti (pulito)
     ];
 
     const clamp = (n,min,max)=>Math.max(min,Math.min(max,n));
 
-    // progress bar + scene animation + palette
     function update(){
+      // progress bar
       const max = scroller.scrollHeight - scroller.clientHeight;
       const p = max > 0 ? scroller.scrollTop / max : 0;
       document.documentElement.style.setProperty('--bar', (p*100).toFixed(2) + '%');
 
+      // scene animation + palette
       const root = scroller.getBoundingClientRect();
       const mid = root.top + root.height * 0.5;
 
-      let bestI = 0;
-      let bestK = -1;
+      let bestI = 0, bestK = -1;
 
       sections.forEach((sec, i) => {
         const page = sec.querySelector('.page');
@@ -554,9 +795,10 @@
       document.documentElement.style.setProperty('--b', pal.b.join(','));
     }
 
-    // nav highlight stabile
+    // active section highlight
     const io = new IntersectionObserver((entries)=>{
-      const vis = entries.filter(e=>e.isIntersecting)
+      const vis = entries
+        .filter(e=>e.isIntersecting)
         .map(e=>({ id:e.target.id, top:Math.abs(e.boundingClientRect.top) }))
         .sort((a,b)=>a.top-b.top);
       if(!vis.length) return;
