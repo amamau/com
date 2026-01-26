@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-
   <!-- Cookie Script (replace SCRIPT_ID.js with your amamau script id) -->
-  <script type="text/javascript" charset="UTF-8"
-          src="//cdn.cookie-script.com/s/SCRIPT_ID.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/SCRIPT_ID.js"></script>
 
   <!-- Google tag (gtag.js) - BLOCKED until consent -->
   <script type="text/plain" data-cookieconsent="statistics" async
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-
   <script type="text/plain" data-cookieconsent="statistics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
@@ -20,680 +17,734 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>amamau — Digital tools that don’t look cheap</title>
+  <title>amamau — strumenti e servizi digitali che ti posizionano sul serio</title>
 
   <meta name="description"
-        content="amamau builds sharp, minimal tools for small teams: Domain Scout, AI Wordlist Generator, amamau Insight AI and Domain Scout Analyzer — Europe-first, execution-focused." />
+        content="amamau aiuta aziende, freelance e startup a farsi trovare subito e restare in alto: SEO, domini, naming, email hygiene, AI workspace e strumenti proprietari (Domain Scout, Analyzer, Wordlist Generator)." />
 
   <link rel="icon" href="mark-amamau-white.svg" type="image/svg+xml" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap"
-        rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --bg-page: #f5f5f7;
-      --bg-card: #ffffff;
-      --bg-soft: #fafafa;
+    :root{
+      --bg-page:#f5f5f7;
+      --bg-card:#ffffff;
+      --bg-soft:#fafafa;
 
-      --border-subtle: #e2e2e7;
-      --border-strong: #c7c7cf;
+      --border-subtle:#e2e2e7;
+      --border-strong:#c7c7cf;
 
-      --text-main: #111118;
-      --text-soft: #4e4e58;
-      --text-mute: #8f8f99;
+      --text-main:#111118;
+      --text-soft:#4e4e58;
+      --text-mute:#8f8f99;
 
-      --accent: #111111;
+      --accent:#111111;
 
-      --radius-lg: 26px;
-      --radius-md: 18px;
-      --radius-pill: 999px;
+      --radius-lg:26px;
+      --radius-md:18px;
+      --radius-pill:999px;
 
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.04);
-      --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.05);
+      --shadow-soft:0 18px 40px rgba(0,0,0,0.04);
+      --shadow-card:0 12px 30px rgba(0,0,0,0.05);
 
-      --transition: 0.22s ease-out;
-      --content-width: 1120px;
+      --transition:0.22s ease-out;
+      --content-width:1120px;
+
+      --grid-gap:1.4rem;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html,body{
+      font-family:'Outfit',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+      background:var(--bg-page);
+      color:var(--text-main);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+      min-height:100vh;
     }
 
-    html, body {
-      font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-page);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      scroll-behavior: smooth;
-      min-height: 100vh;
+    /* soft background glow */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:-20%;
+      background:
+        radial-gradient(900px 600px at 15% 10%, rgba(17,17,17,0.08), transparent 60%),
+        radial-gradient(800px 500px at 85% 20%, rgba(17,17,17,0.06), transparent 60%),
+        radial-gradient(700px 500px at 50% 95%, rgba(17,17,17,0.05), transparent 60%);
+      pointer-events:none;
+      z-index:-1;
+      filter: blur(2px);
     }
 
-    /* WRAPPER */
-    .shell {
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding: 0 1.4rem 3.5rem;
+    .shell{
+      max-width:var(--content-width);
+      margin:0 auto;
+      padding:0 1.4rem 3.5rem;
     }
-
-    @media (min-width: 960px) {
-      .shell {
-        padding: 0 2rem 4rem;
-      }
+    @media(min-width:960px){
+      .shell{ padding:0 2rem 4rem; }
     }
 
     /* NAVBAR */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
       backdrop-filter: blur(18px);
-      background: rgba(245, 245, 247, 0.96);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      background: rgba(245,245,247,0.94);
+      border-bottom:1px solid rgba(0,0,0,0.05);
+    }
+    .nav-inner{
+      max-width:var(--content-width);
+      margin:0 auto;
+      padding:0.7rem 1.4rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+    }
+    @media(min-width:960px){
+      .nav-inner{ padding:0.8rem 2rem; }
+    }
+    .logo{ height:26px; display:block; user-select:none; }
+    @media(min-width:768px){ .logo{ height:30px; } }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:1.2rem;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      position:relative;
+      color:var(--text-soft);
+      text-decoration:none;
+      font-size:0.86rem;
+      font-weight:500;
+      padding-bottom:0.15rem;
+      transition:color var(--transition);
+    }
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0; bottom:0;
+      width:0; height:2px;
+      border-radius:999px;
+      background:var(--accent);
+      transition:width var(--transition);
+    }
+    nav a:hover::after, nav a:focus-visible::after{ width:100%; }
+    nav a:hover, nav a:focus-visible{ color:var(--accent); outline:none; }
+
+    nav a[aria-current="page"]{ color:var(--accent); }
+    nav a[aria-current="page"]::after{ width:100%; }
+
+    @media(max-width:640px){
+      nav{ gap:1rem; }
+      nav a{ font-size:0.8rem; }
     }
 
-    .nav-inner {
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding: 0.65rem 1.4rem 0.65rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+    /* tiny scroll progress */
+    .scrollbar{
+      height:2px;
+      background:rgba(17,17,17,0.08);
+    }
+    .scrollbar > span{
+      display:block;
+      height:2px;
+      width:0%;
+      background:rgba(17,17,17,0.65);
+      transform-origin:left;
     }
 
-    @media (min-width: 960px) {
-      .nav-inner {
-        padding: 0.75rem 2rem 0.75rem;
-      }
-    }
-
-    .logo {
-      height: 26px;
-      display: block;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .logo {
-        height: 30px;
-      }
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    nav a {
-      position: relative;
-      color: var(--text-soft);
-      text-decoration: none;
-      font-size: 0.86rem;
-      font-weight: 500;
-      padding-bottom: 0.15rem;
-      transition: color var(--transition);
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--accent);
-      transition: width var(--transition);
-    }
-
-    nav a:hover::after,
-    nav a:focus-visible::after {
-      width: 100%;
-    }
-
-    nav a:hover,
-    nav a:focus-visible {
-      color: var(--accent);
-      outline: none;
-    }
-
-    nav a[aria-current="page"] {
-      color: var(--accent);
-    }
-
-    nav a[aria-current="page"]::after {
-      width: 100%;
-    }
-
-    @media (max-width: 640px) {
-      nav {
-        gap: 1rem;
-      }
-      nav a {
-        font-size: 0.8rem;
-      }
-    }
-
-    main {
-      background: #f5f5f7;
-    }
+    main{ background:transparent; }
 
     /* HERO */
-    .hero-wrap {
-      padding: 3.2rem 0 2.8rem;
+    .hero-wrap{ padding:3.2rem 0 2.8rem; }
+    .hero{
+      display:flex;
+      flex-direction:column;
+      gap:2.2rem;
     }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      gap: 2.2rem;
-    }
-
-    @media (min-width: 960px) {
-      .hero-wrap {
-        padding: 4rem 0 3.4rem;
+    @media(min-width:960px){
+      .hero-wrap{ padding:4rem 0 3.6rem; }
+      .hero{
+        flex-direction:row;
+        align-items:center;
+        gap:3.2rem;
       }
-      .hero {
-        flex-direction: row;
-        align-items: center;
-        gap: 3.2rem;
-      }
-      .hero-main,
-      .hero-side {
-        flex: 1;
-      }
+      .hero-main,.hero-side{ flex:1; }
     }
 
-    .hero-eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-size: 0.78rem;
-      color: var(--text-mute);
-      margin-bottom: 0.75rem;
+    .hero-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:0.22em;
+      font-size:0.78rem;
+      color:var(--text-mute);
+      margin-bottom:0.75rem;
     }
 
-    .hero-title {
-      font-size: 2.2rem;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      margin-bottom: 1rem;
+    .hero-title{
+      font-size:2.25rem;
+      line-height:1.06;
+      letter-spacing:-0.03em;
+      margin-bottom:1rem;
+    }
+    .hero-title span{ color:var(--text-soft); }
+    @media(min-width:768px){
+      .hero-title{ font-size:2.85rem; }
     }
 
-    .hero-title span {
-      color: var(--text-soft);
+    .hero-sub{
+      font-size:0.98rem;
+      color:var(--text-soft);
+      line-height:1.85;
+      max-width:560px;
+    }
+    .hero-sub strong{ color:var(--accent); font-weight:600; }
+
+    .hero-meta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.45rem 1rem;
+      margin-top:1.2rem;
+      font-size:0.83rem;
+      color:var(--text-mute);
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:0.45rem;
+      padding:0.34rem 0.7rem;
+      border:1px solid rgba(0,0,0,0.08);
+      background:rgba(255,255,255,0.65);
+      border-radius:999px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.03);
+    }
+    .dot{
+      width:6px; height:6px;
+      border-radius:999px;
+      background:rgba(17,17,17,0.55);
     }
 
-    @media (min-width: 768px) {
-      .hero-title {
-        font-size: 2.7rem;
-      }
+    .hero-actions{
+      margin-top:1.75rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.8rem;
     }
 
-    .hero-sub {
-      font-size: 0.98rem;
-      color: var(--text-soft);
-      line-height: 1.8;
-      max-width: 540px;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0.88rem 1.75rem;
+      border-radius:var(--radius-pill);
+      font-size:0.84rem;
+      font-weight:700;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      border:1px solid transparent;
+      text-decoration:none;
+      cursor:pointer;
+      user-select:none;
+      transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition),
+        filter var(--transition);
+      will-change:transform;
+    }
+    .btn-primary{
+      background:#111111;
+      color:#ffffff;
+      box-shadow:0 12px 26px rgba(0,0,0,0.22);
+    }
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 20px 48px rgba(0,0,0,0.28);
+      filter:brightness(1.02);
+    }
+    .btn-ghost{
+      background:rgba(255,255,255,0.9);
+      color:var(--text-soft);
+      border-color:#d7d7dd;
+    }
+    .btn-ghost:hover{
+      color:var(--accent);
+      border-color:var(--border-strong);
+      box-shadow:0 12px 30px rgba(0,0,0,0.09);
+      transform:translateY(-1px);
     }
 
-    .hero-sub strong {
-      color: var(--accent);
-      font-weight: 500;
+    .hero-side{
+      background:var(--bg-card);
+      border-radius:var(--radius-lg);
+      border:1px solid var(--border-subtle);
+      box-shadow:var(--shadow-card);
+      padding:1.6rem 1.5rem;
+      position:relative;
+      overflow:hidden;
     }
-
-    .hero-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 1rem;
-      margin-top: 1.3rem;
-      font-size: 0.83rem;
-      color: var(--text-mute);
+    .hero-side::before{
+      content:"";
+      position:absolute;
+      inset:-30%;
+      background: radial-gradient(600px 300px at 20% 10%, rgba(17,17,17,0.09), transparent 60%);
+      pointer-events:none;
+      transform:rotate(8deg);
     }
-
-    .hero-actions {
-      margin-top: 1.8rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
+    @media(min-width:960px){
+      .hero-side{ padding:1.95rem 1.8rem; }
     }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.85rem 1.7rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.84rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      border: 1px solid transparent;
-      text-decoration: none;
-      cursor: pointer;
-      user-select: none;
-      transition: background var(--transition),
-                  color var(--transition),
-                  border-color var(--transition),
-                  box-shadow var(--transition),
-                  transform var(--transition);
+    .hero-side-label{
+      font-size:0.78rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:var(--text-mute);
+      margin-bottom:0.9rem;
+      position:relative;
+      z-index:1;
     }
-
-    .btn-primary {
-      background: #111111;
-      color: #ffffff;
-      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
+    .hero-side-title{
+      font-size:1.08rem;
+      margin-bottom:0.5rem;
+      position:relative;
+      z-index:1;
     }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    .hero-side p, .hero-side ul{
+      position:relative;
+      z-index:1;
     }
-
-    .btn-ghost {
-      background: #ffffff;
-      color: var(--text-soft);
-      border-color: #d7d7dd;
+    .hero-side p{
+      font-size:0.9rem;
+      color:var(--text-soft);
+      line-height:1.75;
+      margin-bottom:0.45rem;
     }
-
-    .btn-ghost:hover {
-      color: var(--accent);
-      border-color: var(--border-strong);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    .hero-side ul{
+      margin-top:0.5rem;
+      padding-left:1.05rem;
+      font-size:0.9rem;
+      color:var(--text-soft);
     }
-
-    .hero-side {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-card);
-      padding: 1.6rem 1.5rem;
-    }
-
-    @media (min-width: 960px) {
-      .hero-side {
-        padding: 1.9rem 1.8rem;
-      }
-    }
-
-    .hero-side-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-mute);
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-side-title {
-      font-size: 1.08rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-side p {
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      line-height: 1.7;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-side ul {
-      margin-top: 0.4rem;
-      padding-left: 1.05rem;
-      font-size: 0.9rem;
-      color: var(--text-soft);
-    }
-
-    .hero-side li {
-      margin: 0.2rem 0;
-    }
+    .hero-side li{ margin:0.22rem 0; }
 
     /* SECTION BASE */
-    .section {
-      margin-top: 3rem;
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      padding: 2.1rem 1.7rem;
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-soft);
+    .section{
+      margin-top:3rem;
+      background:var(--bg-card);
+      border-radius:var(--radius-lg);
+      padding:2.15rem 1.7rem;
+      border:1px solid var(--border-subtle);
+      box-shadow:var(--shadow-soft);
+      position:relative;
+      overflow:hidden;
     }
-
-    @media (min-width: 768px) {
-      .section {
-        margin-top: 3.3rem;
-        padding: 2.3rem 2.2rem;
+    @media(min-width:768px){
+      .section{
+        margin-top:3.3rem;
+        padding:2.35rem 2.2rem;
       }
     }
 
-    .section-header {
-      margin-bottom: 1.5rem;
+    .section-header{ margin-bottom:1.5rem; }
+    .tagline{
+      text-transform:uppercase;
+      letter-spacing:0.22em;
+      font-size:0.78rem;
+      color:var(--text-mute);
+      margin-bottom:0.4rem;
+    }
+    .section-title{
+      font-size:1.55rem;
+      letter-spacing:-0.01em;
+      margin-bottom:0.25rem;
+    }
+    .section-sub{
+      font-size:0.96rem;
+      color:var(--text-soft);
+      max-width:620px;
+      line-height:1.75;
     }
 
-    .tagline {
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-size: 0.78rem;
-      color: var(--text-mute);
-      margin-bottom: 0.4rem;
+    /* “WOW” scroll scenes */
+    .scene{
+      margin-top:3.3rem;
+      border-radius:var(--radius-lg);
+      border:1px solid var(--border-subtle);
+      box-shadow:var(--shadow-soft);
+      background:linear-gradient(180deg, rgba(255,255,255,0.92), rgba(250,250,250,0.92));
+      overflow:hidden;
+      position:relative;
     }
-
-    .section-title {
-      font-size: 1.5rem;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.25rem;
+    .scene-inner{
+      padding:2.1rem 1.7rem;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:1.4rem;
+      perspective: 1200px;
     }
-
-    .section-sub {
-      font-size: 0.95rem;
-      color: var(--text-soft);
-      max-width: 560px;
-      line-height: 1.7;
-    }
-
-    /* PROJECTS GRID */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 1.4rem;
-      margin-top: 0.7rem;
-    }
-
-    @media (min-width: 880px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    @media(min-width:960px){
+      .scene-inner{
+        padding:2.35rem 2.2rem;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap:2.2rem;
+        align-items:center;
       }
     }
 
-    .project-card {
-      background: var(--bg-soft);
-      border-radius: var(--radius-md);
-      padding: 1.4rem 1.3rem;
-      border: 1px solid #e4e4ea;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.03);
-      transition: transform var(--transition),
-                  box-shadow var(--transition),
-                  border-color var(--transition),
-                  background var(--transition);
+    .scene-title{
+      font-size:1.35rem;
+      letter-spacing:-0.02em;
+      margin-bottom:0.6rem;
+    }
+    .scene-text{
+      font-size:0.95rem;
+      color:var(--text-soft);
+      line-height:1.85;
+      max-width:620px;
+    }
+    .scene-text strong{ color:var(--accent); font-weight:650; }
+
+    .scene-card{
+      background:rgba(255,255,255,0.85);
+      border:1px solid rgba(0,0,0,0.08);
+      border-radius:22px;
+      padding:1.25rem 1.2rem;
+      box-shadow:0 18px 60px rgba(0,0,0,0.08);
+      transform-style:preserve-3d;
+      will-change: transform, opacity;
+    }
+    .scene-card h4{
+      font-size:0.92rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:var(--text-mute);
+      margin-bottom:0.8rem;
+    }
+    .scene-list{
+      padding-left:1.1rem;
+      color:var(--text-soft);
+      line-height:1.7;
+      font-size:0.92rem;
+    }
+    .scene-list li{ margin:0.22rem 0; }
+
+    /* SERVICES GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      gap:var(--grid-gap);
+      margin-top:0.8rem;
+    }
+    @media(min-width:880px){
+      .grid{ grid-template-columns:repeat(3, minmax(0,1fr)); }
     }
 
-    .project-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
-      border-color: var(--border-strong);
-      background: #ffffff;
+    .card{
+      background:var(--bg-soft);
+      border-radius:var(--radius-md);
+      padding:1.4rem 1.25rem;
+      border:1px solid #e4e4ea;
+      box-shadow:0 10px 26px rgba(0,0,0,0.03);
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+      position:relative;
+      overflow:hidden;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(500px 220px at 25% 15%, rgba(17,17,17,0.10), transparent 62%);
+      opacity:0;
+      transition: opacity var(--transition);
+      pointer-events:none;
+    }
+    .card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 18px 44px rgba(0,0,0,0.08);
+      border-color:var(--border-strong);
+      background:#ffffff;
+    }
+    .card:hover::after{ opacity:1; }
+    .card h3{
+      font-size:1.05rem;
+      margin-bottom:0.35rem;
+      position:relative;
+      z-index:1;
+    }
+    .card p{
+      font-size:0.92rem;
+      color:var(--text-soft);
+      line-height:1.75;
+      position:relative;
+      z-index:1;
     }
 
-    .project-pill-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.6rem;
-      font-size: 0.74rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-mute);
-      flex-wrap: wrap;
+    /* PRODUCTS / LINEUP (2 cols) */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      gap:var(--grid-gap);
+      margin-top:0.7rem;
+    }
+    @media(min-width:880px){
+      .projects-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
     }
 
-    .project-pill {
-      padding: 0.18rem 0.7rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid #d2d2da;
-      background: #ffffff;
-      white-space: nowrap;
-      font-size: 0.72rem;
+    .project-card{
+      background:var(--bg-soft);
+      border-radius:var(--radius-md);
+      padding:1.4rem 1.25rem;
+      border:1px solid #e4e4ea;
+      box-shadow:0 10px 26px rgba(0,0,0,0.03);
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+      will-change: transform;
     }
-
-    .project-label {
-      font-size: 0.73rem;
+    .project-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 18px 44px rgba(0,0,0,0.08);
+      border-color:var(--border-strong);
+      background:#ffffff;
     }
-
-    .project-name {
-      font-size: 1.1rem;
-      margin-bottom: 0.18rem;
+    .project-pill-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:0.5rem;
+      margin-bottom:0.6rem;
+      font-size:0.74rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:var(--text-mute);
+      flex-wrap:wrap;
     }
-
-    .project-sub {
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      margin-bottom: 0.45rem;
+    .project-pill{
+      padding:0.18rem 0.7rem;
+      border-radius:var(--radius-pill);
+      border:1px solid #d2d2da;
+      background:#ffffff;
+      white-space:nowrap;
+      font-size:0.72rem;
     }
+    .project-label{ font-size:0.73rem; }
 
-    .project-card ul {
-      padding-left: 1.05rem;
-      font-size: 0.88rem;
-      color: var(--text-soft);
-      line-height: 1.6;
+    .project-name{ font-size:1.12rem; margin-bottom:0.18rem; }
+    .project-sub{
+      font-size:0.92rem;
+      color:var(--text-soft);
+      margin-bottom:0.45rem;
+      line-height:1.7;
     }
-
-    .project-card li {
-      margin: 0.18rem 0;
+    .project-card ul{
+      padding-left:1.05rem;
+      font-size:0.9rem;
+      color:var(--text-soft);
+      line-height:1.65;
     }
+    .project-card li{ margin:0.18rem 0; }
 
-    .project-footer {
-      margin-top: 0.75rem;
-      font-size: 0.8rem;
-      color: var(--text-mute);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
+    .project-footer{
+      margin-top:0.75rem;
+      font-size:0.8rem;
+      color:var(--text-mute);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:0.6rem;
+      flex-wrap:wrap;
     }
-
-    .project-link {
-      text-decoration: none;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-soft);
-      border-bottom: 1px solid transparent;
-      padding-bottom: 1px;
+    .project-link{
+      text-decoration:none;
+      font-size:0.78rem;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+      color:var(--text-soft);
+      border-bottom:1px solid transparent;
+      padding-bottom:1px;
     }
-
-    .project-card:hover .project-link {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
+    .project-card:hover .project-link{
+      color:var(--accent);
+      border-bottom-color:var(--accent);
     }
 
     /* APPROACH */
-    .approach-cols {
-      display: flex;
-      flex-direction: column;
-      gap: 1.7rem;
+    .approach-cols{
+      display:flex;
+      flex-direction:column;
+      gap:1.7rem;
     }
-
-    @media (min-width: 880px) {
-      .approach-cols {
-        flex-direction: row;
-        gap: 2.3rem;
-      }
-      .approach-cols > div {
-        flex: 1;
-      }
+    @media(min-width:880px){
+      .approach-cols{ flex-direction:row; gap:2.3rem; }
+      .approach-cols > div{ flex:1; }
     }
-
-    .approach-cols p {
-      font-size: 0.95rem;
-      color: var(--text-soft);
-      line-height: 1.8;
-      margin-bottom: 0.9rem;
+    .approach-cols p{
+      font-size:0.96rem;
+      color:var(--text-soft);
+      line-height:1.9;
+      margin-bottom:0.9rem;
     }
-
-    .approach-item {
-      margin-bottom: 1rem;
-    }
-
-    .approach-item h4 {
-      font-size: 0.98rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .approach-item p {
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      line-height: 1.7;
-      margin: 0;
+    .approach-item{ margin-bottom:1rem; }
+    .approach-item h4{ font-size:0.98rem; margin-bottom:0.25rem; }
+    .approach-item p{
+      font-size:0.9rem;
+      color:var(--text-soft);
+      line-height:1.75;
+      margin:0;
     }
 
     /* CONTACT */
-    .contact-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1.7rem;
+    .contact-grid{
+      display:flex;
+      flex-direction:column;
+      gap:1.7rem;
     }
-
-    @media (min-width: 880px) {
-      .contact-grid {
-        flex-direction: row;
-        gap: 2.3rem;
-      }
-      .contact-grid > div {
-        flex: 1;
-      }
+    @media(min-width:880px){
+      .contact-grid{ flex-direction:row; gap:2.3rem; }
+      .contact-grid > div{ flex:1; }
     }
-
-    .contact-grid p {
-      font-size: 0.94rem;
-      color: var(--text-soft);
-      line-height: 1.8;
-      margin-bottom: 0.6rem;
+    .contact-grid p{
+      font-size:0.95rem;
+      color:var(--text-soft);
+      line-height:1.9;
+      margin-bottom:0.6rem;
     }
-
-    .contact-note {
-      font-size: 0.88rem;
-      color: var(--text-mute);
-      margin-top: 0.3rem;
+    .contact-note{
+      font-size:0.88rem;
+      color:var(--text-mute);
+      margin-top:0.3rem;
     }
-
-    .contact-box {
-      border-radius: var(--radius-md);
-      background: var(--bg-soft);
-      padding: 1.4rem 1.3rem;
-      border: 1px solid #e2e2ea;
-      font-size: 0.9rem;
-      color: var(--text-soft);
+    .contact-box{
+      border-radius:var(--radius-md);
+      background:var(--bg-soft);
+      padding:1.4rem 1.25rem;
+      border:1px solid #e2e2ea;
+      font-size:0.92rem;
+      color:var(--text-soft);
     }
-
-    .contact-box strong {
-      color: var(--accent);
+    .contact-box strong{ color:var(--accent); }
+    .contact-box a{
+      color:var(--accent);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(0,0,0,0.4);
     }
-
-    .contact-box a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px dotted rgba(0, 0, 0, 0.4);
+    .contact-box a:hover{ border-bottom-style:solid; }
+    .contact-box ul{
+      margin-top:0.6rem;
+      padding-left:1.05rem;
+      font-size:0.92rem;
+      line-height:1.7;
     }
-
-    .contact-box a:hover {
-      border-bottom-style: solid;
-    }
-
-    .contact-box ul {
-      margin-top: 0.6rem;
-      padding-left: 1.05rem;
-      font-size: 0.9rem;
-    }
-
-    .contact-box li {
-      margin: 0.2rem 0;
-    }
+    .contact-box li{ margin:0.22rem 0; }
 
     /* FOOTER */
-    footer {
-      margin-top: 3.2rem;
-      padding-top: 2.1rem;
-      border-top: 1px solid #dfdfe6;
+    footer{
+      margin-top:3.2rem;
+      padding-top:2.1rem;
+      border-top:1px solid #dfdfe6;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.5fr) minmax(0,1.1fr) minmax(0,1.1fr);
+      gap:1.7rem;
+      font-size:0.9rem;
+    }
+    @media(max-width:880px){
+      .footer-grid{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+    }
+    @media(max-width:640px){
+      .footer-grid{ grid-template-columns:minmax(0,1fr); }
+    }
+    .footer-col h4{ font-size:0.98rem; margin-bottom:0.7rem; }
+    .footer-col p{ color:var(--text-soft); line-height:1.75; }
+    .footer-col ul{ list-style:none; padding-left:0; margin-top:0.3rem; }
+    .footer-col li{ margin:0.35rem 0; }
+    .footer-col a{
+      color:var(--text-soft);
+      text-decoration:none;
+      transition:color var(--transition);
+    }
+    .footer-col a:hover{ color:var(--accent); }
+    .footer-bottom{
+      margin-top:1.9rem;
+      font-size:0.8rem;
+      color:var(--text-mute);
+      text-align:center;
     }
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 1.7rem;
-      font-size: 0.9rem;
+    /* REVEAL + FADE OUT on scroll */
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
     }
 
-    @media (max-width: 880px) {
-      .footer-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    /* ScrollFX elements controlled by JS via CSS vars */
+    .scrollfx{
+      --p:0;          /* progress in [0..1] */
+      --q:0;          /* secondary (for fade-out) */
+      opacity: calc(0.001 + (var(--p) * (1 - var(--q))));
+      transform:
+        translateY(calc((1 - var(--p)) * 18px))
+        scale(calc(0.985 + var(--p) * 0.015));
+      transition: opacity 0.12s linear, transform 0.12s linear;
+      will-change: opacity, transform;
+    }
+
+    .scene-card.scrollfx{
+      transform:
+        translateY(calc((1 - var(--p)) * 18px))
+        rotateX(calc((1 - var(--p)) * 10deg))
+        rotateY(calc((1 - var(--p)) * -8deg))
+        translateZ(calc(var(--p) * 28px));
+    }
+
+    /* Motion safety */
+    @media (prefers-reduced-motion: reduce){
+      html,body{ scroll-behavior:auto; }
+      .reveal, .scrollfx, .btn, .card, .project-card{
+        transition:none !important;
+        transform:none !important;
+        opacity:1 !important;
       }
+      .scrollbar{ display:none; }
     }
-
-    @media (max-width: 640px) {
-      .footer-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .footer-col h4 {
-      font-size: 0.98rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .footer-col p {
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 0.3rem;
-    }
-
-    .footer-col li {
-      margin: 0.35rem 0;
-    }
-
-    .footer-col a {
-      color: var(--text-soft);
-      text-decoration: none;
-      transition: color var(--transition);
-    }
-
-    .footer-col a:hover {
-      color: var(--accent);
-    }
-
-    .footer-bottom {
-      margin-top: 1.9rem;
-      font-size: 0.8rem;
-      color: var(--text-mute);
-      text-align: center;
-    }
-
-    /* REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
   </style>
 </head>
+
 <body>
   <header>
     <div class="nav-inner">
-      <a href="#top">
+      <a href="#top" aria-label="Vai alla home">
         <img src="logo-amamau.svg" alt="amamau logo" class="logo" />
       </a>
       <nav>
         <a href="#top" aria-current="page">Home</a>
-        <a href="#products">Lineup</a>
-        <a href="#approach">Approach</a>
-        <a href="#contact">Contact</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#tools">Prodotti</a>
+        <a href="#metodo">Metodo</a>
+        <a href="#contatti">Contatti</a>
       </nav>
     </div>
+    <div class="scrollbar" aria-hidden="true"><span id="scrollbarFill"></span></div>
   </header>
 
   <main id="top">
@@ -702,261 +753,332 @@
       <section class="hero-wrap">
         <div class="hero">
           <div class="hero-main">
-            <div class="hero-eyebrow">amamau • small-team digital tools</div>
+            <div class="hero-eyebrow">amamau • servizi + strumenti per business moderni</div>
+
             <h1 class="hero-title">
-              Digital tools that don’t<br>look like <span>side projects</span>.
+              Ti facciamo <strong>trovare subito</strong> —<br>
+              e ti aiutiamo a <span>restare in alto</span>.
             </h1>
+
             <p class="hero-sub">
-              amamau builds sharp, minimal products that take care of the
-              <strong>unsexy layer</strong> — domains, naming, email hygiene and
-              first brand impression — so your company looks serious
-              before you spend on growth.
+              Lavoriamo con <strong>aziende</strong>, <strong>liberi professionisti</strong> e <strong>startup</strong>
+              che vogliono una presenza online credibile <strong>dal giorno 1</strong>:
+              domini e naming fatti bene, SEO sensata, email “pulita”, e un layer AI utile (non giocattolo).
+              Dopo l’iscrizione ai piani, l’obiettivo è uno: <strong>mantenere il posizionamento</strong> con continuità.
             </p>
-            <div class="hero-meta-row">
-              <span>Domain &amp; name research</span>
-              <span>AI-assisted wordlists</span>
-              <span>amamau Insight AI</span>
-              <span>Inbox &amp; infra hygiene</span>
+
+            <div class="hero-meta-row" role="list" aria-label="Punti chiave">
+              <span class="chip"><span class="dot"></span>SEO & posizionamento</span>
+              <span class="chip"><span class="dot"></span>Domini & naming</span>
+              <span class="chip"><span class="dot"></span>Email hygiene & deliverability</span>
+              <span class="chip"><span class="dot"></span>AI workspace per team</span>
             </div>
+
             <div class="hero-actions">
-              <a href="#products" class="btn btn-primary">
-                View the lineup
-              </a>
-              <a href="mailto:hello@amamau.com?subject=Project%20enquiry"
-                 class="btn btn-ghost">
-                Discuss a project
-              </a>
+              <a href="#contatti" class="btn btn-primary">Parliamone</a>
+              <a href="#tools" class="btn btn-ghost">Vedi cosa stiamo costruendo</a>
             </div>
           </div>
 
-          <aside class="hero-side">
-            <div class="hero-side-label">In short</div>
-            <div class="hero-side-title">
-              Few products, clear limits, serious details.
-            </div>
+          <aside class="hero-side scrollfx" data-scrollfx>
+            <div class="hero-side-label">In breve</div>
+            <div class="hero-side-title">Meno fuffa. Più risultati misurabili.</div>
             <p>
-              We focus on the parts that make you look precise: good names,
-              clean domains, a tidy inbox and a private AI layer that stays
-              on brief.
+              Portiamo ordine dove di solito si perde tempo: scelta dominio, struttura,
+              “prima impressione”, SEO, deliverability email e tool AI che supportano il lavoro.
             </p>
             <ul>
-              <li>Europe-first mindset, pricing and documentation.</li>
-              <li>Outputs you can paste into decks, docs and investor emails.</li>
-              <li>Roadmap guided by real projects, not feature slides.</li>
+              <li><strong>Scansioni</strong> e shortlist presentabili (non dump di dati).</li>
+              <li><strong>Roadmap</strong> guidata da progetti reali, non feature a caso.</li>
+              <li><strong>Continuità</strong>: non “setup e spariamo”, ma mantenimento.</li>
             </ul>
           </aside>
         </div>
       </section>
 
-      <!-- PRODUCTS / LINEUP -->
-      <section id="products" class="section reveal">
+      <!-- WOW SCENE 01 -->
+      <section class="scene reveal" aria-label="Come funziona: da zero a presenza online">
+        <div class="scene-inner">
+          <div>
+            <div class="tagline">Da zero a “trovabile”</div>
+            <h2 class="scene-title">Una presenza che regge: non solo bella, ma posizionata.</h2>
+            <p class="scene-text">
+              Molti “vanno online” e basta. Noi puntiamo a <strong>farti trovare</strong> e a <strong>restare competitivo</strong>
+              anche dopo l’iscrizione ai piani: analisi, struttura, contenuti, SEO e igiene tecnica.
+            </p>
+          </div>
+
+          <div class="scene-card scrollfx" data-scrollfx>
+            <h4>Sequenza tipica</h4>
+            <ul class="scene-list">
+              <li>Audit rapido: obiettivi, mercato, query reali.</li>
+              <li>Domini & naming: shortlist + razionale.</li>
+              <li>SEO base solida: struttura, performance, contenuti.</li>
+              <li>Mantenimento: aggiornamenti, miglioramenti, tracking.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="servizi" class="section reveal">
         <div class="section-header">
-          <div class="tagline">Current lineup</div>
-          <h2 class="section-title">Tools we actually use with clients.</h2>
+          <div class="tagline">Servizi</div>
+          <h2 class="section-title">Per aziende, freelance, startup e piccoli team.</h2>
           <p class="section-sub">
-            Domain research, AI wordlists, our own AI surface and the analyzer
-            that turns raw scans into shortlists you can present.
+            Interveniamo dove si crea davvero valore: visibilità, credibilità e continuità.
+            Se serve, uniamo consulenza + tool proprietari per accelerare.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>SEO & posizionamento</h3>
+            <p>
+              Struttura, contenuti e segnali tecnici per <strong>salire</strong> e poi <strong>restare</strong>.
+              Non “trucchetti”: lavoro sostenibile, con priorità chiare.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Domini & naming</h3>
+            <p>
+              Scelta dominio e nome con vincoli veri: brandabilità, lunghezza,
+              pattern, disponibilità multi-TLD. Output: <strong>shortlist presentabile</strong>.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Email hygiene & reputazione</h3>
+            <p>
+              Setup serio: deliverability, pulizia, struttura inbox, best practice.
+              Perché se finisci in spam, il resto crolla.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>AI per lavoro (non per show)</h3>
+            <p>
+              Workflow e prompt “on-brief”: ricerca, sintesi, checklist operative,
+              supporto decisionale. Con <strong>spazio personale</strong> e <strong>workspace</strong> per team.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Landing & prime impressioni</h3>
+            <p>
+              Hero, copy, struttura, CTA e micro-interazioni: una pagina che sembra
+              “grande azienda”, anche se siete in 2.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Mantenimento (post-piano)</h3>
+            <p>
+              Aggiornamenti e ottimizzazioni continue: contenuti, performance,
+              piccoli fix, tracking. <strong>Restare in alto</strong> è il lavoro vero.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- TOOLS / LINEUP -->
+      <section id="tools" class="section reveal">
+        <div class="section-header">
+          <div class="tagline">In sviluppo</div>
+          <h2 class="section-title">Strumenti che stiamo costruendo (e usando).</h2>
+          <p class="section-sub">
+            Non “idee”: sono progetti reali in corso. Domain Scout + Analyzer, Wordlist Generator
+            integrato nel flusso, e il nostro AI chatbot con spazio personale e workspace.
           </p>
         </div>
 
         <div class="projects-grid">
-          <!-- Domain Scout -->
           <article class="project-card">
             <div class="project-pill-row">
-              <span class="project-pill">Phase • Private beta</span>
-              <span class="project-label">01 — Domain research</span>
+              <span class="project-pill">Fase • Private beta</span>
+              <span class="project-label">01 — Ricerca domini</span>
             </div>
             <div class="project-name">Domain Scout</div>
             <div class="project-sub">
-              Advanced domain discovery for .com, .it and .ch when
-              “just available” is not enough.
+              Scoperta avanzata domini per .com, .it e .ch quando “è libero?” non basta.
             </div>
             <ul>
-              <li>Multi-TLD engine with DNS + registry-level checks.</li>
-              <li>Scoring (0–100) based on length, pattern and brandability.</li>
-              <li>Resume-safe runs with TXT/CSV exports and a clean report.</li>
+              <li>Engine multi-TLD con controlli DNS e verifiche robuste.</li>
+              <li>Scoring 0–100 (lunghezza, pattern, brandabilità).</li>
+              <li>Export TXT/CSV + report pulito.</li>
             </ul>
             <div class="project-footer">
-              <span>For naming sprints with real constraints.</span>
-              <a class="project-link"
-                 href="mailto:hello@amamau.com?subject=Domain%20Scout%20beta">
-                Request a beta run
-              </a>
+              <span>Perfetto per sprint di naming con vincoli veri.</span>
+              <a class="project-link" href="mailto:hello@amamau.com?subject=Domain%20Scout%20beta">Richiedi una run</a>
             </div>
           </article>
 
-          <!-- AI Wordlist Generator -->
           <article class="project-card">
             <div class="project-pill-row">
-              <span class="project-pill">Phase • Internal alpha</span>
-              <span class="project-label">02 — AI wordlists</span>
+              <span class="project-pill">Fase • Alpha interna</span>
+              <span class="project-label">02 — Wordlist AI</span>
             </div>
-            <div class="project-name">AI Wordlist Generator</div>
+            <div class="project-name">Wordlist Generator</div>
             <div class="project-sub">
-              Long, curated wordlists created from a handful of seed keywords,
-              built to plug into Domain Scout and other tools.
+              Wordlist lunghe e curate da seed keyword, pronte da usare dentro Domain Scout.
             </div>
             <ul>
-              <li>Expansion tuned for brand naming and domain search.</li>
-              <li>Noise filters for length, structure and unwanted patterns.</li>
-              <li>Exports you can reuse across projects and scripts.</li>
+              <li>Espansione ottimizzata per naming e domini.</li>
+              <li>Filtri anti-rumore (struttura, pattern indesiderati, lunghezze).</li>
+              <li>Export riutilizzabili su più progetti.</li>
             </ul>
             <div class="project-footer">
-              <span>For studios that run frequent naming rounds.</span>
-              <a class="project-link"
-                 href="mailto:hello@amamau.com?subject=AI%20Wordlist%20Generator">
-                Join the early access list
-              </a>
+              <span>Per agenzie e team che fanno naming spesso.</span>
+              <a class="project-link" href="mailto:hello@amamau.com?subject=Wordlist%20Generator%20early%20access">Early access</a>
             </div>
           </article>
 
-          <!-- amamau Insight AI -->
           <article class="project-card">
             <div class="project-pill-row">
-              <span class="project-pill">Phase • Design &amp; prototyping</span>
-              <span class="project-label">03 — amamau AI</span>
+              <span class="project-pill">Fase • Design & prototyping</span>
+              <span class="project-label">03 — AI</span>
             </div>
-            <div class="project-name">amamau Insight AI</div>
+            <div class="project-name">amamau AI Chatbot</div>
             <div class="project-sub">
-              Our own AI surface, focused on strategy, research and naming —
-              built for work, not for distraction.
+              Superficie AI per strategia, ricerca e operatività, con <strong>spazio personale</strong> e <strong>workspace</strong>.
             </div>
             <ul>
-              <li>Pre-tuned workflows for domain checks, brand ideas and quick scans.</li>
-              <li>Opinionated prompts that keep outputs tight and on-brief.</li>
-              <li>Private, branded access for internal and selected client use.</li>
+              <li>Workflow per naming, audit rapidi, check tecnici.</li>
+              <li>Output stretti: meno “testo”, più decisioni.</li>
+              <li>Accesso privato e brandizzato per team e clienti selezionati.</li>
             </ul>
             <div class="project-footer">
-              <span>First built for us, then opened to others.</span>
-              <a class="project-link"
-                 href="mailto:hello@amamau.com?subject=amamau%20Insight%20AI">
-                Talk about your use case
-              </a>
+              <span>Costruito per lavorare, non per distrarre.</span>
+              <a class="project-link" href="mailto:hello@amamau.com?subject=amamau%20AI%20workspace">Parlaci del caso d’uso</a>
             </div>
           </article>
 
-          <!-- Domain Scout Analyzer -->
           <article class="project-card">
             <div class="project-pill-row">
-              <span class="project-pill">Phase • Internal tool</span>
+              <span class="project-pill">Fase • Internal tool</span>
               <span class="project-label">04 — Reporting</span>
             </div>
             <div class="project-name">Domain Scout Analyzer</div>
             <div class="project-sub">
-              Companion module that reads Domain Scout exports and turns them
-              into small, client-ready shortlists.
+              Legge gli export di Domain Scout e li trasforma in shortlist “da cliente”.
             </div>
             <ul>
-              <li>Groups by score, pattern and word family.</li>
-              <li>Filters down to “presentation-ready” candidates only.</li>
-              <li>TXT/Markdown outputs ready for decks and handoff.</li>
+              <li>Raggruppa per score, pattern e famiglie di parole.</li>
+              <li>Filtra solo candidati “presentabili”.</li>
+              <li>Output TXT/Markdown pronti per deck e handoff.</li>
             </ul>
             <div class="project-footer">
-              <span>Reduces the gap between scan and final list.</span>
-              <a class="project-link"
-                 href="mailto:hello@amamau.com?subject=Domain%20Scout%20Analyzer">
-                Ask about the analyzer
-              </a>
+              <span>Taglia il tempo tra scan e decisione.</span>
+              <a class="project-link" href="mailto:hello@amamau.com?subject=Domain%20Scout%20Analyzer">Info Analyzer</a>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- APPROACH -->
-      <section id="approach" class="section reveal">
+      <!-- WOW SCENE 02 -->
+      <section class="scene reveal" aria-label="Mantenimento e continuità">
+        <div class="scene-inner">
+          <div>
+            <div class="tagline">Dopo il piano</div>
+            <h2 class="scene-title">Il posizionamento non si “ottiene”. Si mantiene.</h2>
+            <p class="scene-text">
+              Il nostro lavoro non finisce quando sei online: continuiamo con interventi mirati
+              per mantenere performance, contenuti e segnali SEO in ordine.
+              <strong>Restare tra i primi</strong> richiede ritmo, non magia.
+            </p>
+          </div>
+
+          <div class="scene-card scrollfx" data-scrollfx>
+            <h4>Continuity loop</h4>
+            <ul class="scene-list">
+              <li>Piccoli fix continui (tecnici + contenuti).</li>
+              <li>Ottimizzazioni su query reali.</li>
+              <li>Controllo deliverability email.</li>
+              <li>Report breve: cosa è cambiato e perché.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- METHOD -->
+      <section id="metodo" class="section reveal">
         <div class="section-header">
-          <div class="tagline">How we work</div>
-          <h2 class="section-title">Simple stack, tight scope, honest limits.</h2>
+          <div class="tagline">Metodo</div>
+          <h2 class="section-title">Scope chiaro, consegne pulite, aspettative oneste.</h2>
           <p class="section-sub">
-            amamau is intentionally small. We prefer a few tools that feel
-            serious over a catalogue nobody actually uses.
+            Pochi deliverable, fatti bene. Ogni passo produce output concreti e riutilizzabili.
           </p>
         </div>
 
         <div class="approach-cols">
           <div>
             <p>
-              Every product starts from a real scene: a founder stuck on names,
-              an agency that needs a shortlist, a small team trying to stop inbox
-              chaos. We design for these moments — not for screenshots.
+              Partiamo sempre da una scena reale: un founder bloccato sul naming,
+              un professionista che deve farsi trovare, un team che vuole sembrare “serio”
+              prima di spendere in ads.
             </p>
             <p>
-              The output is always something concrete: a list of domains, a set
-              of names, a structure for your inbox, a summary you can paste into
-              a deck or send to an investor.
+              Il risultato è pratico: shortlist, checklist, struttura, raccomandazioni
+              con priorità — roba che puoi incollare in un deck o mandare a un socio.
             </p>
           </div>
           <div>
             <div class="approach-item">
-              <h4>01 — Clarity before features</h4>
-              <p>
-                Each tool has a clear job and a list of things it will never do.
-                That keeps performance, expectations and pricing under control.
-              </p>
+              <h4>01 — Priorità prima dei dettagli</h4>
+              <p>Prima sistemiamo ciò che muove l’ago, poi rifiniamo. Zero dispersione.</p>
             </div>
             <div class="approach-item">
-              <h4>02 — Explicit constraints</h4>
-              <p>
-                We prefer clear limits — how many domains, which TLDs, which
-                exports — instead of hiding them in fine print or vague claims.
-              </p>
+              <h4>02 — Vincoli espliciti</h4>
+              <p>Budget, tempi, TLD, target: tutto dichiarato. Le scorciatoie costano dopo.</p>
             </div>
             <div class="approach-item">
-              <h4>03 — Europe-first, usable anywhere</h4>
-              <p>
-                Pricing in EUR, privacy in mind and documentation that assumes
-                a small team. The results, though, work wherever your market is.
-              </p>
+              <h4>03 — Continuità</h4>
+              <p>Non “setup e via”: se ha senso, restiamo in loop per mantenimento e crescita.</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- CONTACT -->
-      <section id="contact" class="section reveal">
+      <section id="contatti" class="section reveal">
         <div class="section-header">
-          <div class="tagline">Contact</div>
-          <h2 class="section-title">Ready to scan, name or tidy things up?</h2>
+          <div class="tagline">Contatti</div>
+          <h2 class="section-title">Se vuoi fare le cose sul serio, iniziamo da qui.</h2>
           <p class="section-sub">
-            A short email is enough to start — just context, constraints and what
-            you expect from us.
+            Bastano poche righe: contesto, obiettivi, vincoli. Ti rispondiamo con proposta chiara.
           </p>
         </div>
 
         <div class="contact-grid">
           <div>
             <p>
-              If you’re exploring a new brand, rethinking your domain, building
-              an AI layer or cleaning up your email structure, send us a brief.
+              Che tu sia un’azienda, un freelance o una startup: se vuoi una presenza che converte e
+              che si posiziona, scrivici.
             </p>
             <p>
-              Bullet points are perfect. We’ll reply with what we can actually
-              do, a rough timeline and an estimate in EUR — no pressure and no
-              forced upsell.
+              Ti diciamo cosa possiamo fare, cosa no, e come arriviamo a risultati reali
+              (con un piano che continua anche dopo l’onboarding).
             </p>
             <p class="contact-note">
-              We prefer one sharp project at a time. If it works, we stay in the
-              loop for the next ones.
+              Preferiamo progetti “sharp”: poche cose, fatte al massimo.
             </p>
-            <div style="margin-top: 1.4rem;">
-              <a href="mailto:hello@amamau.com?subject=Project%20enquiry"
-                 class="btn btn-primary">
-                Email hello@amamau.com
-              </a>
+            <div style="margin-top:1.4rem;">
+              <a href="mailto:hello@amamau.com?subject=Richiesta%20progetto%20amamau"
+                 class="btn btn-primary">Scrivi a hello@amamau.com</a>
             </div>
           </div>
 
           <div class="contact-box">
-            <strong>Useful details for your first email:</strong>
+            <strong>Per partire veloce, includi:</strong>
             <ul>
-              <li>1–2 sentences about your product or service.</li>
-              <li>Your current domain(s) and main email setup.</li>
-              <li>Which tool(s) you’re interested in (scan, wordlists, AI, analyzer).</li>
-              <li>Timing window and a rough budget range.</li>
+              <li>1–2 frasi su prodotto/servizio e target.</li>
+              <li>Sito e dominio attuale (se esiste).</li>
+              <li>Obiettivo: SEO, naming, domini, email, AI workspace.</li>
+              <li>Tempistiche e range di budget.</li>
             </ul>
-            <p style="margin-top: 0.8rem;">
-              Prefer forms? For now we keep it simple:
-              write us at <a href="mailto:hello@amamau.com">hello@amamau.com</a>.
+            <p style="margin-top:0.8rem;">
+              Per ora niente form: scrivi a <a href="mailto:hello@amamau.com">hello@amamau.com</a>.
             </p>
           </div>
         </div>
@@ -968,38 +1090,40 @@
           <div class="footer-col">
             <h4>amamau</h4>
             <p>
-              Digital tools for small teams that care about details. We focus on
-              domains, naming, AI-assisted research and the infrastructure that
-              makes you look serious from day one.
+              Servizi e strumenti digitali per team che curano i dettagli:
+              SEO, domini, naming, AI per lavoro e infrastruttura che ti fa sembrare serio dal giorno 1.
             </p>
           </div>
           <div class="footer-col">
-            <h4>Tools &amp; focus</h4>
+            <h4>Focus</h4>
             <ul>
-              <li>Domain Scout — domain &amp; name research.</li>
-              <li>AI Wordlist Generator — long, curated wordlists.</li>
-              <li>amamau Insight AI — strategy &amp; research layer.</li>
-              <li>Domain Scout Analyzer — shortlists &amp; reporting.</li>
+              <li>SEO & mantenimento posizionamento</li>
+              <li>Domini & naming (Domain Scout)</li>
+              <li>Wordlist Generator (integrato)</li>
+              <li>AI Chatbot + spazio personale + workspace</li>
+              <li>Analyzer per shortlist “client-ready”</li>
             </ul>
           </div>
           <div class="footer-col">
-            <h4>Work with us</h4>
+            <h4>Lavora con noi</h4>
             <ul>
-              <li><a href="mailto:hello@amamau.com">hello@amamau.com</a> — client work</li>
-              <li><a href="#products">Lineup</a> • <a href="#approach">Approach</a></li>
-              <li><a href="#contact">Project enquiries</a></li>
-              <li><a href="#privacy">Privacy &amp; cookies (coming soon)</a></li>
+              <li><a href="mailto:hello@amamau.com">hello@amamau.com</a></li>
+              <li><a href="#servizi">Servizi</a> • <a href="#tools">Prodotti</a></li>
+              <li><a href="#metodo">Metodo</a> • <a href="#contatti">Contatti</a></li>
+              <li><a href="#privacy">Privacy & cookie (coming soon)</a></li>
             </ul>
           </div>
         </div>
+
         <div class="footer-bottom">
-          © 2025-2026 amamau — All rights reserved.
+          © 2025–2026 amamau — All rights reserved.
         </div>
       </footer>
     </div>
   </main>
 
   <script>
+    // --- Reveal (IntersectionObserver) ---
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -1007,6 +1131,61 @@
       });
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
+
+    // --- Scroll progress bar ---
+    const bar = document.getElementById('scrollbarFill');
+    function updateBar(){
+      const doc = document.documentElement;
+      const max = (doc.scrollHeight - doc.clientHeight) || 1;
+      const pct = (doc.scrollTop / max) * 100;
+      bar.style.width = pct.toFixed(2) + '%';
+    }
+
+    // --- WOW ScrollFX: fade-in + fade-out + 3D tilt based on viewport position ---
+    const fxEls = Array.from(document.querySelectorAll('[data-scrollfx]'));
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const clamp = (n,min,max) => Math.max(min, Math.min(max, n));
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+    let ticking = false;
+    function onScroll(){
+      if (prefersReduced) return;
+      if (!ticking){
+        window.requestAnimationFrame(() => {
+          updateBar();
+          const vh = window.innerHeight || 1;
+
+          fxEls.forEach(el => {
+            const r = el.getBoundingClientRect();
+
+            // progress: element enters -> centered -> leaves
+            const enterStart = vh * 0.90;
+            const enterEnd   = vh * 0.25;
+            const rawP = (enterStart - r.top) / (enterStart - enterEnd);
+            const p = easeOutCubic(clamp(rawP, 0, 1));
+
+            // fade-out when leaving bottom area
+            const leaveStart = vh * 0.55;
+            const leaveEnd   = -vh * 0.15;
+            const rawQ = (leaveStart - r.top) / (leaveStart - leaveEnd);
+            const q = clamp(rawQ, 0, 1) * 0.65; // keep it subtle
+
+            el.style.setProperty('--p', p.toFixed(4));
+            el.style.setProperty('--q', q.toFixed(4));
+          });
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    // initial
+    updateBar();
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
   </script>
 </body>
 </html>
