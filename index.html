@@ -2,266 +2,246 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>amamau — servizi e strumenti digitali, fatti come si deve</title>
-  <meta name="description" content="amamau lavora con aziende, freelance e startup: SEO, domini e naming, email hygiene e AI workspace. Domain Scout, Analyzer, Wordlist Generator con motore AI, AI chatbot con workspace." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>amamau — farsi trovare, restare in alto</title>
+  <meta name="description" content="amamau: servizi per aziende, freelance e startup. SEO, domini/naming, email hygiene e AI workspace. Domain Scout, Analyzer, Wordlist Generator con motore AI, AI chatbot con workspace." />
 
   <link rel="icon" href="mark-amamau-white.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --content: 1120px;
+      --fg:#f4f6ff;
+      --muted:rgba(244,246,255,.72);
+      --muted2:rgba(244,246,255,.52);
 
-      --bg: #0b0b10;
-      --fg: #f3f4f8;
-      --muted: rgba(243,244,248,.72);
-      --muted2: rgba(243,244,248,.52);
+      --glass:rgba(255,255,255,.06);
+      --glass2:rgba(255,255,255,.10);
+      --stroke:rgba(255,255,255,.12);
+      --stroke2:rgba(255,255,255,.18);
 
-      --glass: rgba(255,255,255,.06);
-      --glass2: rgba(255,255,255,.09);
-      --stroke: rgba(255,255,255,.12);
-      --stroke2: rgba(255,255,255,.18);
+      --r-xl:34px;
+      --r-lg:26px;
+      --r-md:18px;
+      --pill:999px;
 
-      --shadow: 0 30px 120px rgba(0,0,0,.55);
-      --shadow2: 0 22px 80px rgba(0,0,0,.35);
+      --shadow: 0 34px 140px rgba(0,0,0,.60);
+      --shadow2: 0 22px 90px rgba(0,0,0,.38);
 
-      --r-xl: 34px;
-      --r-lg: 26px;
-      --r-md: 18px;
-      --pill: 999px;
+      --ease:cubic-bezier(.18,.92,.18,1);
 
-      --ease: cubic-bezier(.2,.9,.2,1);
-      --t: 0;                 /* progress globale scene */
-      --scene: 0;             /* indice scena */
-      --sceneP: 0;            /* progress locale scena */
-      --accentA: 255, 60, 120;/* cambiano via JS */
-      --accentB: 120, 120, 255;
+      /* palette per scene (JS aggiorna) */
+      --a: 255, 72, 140;
+      --b: 120, 130, 255;
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
     html,body{
+      height:100%;
       font-family:'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      scroll-behavior:smooth;
+      background:#07070c;
+      color:var(--fg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    /* ============ BACKGROUND “CINEMATIC” ============ */
+    /* BODY non scrolla: scroll container = main (no bug sticky iOS) */
+    body{ overflow:hidden; }
+
+    /* ===== background cinematic full screen ===== */
     .bg{
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      overflow:hidden;
+      position:fixed; inset:0; z-index:-2; overflow:hidden;
       background:
-        radial-gradient(1200px 800px at 20% 10%, rgba(var(--accentA), .25), transparent 60%),
-        radial-gradient(900px 700px at 80% 30%, rgba(var(--accentB), .20), transparent 62%),
-        radial-gradient(1200px 900px at 50% 120%, rgba(255,255,255,.06), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.03), transparent 35%, rgba(0,0,0,.35));
+        radial-gradient(1200px 900px at 18% 12%, rgba(var(--a), .28), transparent 60%),
+        radial-gradient(900px 700px at 82% 34%, rgba(var(--b), .22), transparent 62%),
+        radial-gradient(1200px 900px at 50% 120%, rgba(255,255,255,.06), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.03), transparent 35%, rgba(0,0,0,.45));
       transition: filter .45s var(--ease);
     }
-
-    /* Orb + liquid feel (pure CSS) */
     .orb{
       position:absolute;
-      width: min(62vw, 680px);
-      aspect-ratio: 1/1;
-      left: 50%;
-      top: 54%;
-      transform: translate(-50%,-50%);
-      border-radius: 999px;
+      width:min(68vw, 760px);
+      aspect-ratio:1/1;
+      left:50%; top:56%;
+      transform:translate(-50%,-50%);
+      border-radius:999px;
       background:
         radial-gradient(closest-side at 30% 30%, rgba(255,255,255,.20), transparent 60%),
         radial-gradient(closest-side at 70% 70%, rgba(255,255,255,.10), transparent 62%),
-        radial-gradient(closest-side, rgba(var(--accentA), .35), rgba(var(--accentB), .18), transparent 70%);
-      filter: blur(2px) saturate(1.08);
-      opacity: .95;
-      mix-blend-mode: screen;
-      animation: orbFloat 10s var(--ease) infinite alternate;
+        radial-gradient(closest-side, rgba(var(--a), .40), rgba(var(--b), .20), transparent 72%);
+      mix-blend-mode:screen;
+      filter: blur(2px) saturate(1.05);
+      opacity:.95;
+      animation: float 10s var(--ease) infinite alternate;
     }
-    @keyframes orbFloat{
-      from{ transform: translate(-50%,-52%) scale(1) rotate(-2deg); }
-      to  { transform: translate(-50%,-48%) scale(1.04) rotate(2deg); }
+    @keyframes float{
+      from{ transform:translate(-50%,-52%) scale(1) rotate(-2deg); }
+      to  { transform:translate(-50%,-48%) scale(1.05) rotate(2deg); }
     }
-
-    /* subtle noise */
     .noise{
-      position: fixed;
-      inset: 0;
-      z-index:-1;
-      pointer-events:none;
-      opacity:.08;
+      position:fixed; inset:0; z-index:-1; pointer-events:none;
+      opacity:.08; mix-blend-mode:overlay;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-      mix-blend-mode: overlay;
     }
 
-    /* ============ NAV ============ */
+    /* ===== header overlay ===== */
     header{
-      position: sticky;
-      top:0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(10,10,14,.55);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:50;
+      padding-top: env(safe-area-inset-top);
+      background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.18), transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
     .nav{
-      max-width: var(--content);
-      margin: 0 auto;
-      padding: .85rem 1.2rem;
+      max-width:1180px;
+      margin:0 auto;
+      padding:.9rem 1.2rem;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 1rem;
+      gap:1rem;
     }
-    .logo{ height: 28px; display:block; user-select:none; opacity:.95; }
-    nav{
-      display:flex; gap: 1.05rem; flex-wrap: wrap; justify-content:flex-end; align-items:center;
-      font-size:.86rem;
-    }
+    .logo{ height:28px; opacity:.92; display:block; }
+    nav{ display:flex; gap:1rem; flex-wrap:wrap; justify-content:flex-end; }
     nav a{
-      color: var(--muted);
+      color:var(--muted);
       text-decoration:none;
-      position:relative;
+      font-size:.9rem;
       padding-bottom:.18rem;
-      transition: color .2s var(--ease);
+      position:relative;
+      transition:color .18s var(--ease);
     }
     nav a::after{
       content:"";
       position:absolute; left:0; bottom:0;
       width:0; height:2px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.86);
-      transition: width .22s var(--ease), opacity .22s var(--ease);
-      opacity:.75;
+      border-radius:999px;
+      background:rgba(255,255,255,.85);
+      transition:width .22s var(--ease);
+      opacity:.9;
     }
-    nav a[aria-current="page"]{ color: rgba(255,255,255,.92); }
-    nav a[aria-current="page"]::after{ width:100%; opacity:1; }
-    nav a:hover{ color: rgba(255,255,255,.92); }
+    nav a[aria-current="page"]{ color:rgba(255,255,255,.95); }
+    nav a[aria-current="page"]::after{ width:100%; }
+    nav a:hover{ color:rgba(255,255,255,.95); }
 
-    .shell{ max-width: var(--content); margin:0 auto; padding: 0 1.2rem 4rem; }
-
-    /* ============ “FRAME” (la finestra protagonista) ============ */
-    .stage{
-      height: 420vh; /* scrolly storytelling */
-      position: relative;
-    }
-    .sticky{
-      position: sticky;
-      top: 86px;
-      height: calc(100vh - 110px);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 1.2rem 0 1.6rem;
+    /* ===== scroll container full screen ===== */
+    main{
+      height: 100svh; /* iOS safe */
+      overflow-y:auto;
+      scroll-snap-type: y mandatory;
+      scroll-behavior:smooth;
+      padding-top: calc(76px + env(safe-area-inset-top));
     }
 
+    /* ===== scene ===== */
+    .scene{
+      height: 100svh;
+      scroll-snap-align: start;
+      display:grid;
+      place-items:center;
+      padding: 1.2rem;
+    }
+
+    /* ===== central frame ===== */
     .frame{
-      width: min(1080px, 100%);
-      height: min(640px, 76vh);
+      width: min(1120px, 100%);
+      height: min(720px, calc(100svh - 160px));
       border-radius: var(--r-xl);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
       box-shadow: var(--shadow);
-      overflow:hidden;
       position:relative;
-      transform-style: preserve-3d;
+      overflow:hidden;
+      transform-style:preserve-3d;
+      will-change: transform, opacity, filter;
     }
+
+    /* glow border + reflection */
     .frame::before{
       content:"";
-      position:absolute;
-      inset:-40%;
+      position:absolute; inset:-40%;
       background:
-        radial-gradient(1000px 600px at 20% 10%, rgba(var(--accentA), .22), transparent 62%),
-        radial-gradient(900px 700px at 80% 35%, rgba(var(--accentB), .18), transparent 64%);
+        radial-gradient(900px 560px at 18% 12%, rgba(var(--a), .26), transparent 62%),
+        radial-gradient(820px 620px at 82% 38%, rgba(var(--b), .20), transparent 64%);
       filter: blur(10px);
-      opacity: .75;
+      opacity:.85;
       pointer-events:none;
     }
+    .frame::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,.10) 18%, transparent 36%),
+        radial-gradient(900px 420px at 40% 0%, rgba(255,255,255,.10), transparent 62%);
+      opacity:.35;
+      pointer-events:none;
+      transform: translateY(-8%) rotate(-6deg);
+    }
 
-    /* top bar inside frame */
-    .frameTop{
-      position:relative;
-      z-index:2;
+    /* top chrome inside frame */
+    .chrome{
+      position:relative; z-index:2;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: .9rem;
-      padding: .85rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,.10);
+      gap:1rem;
+      padding:.85rem 1rem;
+      border-bottom:1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.18);
       backdrop-filter: blur(14px);
     }
     .tabs{
-      display:flex; gap:.5rem; flex-wrap:wrap; align-items:center;
-      font-size: .82rem;
-      color: var(--muted);
+      display:flex; gap:.55rem; flex-wrap:wrap;
+      font-size:.82rem;
     }
     .tab{
       padding:.42rem .75rem;
       border-radius: var(--pill);
-      border:1px solid rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+      color: var(--muted);
       user-select:none;
+      transition: background .18s var(--ease), border-color .18s var(--ease), transform .18s var(--ease);
     }
     .tab.active{
-      background: rgba(255,255,255,.12);
-      border-color: rgba(255,255,255,.18);
-      color: rgba(255,255,255,.90);
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.20);
+      color: rgba(255,255,255,.92);
     }
-    .ctaMini{
-      display:inline-flex;
-      align-items:center;
-      gap:.55rem;
+
+    .miniCta{
+      text-decoration:none;
+      color: rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
       padding:.42rem .75rem;
       border-radius: var(--pill);
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.08);
-      color: rgba(255,255,255,.88);
-      text-decoration:none;
       font-size:.82rem;
     }
 
-    /* pages inside frame */
-    .pages{
+    /* content area */
+    .content{
       position:absolute;
       inset: 54px 0 0 0;
-      z-index: 3;
-      padding: 1.4rem 1.5rem 1.5rem;
+      z-index:3;
+      padding: 1.5rem 1.6rem;
       display:grid;
-      place-items: center;
+      align-items:center;
     }
 
-    .page{
-      position:absolute;
-      width: calc(100% - 3rem);
-      max-width: 980px;
-      opacity: 0;
-      transform:
-        translateY(18px)
-        rotateX(9deg)
-        rotateY(-8deg)
-        translateZ(-20px)
-        scale(.985);
-      transition: opacity .25s var(--ease);
-      will-change: transform, opacity;
-      pointer-events:none;
-    }
-    .page.active{ opacity: 1; pointer-events:auto; }
-
-    .grid2{
+    .grid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap: 1.2rem;
       align-items:center;
     }
-    @media (max-width: 900px){
-      .frame{ height: min(700px, 78vh); }
-      .grid2{ grid-template-columns: 1fr; }
-      .page{ width: calc(100% - 2.2rem); }
-      .pages{ padding: 1.15rem 1.1rem 1.1rem; }
+    @media (max-width: 920px){
+      .frame{ height: min(760px, calc(100svh - 150px)); }
+      .grid{ grid-template-columns: 1fr; }
+      .content{ padding: 1.15rem 1.1rem; }
     }
 
     .eyebrow{
@@ -269,79 +249,64 @@
       letter-spacing:.22em;
       text-transform:uppercase;
       color: var(--muted2);
-      margin-bottom:.6rem;
+      margin-bottom:.65rem;
     }
-    h1,h2,h3{ letter-spacing: -0.02em; }
-    .heroH{
-      font-size: clamp(2rem, 2.4vw + 1.2rem, 3.2rem);
-      line-height: 1.05;
-      margin-bottom: .7rem;
+    .h{
+      font-size: clamp(2.1rem, 2.7vw + 1rem, 3.35rem);
+      line-height:1.05;
+      letter-spacing:-0.03em;
+      margin-bottom:.75rem;
     }
-    .heroH span{ color: rgba(255,255,255,.70); }
-    .lead{
+    .h span{ color: rgba(255,255,255,.70); }
+    .p{
       color: var(--muted);
       font-size: 1.02rem;
-      line-height: 1.85;
-      max-width: 56ch;
+      line-height: 1.9;
+      max-width: 60ch;
     }
-    .lead strong{ color: rgba(255,255,255,.92); font-weight:600; }
+    .p strong{ color: rgba(255,255,255,.92); font-weight:600; }
 
-    .chips{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.55rem;
-      margin-top: 1.0rem;
-      color: var(--muted2);
-      font-size: .84rem;
-    }
+    .chips{ display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1.0rem; }
     .chip{
       display:inline-flex; align-items:center; gap:.5rem;
       padding:.42rem .75rem;
       border-radius: var(--pill);
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      box-shadow: 0 12px 34px rgba(0,0,0,.20);
+      color: var(--muted2);
+      box-shadow: 0 14px 44px rgba(0,0,0,.25);
+      font-size:.84rem;
     }
-    .dot{
-      width:6px;height:6px;border-radius:999px;
-      background: rgba(255,255,255,.65);
-    }
+    .dot{ width:6px; height:6px; border-radius:999px; background: rgba(255,255,255,.65); }
 
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.7rem;
-      margin-top: 1.15rem;
-    }
+    .actions{ display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.1rem; }
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: .9rem 1.15rem;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.92rem 1.15rem;
       border-radius: var(--pill);
       text-decoration:none;
-      font-size: .84rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
+      font-size:.84rem;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
       transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
       user-select:none;
-      will-change: transform;
+      will-change:transform;
     }
     .btn.primary{
       background: rgba(255,255,255,.92);
       color: rgba(0,0,0,.92);
-      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      box-shadow: 0 18px 70px rgba(0,0,0,.38);
     }
-    .btn.primary:hover{ transform: translateY(-2px); box-shadow: 0 28px 90px rgba(0,0,0,.45); }
+    .btn.primary:hover{ transform: translateY(-2px); box-shadow: 0 28px 100px rgba(0,0,0,.48); }
     .btn.ghost{
       border:1px solid rgba(255,255,255,.18);
       background: rgba(255,255,255,.08);
-      color: rgba(255,255,255,.90);
+      color: rgba(255,255,255,.92);
     }
     .btn.ghost:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.26); }
 
-    .sideCard{
+    .card{
       border-radius: var(--r-lg);
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.07);
@@ -350,459 +315,445 @@
       position:relative;
       overflow:hidden;
     }
-    .sideCard::before{
+    .card::before{
       content:"";
-      position:absolute;
-      inset:-40%;
-      background: radial-gradient(600px 260px at 20% 20%, rgba(255,255,255,.18), transparent 62%);
-      opacity:.6;
+      position:absolute; inset:-40%;
+      background: radial-gradient(600px 260px at 20% 20%, rgba(255,255,255,.20), transparent 62%);
+      opacity:.55;
       pointer-events:none;
     }
-    .sideCard > *{ position:relative; z-index:1; }
-    .sideTitle{
-      font-size: 1.05rem;
-      margin-bottom:.5rem;
-    }
-    .sideP{
-      color: var(--muted);
-      line-height: 1.85;
-      font-size: .95rem;
-      margin-bottom:.7rem;
-    }
-    .sideList{
-      padding-left: 1.05rem;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: .92rem;
-    }
-    .sideList li{ margin: .22rem 0; }
+    .card > *{ position:relative; z-index:1; }
+    .card h3{ font-size:1.05rem; margin-bottom:.55rem; }
+    .card p{ color: var(--muted); line-height:1.85; font-size:.95rem; margin-bottom:.7rem; }
+    .card ul{ padding-left: 1.05rem; color: var(--muted); line-height:1.75; font-size:.92rem; }
+    .card li{ margin:.22rem 0; }
 
-    /* tools list in-frame (no cards) */
+    /* tools list (premium, continuous) */
     .list{
       border-radius: var(--r-lg);
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
       overflow:hidden;
       box-shadow: var(--shadow2);
+      margin-top: 1.05rem;
     }
     .row{
       padding: 1.05rem 1.05rem;
       border-top:1px solid rgba(255,255,255,.10);
       display:grid;
       grid-template-columns: 220px 1fr 170px;
-      gap: 1.0rem;
+      gap:1rem;
       align-items:center;
-      transition: background .2s var(--ease);
     }
     .row:first-child{ border-top:none; }
-    .row:hover{ background: rgba(255,255,255,.06); }
-    @media (max-width: 900px){
-      .row{ grid-template-columns: 1fr; }
-    }
     .meta{
       color: var(--muted2);
       font-size: .78rem;
       letter-spacing: .18em;
       text-transform: uppercase;
     }
-    .name{
-      font-size: 1.05rem;
-      margin-bottom:.25rem;
-    }
-    .desc{
-      color: var(--muted);
-      line-height:1.75;
-      font-size: .93rem;
-      max-width: 70ch;
-    }
+    .name{ font-size: 1.05rem; margin-bottom:.25rem; }
+    .desc{ color: var(--muted); line-height:1.75; font-size:.93rem; max-width: 78ch; }
     .link{
       justify-self:end;
       text-decoration:none;
-      color: rgba(255,255,255,.90);
+      color: rgba(255,255,255,.92);
       font-size: .78rem;
       letter-spacing:.16em;
       text-transform: uppercase;
-      border-bottom:1px solid rgba(255,255,255,.0);
+      border-bottom:1px solid rgba(255,255,255,0);
       padding-bottom:2px;
-      transition: border-color .2s var(--ease), opacity .2s var(--ease);
       opacity:.9;
-      white-space: nowrap;
+      white-space:nowrap;
+      transition: border-color .2s var(--ease), opacity .2s var(--ease), transform .2s var(--ease);
     }
-    .row:hover .link{ border-color: rgba(255,255,255,.72); opacity:1; }
-    @media (max-width: 900px){ .link{ justify-self:start; } }
-
-    /* below stage content (continuity, not “blocchi”) */
-    .after{
-      margin-top: 3.2rem;
-      padding: 1.6rem 0 0;
-      border-top: 1px solid rgba(255,255,255,.10);
-      color: var(--muted);
-      line-height:1.85;
-    }
-    .after h2{
-      color: rgba(255,255,255,.92);
-      font-size: 1.55rem;
-      margin-bottom:.5rem;
-    }
-    .after p{ max-width: 78ch; margin-bottom:.7rem; }
-
-    .contactBox{
-      margin-top: 1.1rem;
-      border-radius: var(--r-xl);
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      box-shadow: var(--shadow2);
-      padding: 1.25rem 1.15rem;
-    }
-    .contactBox a{
-      color: rgba(255,255,255,.92);
-      text-decoration:none;
-      border-bottom:1px dotted rgba(255,255,255,.35);
-    }
-    .contactBox a:hover{ border-bottom-style: solid; }
-    .contactBox ul{
-      padding-left: 1.05rem;
-      margin-top:.55rem;
+    .row:hover .link{ border-color: rgba(255,255,255,.72); opacity:1; transform: translateY(-1px); }
+    @media (max-width: 920px){
+      .row{ grid-template-columns: 1fr; }
+      .link{ justify-self:start; }
     }
 
-    footer{
-      margin-top: 2.1rem;
-      padding: 1.4rem 0 0;
-      border-top: 1px solid rgba(255,255,255,.10);
-      color: rgba(243,244,248,.55);
-      font-size:.85rem;
+    /* ===== scene animation (JS scrive --k 0..1) ===== */
+    .frame{
+      transform:
+        perspective(1200px)
+        translateY(calc((1 - var(--k, .5)) * 18px))
+        rotateX(calc((1 - var(--k, .5)) * 10deg))
+        rotateY(calc((.5 - var(--k, .5)) * 10deg));
+      filter: blur(calc((1 - var(--k, .5)) * 3px));
+      opacity: calc(.40 + var(--k, .5) * .60);
+      transition: none;
     }
 
     /* motion safety */
     @media (prefers-reduced-motion: reduce){
-      html,body{ scroll-behavior:auto; }
+      main{ scroll-snap-type:none; }
       .orb{ animation:none; }
-      .page{ transform:none !important; opacity:1 !important; position:relative; }
-      .pages{ place-items: start; }
-      .stage{ height:auto; }
-      .sticky{ position:static; height:auto; }
+      .frame{ transform:none !important; filter:none !important; opacity:1 !important; }
     }
   </style>
 </head>
 
 <body>
-  <div class="bg" id="bg">
-    <div class="orb" aria-hidden="true"></div>
-  </div>
+  <div class="bg" id="bg"><div class="orb" aria-hidden="true"></div></div>
   <div class="noise" aria-hidden="true"></div>
 
   <header>
     <div class="nav">
-      <a href="#top" aria-label="Home">
+      <a href="#home" aria-label="Home">
         <img src="logo-amamau.svg" class="logo" alt="amamau" />
       </a>
       <nav id="nav">
-        <a href="#top" data-nav="top" aria-current="page">Home</a>
-        <a href="#stage" data-nav="stage">Panoramica</a>
+        <a href="#home" data-nav="home" aria-current="page">Home</a>
+        <a href="#domini" data-nav="domini">Domini</a>
+        <a href="#ai" data-nav="ai">AI Workspace</a>
+        <a href="#strumenti" data-nav="strumenti">Strumenti</a>
         <a href="#contatti" data-nav="contatti">Contatti</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <div class="shell">
+  <main id="scroller">
+    <!-- SCENE 1 -->
+    <section class="scene" id="home" data-scene="0">
+      <div class="frame">
+        <div class="chrome">
+          <div class="tabs">
+            <span class="tab active">SEO</span>
+            <span class="tab">Domini</span>
+            <span class="tab">AI Workspace</span>
+            <span class="tab">Strumenti</span>
+          </div>
+          <a class="miniCta" href="#contatti">Parliamone</a>
+        </div>
 
-      <!-- SCROLL STORY / FRAME -->
-      <section class="stage" id="stage" aria-label="amamau overview">
-        <div class="sticky">
-          <div class="frame" id="frame" role="region" aria-label="amamau frame">
-
-            <div class="frameTop">
-              <div class="tabs" aria-label="Scene">
-                <span class="tab active" data-tab="0">SEO</span>
-                <span class="tab" data-tab="1">Domini</span>
-                <span class="tab" data-tab="2">AI Workspace</span>
-                <span class="tab" data-tab="3">Strumenti</span>
+        <div class="content">
+          <div class="grid">
+            <div>
+              <div class="eyebrow">SERVIZI PER AZIENDE, FREELANCE E STARTUP</div>
+              <div class="h">Ti facciamo trovare subito<br><span>e ti aiutiamo a restare in alto.</span></div>
+              <div class="p">
+                Prima mettiamo ordine in ciò che conta (struttura, contenuti, tecnica). Poi lavoriamo sulla continuità:
+                aggiornamenti mirati, misurabili, senza cambiare strada ogni due settimane.
+                <strong>È così che il posizionamento regge.</strong>
               </div>
-              <a class="ctaMini" href="#contatti">Parliamone</a>
+
+              <div class="chips">
+                <span class="chip"><span class="dot"></span>SEO e posizionamento</span>
+                <span class="chip"><span class="dot"></span>Landing e copy credibile</span>
+                <span class="chip"><span class="dot"></span>Tracking e continuità</span>
+              </div>
+
+              <div class="actions">
+                <a class="btn primary" href="#contatti">Inizia da qui</a>
+                <a class="btn ghost" href="#contatti">Preventivo rapido</a>
+              </div>
             </div>
 
-            <div class="pages">
-              <!-- PAGE 0 -->
-              <article class="page active" data-page="0">
-                <div class="grid2">
-                  <div>
-                    <div class="eyebrow">servizi per aziende, freelance e startup</div>
-                    <h1 class="heroH">Ti facciamo trovare subito<br><span>e ti aiutiamo a restare in alto.</span></h1>
-                    <p class="lead">
-                      Prima costruiamo basi solide (struttura, contenuti, tecnica). Poi manteniamo il ritmo:
-                      piccoli miglioramenti, misurabili, senza cambiare direzione ogni due settimane.
-                      <strong>È così che il posizionamento regge.</strong>
-                    </p>
-                    <div class="chips">
-                      <span class="chip"><span class="dot"></span>SEO e posizionamento</span>
-                      <span class="chip"><span class="dot"></span>Landing e copy credibile</span>
-                      <span class="chip"><span class="dot"></span>Tracking e continuità</span>
-                    </div>
-                    <div class="actions">
-                      <a class="btn primary" href="#contatti">Inizia da qui</a>
-                      <a class="btn ghost" href="#contatti">Preventivo rapido</a>
-                    </div>
-                  </div>
+            <aside class="card">
+              <div class="eyebrow">COSA OTTIENI</div>
+              <h3>Una presenza che sembra “seria”.</h3>
+              <p>
+                Non basta essere online. Serve coerenza: nome, dominio, struttura e contenuti devono parlare la stessa lingua.
+              </p>
+              <ul>
+                <li>Pagine chiare, veloci, pronte a convertire.</li>
+                <li>Scelte motivate, non tentativi.</li>
+                <li>Mantenimento: niente abbandono dopo l’onboarding.</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                  <aside class="sideCard">
-                    <div class="eyebrow">cosa ottieni</div>
-                    <div class="sideTitle">Una presenza che sembra “seria”.</div>
-                    <p class="sideP">
-                      Non basta essere online. Serve coerenza: nome, dominio, struttura e contenuti devono parlare la stessa lingua.
-                    </p>
-                    <ul class="sideList">
-                      <li>Pagine chiare, veloci, pronte a convertire.</li>
-                      <li>Scelte motivate, non tentativi.</li>
-                      <li>Mantenimento: niente abbandono dopo l’onboarding.</li>
-                    </ul>
-                  </aside>
-                </div>
-              </article>
+    <!-- SCENE 2 -->
+    <section class="scene" id="domini" data-scene="1">
+      <div class="frame">
+        <div class="chrome">
+          <div class="tabs">
+            <span class="tab">SEO</span>
+            <span class="tab active">Domini</span>
+            <span class="tab">AI Workspace</span>
+            <span class="tab">Strumenti</span>
+          </div>
+          <a class="miniCta" href="#contatti">Parliamone</a>
+        </div>
 
-              <!-- PAGE 1 -->
-              <article class="page" data-page="1">
-                <div class="grid2">
-                  <div>
-                    <div class="eyebrow">domini e naming</div>
-                    <h2 class="heroH">Nome e dominio<br><span>sono la prima stretta di mano.</span></h2>
-                    <p class="lead">
-                      Qui non si tratta di “trovare qualcosa di libero”.
-                      Si tratta di scegliere qualcosa che <strong>regge</strong>: brandabilità, chiarezza, mercato, scalabilità.
-                    </p>
-                    <div class="chips">
-                      <span class="chip"><span class="dot"></span>Shortlist presentabile</span>
-                      <span class="chip"><span class="dot"></span>Razionale e priorità</span>
-                      <span class="chip"><span class="dot"></span>Controlli multi-TLD</span>
-                    </div>
-                    <div class="actions">
-                      <a class="btn primary" href="#contatti">Naming sprint</a>
-                      <a class="btn ghost" href="#contatti">Check dominio</a>
-                    </div>
-                  </div>
+        <div class="content">
+          <div class="grid">
+            <div>
+              <div class="eyebrow">DOMINI E NAMING</div>
+              <div class="h">Nome e dominio<br><span>sono la prima stretta di mano.</span></div>
+              <div class="p">
+                Non è “trova qualcosa di libero”. È scegliere qualcosa che regge: leggibilità, brandabilità,
+                tono, mercato. Ti lasciamo una shortlist chiara e difendibile.
+              </div>
 
-                  <aside class="sideCard">
-                    <div class="eyebrow">come lavoriamo</div>
-                    <div class="sideTitle">Poche proposte, buone.</div>
-                    <p class="sideP">
-                      Meglio 12 candidati forti che 300 “idee”. Ti lasciamo una lista che puoi davvero discutere con soci e investitori.
-                    </p>
-                    <ul class="sideList">
-                      <li>Valutazione pattern, lunghezze, leggibilità.</li>
-                      <li>Vincoli chiari: target, tono, mercato.</li>
-                      <li>Output in formato pronto per deck e decisione.</li>
-                    </ul>
-                  </aside>
-                </div>
-              </article>
+              <div class="chips">
+                <span class="chip"><span class="dot"></span>Shortlist presentabile</span>
+                <span class="chip"><span class="dot"></span>Scoring e pattern</span>
+                <span class="chip"><span class="dot"></span>Multi-TLD</span>
+              </div>
 
-              <!-- PAGE 2 -->
-              <article class="page" data-page="2">
-                <div class="grid2">
-                  <div>
-                    <div class="eyebrow">ai per lavoro</div>
-                    <h2 class="heroH">Un’AI che aiuta davvero<br><span>senza diventare rumore.</span></h2>
-                    <p class="lead">
-                      Stiamo costruendo un chatbot con <strong>spazio personale</strong> e <strong>workspace</strong>:
-                      ricerca, sintesi, checklist e decisioni condivisibili. Deve essere utile, non spettacolare.
-                    </p>
-                    <div class="chips">
-                      <span class="chip"><span class="dot"></span>Workflow operativi</span>
-                      <span class="chip"><span class="dot"></span>Output compatti</span>
-                      <span class="chip"><span class="dot"></span>Uso privato e brandizzato</span>
-                    </div>
-                    <div class="actions">
-                      <a class="btn primary" href="#contatti">Caso d’uso</a>
-                      <a class="btn ghost" href="#contatti">Accesso selezionato</a>
-                    </div>
-                  </div>
+              <div class="actions">
+                <a class="btn primary" href="#contatti">Naming sprint</a>
+                <a class="btn ghost" href="#contatti">Check dominio</a>
+              </div>
+            </div>
 
-                  <aside class="sideCard">
-                    <div class="eyebrow">perché funziona</div>
-                    <div class="sideTitle">Stesso stile, stesso metodo.</div>
-                    <p class="sideP">
-                      Anche qui: vincoli chiari, output chiari. L’AI deve ridurre tempi e aumentare qualità delle scelte.
-                    </p>
-                    <ul class="sideList">
-                      <li>Ricerca guidata, non “risposte infinite”.</li>
-                      <li>Template e prompt con controllo qualità.</li>
-                      <li>Workspace per team, non chat isolate.</li>
-                    </ul>
-                  </aside>
-                </div>
-              </article>
+            <aside class="card">
+              <div class="eyebrow">APPROCCIO</div>
+              <h3>Poche proposte, buone.</h3>
+              <p>
+                Meglio 12 candidati forti che 300 idee. Output pronto per decisioni, deck e confronto con soci.
+              </p>
+              <ul>
+                <li>Vincoli chiari fin dall’inizio.</li>
+                <li>Razionale semplice da spiegare.</li>
+                <li>Scelte ordinate per priorità.</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
 
-              <!-- PAGE 3 -->
-              <article class="page" data-page="3">
+    <!-- SCENE 3 -->
+    <section class="scene" id="ai" data-scene="2">
+      <div class="frame">
+        <div class="chrome">
+          <div class="tabs">
+            <span class="tab">SEO</span>
+            <span class="tab">Domini</span>
+            <span class="tab active">AI Workspace</span>
+            <span class="tab">Strumenti</span>
+          </div>
+          <a class="miniCta" href="#contatti">Parliamone</a>
+        </div>
+
+        <div class="content">
+          <div class="grid">
+            <div>
+              <div class="eyebrow">AI PER LAVORO</div>
+              <div class="h">AI utile, per lavorare meglio<br><span>non per riempire pagine.</span></div>
+              <div class="p">
+                Stiamo costruendo un chatbot con <strong>spazio personale</strong> e <strong>workspace</strong>:
+                ricerca, sintesi, checklist e output condivisibili. Deve far risparmiare tempo, punto.
+              </div>
+
+              <div class="chips">
+                <span class="chip"><span class="dot"></span>Workflow operativi</span>
+                <span class="chip"><span class="dot"></span>Output compatti</span>
+                <span class="chip"><span class="dot"></span>Accesso privato</span>
+              </div>
+
+              <div class="actions">
+                <a class="btn primary" href="#contatti">Caso d’uso</a>
+                <a class="btn ghost" href="#contatti">Accesso selezionato</a>
+              </div>
+            </div>
+
+            <aside class="card">
+              <div class="eyebrow">PER TEAM</div>
+              <h3>Stesso metodo, stessi standard.</h3>
+              <p>
+                Vincoli chiari, output chiari: l’AI deve aumentare qualità delle scelte e ridurre il tempo perso.
+              </p>
+              <ul>
+                <li>Template e processi ripetibili.</li>
+                <li>Handoff veloce: checklist, report, decisioni.</li>
+                <li>Workspace per team, non chat isolate.</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 4 -->
+    <section class="scene" id="strumenti" data-scene="3">
+      <div class="frame">
+        <div class="chrome">
+          <div class="tabs">
+            <span class="tab">SEO</span>
+            <span class="tab">Domini</span>
+            <span class="tab">AI Workspace</span>
+            <span class="tab active">Strumenti</span>
+          </div>
+          <a class="miniCta" href="#contatti">Parliamone</a>
+        </div>
+
+        <div class="content">
+          <div>
+            <div class="eyebrow">IN SVILUPPO</div>
+            <div class="h">Strumenti che stiamo costruendo<br><span>e che usiamo davvero.</span></div>
+            <div class="p" style="max-width:80ch;">
+              Domain Scout e Analyzer, Wordlist Generator con <strong>motore AI</strong> per risultati migliori,
+              e il chatbot con spazio personale e workspace.
+            </div>
+
+            <div class="list">
+              <div class="row">
+                <div class="meta">PRIVATE BETA</div>
                 <div>
-                  <div class="eyebrow">in sviluppo</div>
-                  <h2 class="heroH">Strumenti che stiamo costruendo<br><span>e che usiamo davvero.</span></h2>
-                  <p class="lead" style="max-width:78ch;">
-                    Domain Scout e Analyzer, Wordlist Generator con <strong>motore AI</strong> per risultati migliori,
-                    e il chatbot con spazio personale e workspace.
-                  </p>
-
-                  <div class="list" style="margin-top:1.1rem;">
-                    <div class="row">
-                      <div class="meta">private beta</div>
-                      <div>
-                        <div class="name">Domain Scout</div>
-                        <div class="desc">Scansioni multi-TLD, scoring e export puliti. Pensato per sprint di naming con vincoli veri.</div>
-                      </div>
-                      <a class="link" href="mailto:hello@amamau.com?subject=Domain%20Scout%20beta">richiedi run</a>
-                    </div>
-
-                    <div class="row">
-                      <div class="meta">alpha interna</div>
-                      <div>
-                        <div class="name">Wordlist Generator</div>
-                        <div class="desc">Genera, filtra e ranka wordlist con un motore AI. Nasce per alimentare Domain Scout e velocizzare decisioni.</div>
-                      </div>
-                      <a class="link" href="mailto:hello@amamau.com?subject=Wordlist%20Generator%20early%20access">early access</a>
-                    </div>
-
-                    <div class="row">
-                      <div class="meta">internal tool</div>
-                      <div>
-                        <div class="name">Domain Scout Analyzer</div>
-                        <div class="desc">Trasforma export in shortlist pronte da presentare: raggruppamenti, filtri, output markdown.</div>
-                      </div>
-                      <a class="link" href="mailto:hello@amamau.com?subject=Domain%20Scout%20Analyzer">info</a>
-                    </div>
-
-                    <div class="row">
-                      <div class="meta">prototyping</div>
-                      <div>
-                        <div class="name">amamau AI Chatbot + Workspace</div>
-                        <div class="desc">Ricerca, sintesi, checklist e flussi condivisi. Spazio personale e workspace per team.</div>
-                      </div>
-                      <a class="link" href="mailto:hello@amamau.com?subject=amamau%20AI%20workspace">parliamone</a>
-                    </div>
-                  </div>
+                  <div class="name">Domain Scout</div>
+                  <div class="desc">Scansioni multi-TLD, scoring e export puliti. Pensato per sprint di naming con vincoli veri.</div>
                 </div>
-              </article>
+                <a class="link" href="mailto:hello@amamau.com?subject=Domain%20Scout%20beta">RICHIEDI RUN</a>
+              </div>
 
+              <div class="row">
+                <div class="meta">ALPHA INTERNA</div>
+                <div>
+                  <div class="name">Wordlist Generator</div>
+                  <div class="desc">Genera, filtra e ranka wordlist con un motore AI. Nasce per alimentare Domain Scout e velocizzare decisioni.</div>
+                </div>
+                <a class="link" href="mailto:hello@amamau.com?subject=Wordlist%20Generator%20early%20access">EARLY ACCESS</a>
+              </div>
+
+              <div class="row">
+                <div class="meta">INTERNAL TOOL</div>
+                <div>
+                  <div class="name">Domain Scout Analyzer</div>
+                  <div class="desc">Trasforma export in shortlist pronte da presentare: raggruppamenti, filtri, output markdown.</div>
+                </div>
+                <a class="link" href="mailto:hello@amamau.com?subject=Domain%20Scout%20Analyzer">INFO</a>
+              </div>
+
+              <div class="row">
+                <div class="meta">PROTOTYPING</div>
+                <div>
+                  <div class="name">amamau AI Chatbot + Workspace</div>
+                  <div class="desc">Ricerca, sintesi, checklist e flussi condivisi. Spazio personale e workspace per team.</div>
+                </div>
+                <a class="link" href="mailto:hello@amamau.com?subject=amamau%20AI%20workspace">PARLIAMONE</a>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- CONTENT AFTER (minimal, still premium) -->
-      <section class="after" id="contatti" aria-label="Contatti">
-        <h2>Contatti</h2>
-        <p>
-          Se hai un obiettivo chiaro (nuovo brand, crescita, riposizionamento), scrivici due righe.
-          Rispondiamo con proposta breve: cosa fare, cosa evitare, priorità e tempi.
-        </p>
-
-        <div class="contactBox">
-          <p><strong>Email:</strong> <a href="mailto:hello@amamau.com">hello@amamau.com</a></p>
-          <p style="margin-top:.35rem;"><strong>Telefono:</strong> <a href="tel:05119471903">051 1947 1903</a></p>
-          <p style="margin-top:.35rem;"><strong>Mobile (WhatsApp/Telegram):</strong> <a href="tel:3791128232">379 112 8232</a></p>
-
-          <ul>
-            <li>1–2 frasi su prodotto/servizio e target</li>
-            <li>Dominio/sito attuale (se esiste)</li>
-            <li>Obiettivo: SEO, naming, email, AI workspace</li>
-            <li>Tempistiche e range budget</li>
-          </ul>
+    <!-- SCENE 5 -->
+    <section class="scene" id="contatti" data-scene="4">
+      <div class="frame">
+        <div class="chrome">
+          <div class="tabs">
+            <span class="tab">Home</span>
+            <span class="tab">Domini</span>
+            <span class="tab">AI</span>
+            <span class="tab">Strumenti</span>
+          </div>
+          <a class="miniCta" href="mailto:hello@amamau.com?subject=Richiesta%20progetto%20amamau">Email</a>
         </div>
 
-        <footer>© 2025–2026 amamau — All rights reserved.</footer>
-      </section>
+        <div class="content">
+          <div class="grid">
+            <div>
+              <div class="eyebrow">CONTATTI</div>
+              <div class="h">Scrivici due righe<br><span>e capiamo se ha senso.</span></div>
+              <div class="p">
+                Contesto, obiettivo, vincoli. Risposta breve: cosa fare, cosa evitare, priorità e tempi.
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="mailto:hello@amamau.com?subject=Richiesta%20progetto%20amamau">hello@amamau.com</a>
+                <a class="btn ghost" href="tel:05119471903">051 1947 1903</a>
+                <a class="btn ghost" href="tel:3791128232">379 112 8232</a>
+              </div>
+            </div>
 
-    </div>
+            <aside class="card">
+              <div class="eyebrow">PER PARTIRE VELOCE</div>
+              <h3>Includi queste 4 cose.</h3>
+              <ul>
+                <li>1–2 frasi su prodotto/servizio e target.</li>
+                <li>Dominio/sito attuale (se esiste).</li>
+                <li>Obiettivo: SEO, naming, email, AI workspace.</li>
+                <li>Tempistiche e range budget.</li>
+              </ul>
+              <p style="margin-top:.8rem; color:var(--muted); line-height:1.8;">
+                WhatsApp/Telegram: <strong>379 112 8232</strong>
+              </p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
-    // ===== Scroll-driven “scene engine” + nav highlight + background palette =====
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const stage = document.getElementById('stage');
-    const pages = [...document.querySelectorAll('[data-page]')];
-    const tabs  = [...document.querySelectorAll('[data-tab]')];
+    const scroller = document.getElementById('scroller');
+
     const navLinks = [...document.querySelectorAll('[data-nav]')];
+    const scenes = [...document.querySelectorAll('[data-scene]')];
 
     const palettes = [
-      { a:[255,60,120], b:[120,120,255] },  // SEO
-      { a:[120,255,200], b:[255,220,120] }, // Domini
-      { a:[150,200,255], b:[255,120,200] }, // AI
-      { a:[255,255,255], b:[180,180,255] }, // Tools
+      { a:[255,72,140], b:[120,130,255] }, // home/seo
+      { a:[120,255,200], b:[255,220,120] }, // domini
+      { a:[150,205,255], b:[255,120,200] }, // ai
+      { a:[255,255,255], b:[180,180,255] }, // strumenti
+      { a:[160,255,230], b:[255,255,255] }, // contatti (pulito)
     ];
 
     const clamp = (n,min,max)=>Math.max(min,Math.min(max,n));
-
-    function setCurrentNav(id){
+    function setCurrent(id){
       navLinks.forEach(a=>{
-        if(a.dataset.nav===id) a.setAttribute('aria-current','page');
+        if(a.getAttribute('href') === '#' + id) a.setAttribute('aria-current','page');
         else a.removeAttribute('aria-current');
       });
     }
 
-    // section highlight: in questa versione "Home" e "Panoramica" si alternano
-    const topEl = document.getElementById('top');
-    const contattiEl = document.getElementById('contatti');
-
-    const secObs = new IntersectionObserver((entries)=>{
-      const vis = entries.filter(e=>e.isIntersecting)
-        .map(e=>({id:e.target.id, top:Math.abs(e.boundingClientRect.top)}))
+    // nav highlight stabile
+    const io = new IntersectionObserver((entries)=>{
+      const vis = entries
+        .filter(e=>e.isIntersecting)
+        .map(e=>({ id:e.target.id, top:Math.abs(e.boundingClientRect.top) }))
         .sort((a,b)=>a.top-b.top);
-      if(!vis.length) return;
+      if(vis.length) setCurrent(vis[0].id);
+    }, { root: scroller, threshold:[0.45,0.55], rootMargin:"-15% 0px -55% 0px" });
 
-      if(vis[0].id === 'contatti') setCurrentNav('contatti');
-      else if(vis[0].id === 'stage') setCurrentNav('stage');
-      else setCurrentNav('top');
-    }, { threshold:[0.2,0.35,0.55], rootMargin:"-25% 0px -55% 0px" });
+    scenes.forEach(s=>io.observe(s));
 
-    secObs.observe(stage);
-    secObs.observe(contattiEl);
-    secObs.observe(topEl);
-
-    function applyScene(i, p){
-      // pages active
-      pages.forEach(pg => pg.classList.toggle('active', Number(pg.dataset.page) === i));
-      tabs.forEach(tb => tb.classList.toggle('active', Number(tb.dataset.tab) === i));
-
-      // palette
-      const pa = palettes[i] || palettes[0];
-      document.documentElement.style.setProperty('--accentA', pa.a.join(','));
-      document.documentElement.style.setProperty('--accentB', pa.b.join(','));
-
-      // 3D transform per “pagina”
-      pages.forEach(pg=>{
-        const idx = Number(pg.dataset.page);
-        const d = idx - i;
-        const op = d===0 ? 1 : 0;
-        const y = d===0 ? (1-p)*16 : 20 + Math.abs(d)*8;
-        const rx = d===0 ? (1-p)*8 : 10;
-        const ry = d===0 ? (1-p)*-8 : (d>0? -10: 10);
-        const z  = d===0 ? -10 + p*18 : -30;
-
-        pg.style.opacity = op;
-        pg.style.transform =
-          `translateY(${y}px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${z}px) scale(${d===0? (0.985 + p*0.015): 0.98})`;
-      });
-    }
+    // animazione frame (niente flicker: calcolo continuo con rAF)
+    const frames = scenes.map(s => s.querySelector('.frame'));
 
     function update(){
       if(prefersReduced) return;
 
-      const r = stage.getBoundingClientRect();
-      const vh = window.innerHeight || 1;
-      const total = stage.offsetHeight - vh;
-      const scrolled = clamp(-r.top, 0, total);
-      const t = total ? scrolled / total : 0;
+      const rootRect = scroller.getBoundingClientRect();
+      const mid = rootRect.top + rootRect.height * 0.5;
 
-      // 4 scene: 0..3
-      const scenes = 4;
-      const raw = t * (scenes - 1);
-      const i = clamp(Math.floor(raw + 1e-6), 0, scenes-1);
-      const p = clamp(raw - i, 0, 1);
+      scenes.forEach((scene, i) => {
+        const r = scene.getBoundingClientRect();
+        const center = r.top + r.height * 0.5;
 
-      applyScene(i, p);
+        // k: 0 (lontano) -> 1 (al centro)
+        const d = Math.abs(center - mid) / (rootRect.height * 0.55);
+        const k = clamp(1 - d, 0, 1);
+
+        const frame = frames[i];
+        frame.style.setProperty('--k', k.toFixed(4));
+
+        // palette segue la scena “dominante”
+        // (la scegliamo quando k è alto)
+      });
+
+      // palette: prendi scena con k maggiore
+      let best = 0, bestK = -1;
+      frames.forEach((f, i) => {
+        const k = parseFloat(f.style.getPropertyValue('--k')) || 0;
+        if(k > bestK){ bestK = k; best = i; }
+      });
+
+      const p = palettes[best] || palettes[0];
+      document.documentElement.style.setProperty('--a', p.a.join(','));
+      document.documentElement.style.setProperty('--b', p.b.join(','));
     }
 
     update();
-    window.addEventListener('scroll', ()=>requestAnimationFrame(update), { passive:true });
+    scroller.addEventListener('scroll', ()=>requestAnimationFrame(update), { passive:true });
     window.addEventListener('resize', ()=>requestAnimationFrame(update));
   </script>
 </body>
