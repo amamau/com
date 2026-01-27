@@ -17,10 +17,10 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>amamau — servizi e strumenti digitali per farsi trovare e restare in alto</title>
 
+  <title>amamau — servizi e strumenti digitali per farsi trovare e restare in alto</title>
   <meta name="description"
-        content="amamau lavora con aziende, freelance e startup: SEO, domini e naming, email hygiene e AI workspace. Prodotti in sviluppo: Domain Scout, Analyzer, Wordlist Generator con motore AI, AI chatbot con spazio personale e workspace." />
+        content="amamau lavora con aziende, freelance e startup: SEO, domini e naming, email hygiene e deliverability, strumenti e workspace AI. In sviluppo: Domain Scout, Analyzer, Wordlist Generator, amamau AI." />
 
   <link rel="icon" href="mark-amamau-white.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -51,8 +51,7 @@
       --transition:0.22s ease-out;
       --content-width:1120px;
 
-      /* sticky header offset */
-      --header-h: 68px;
+      --header-h: 72px;
     }
 
     *{ margin:0; padding:0; box-sizing:border-box; }
@@ -66,7 +65,7 @@
       min-height:100vh;
     }
 
-    /* background "stacchi leggeri" */
+    /* background texture soft */
     body::before{
       content:"";
       position:fixed;
@@ -80,18 +79,17 @@
       filter: blur(2px);
     }
 
-    /* a11y: skip link */
+    /* a11y skip link */
     .skip{
       position:absolute;
       left:-999px;
-      top:8px;
+      top:10px;
       background:#111;
       color:#fff;
-      padding:0.65rem 0.9rem;
+      padding:0.62rem 0.9rem;
       border-radius:999px;
       text-decoration:none;
-      font-size:0.85rem;
-      letter-spacing:0.02em;
+      font-size:0.86rem;
       z-index:9999;
     }
     .skip:focus{ left:12px; }
@@ -115,7 +113,7 @@
     .nav-inner{
       max-width:var(--content-width);
       margin:0 auto;
-      padding:0.8rem 1.4rem;
+      padding:0.85rem 1.4rem;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -156,15 +154,9 @@
     }
     nav a:hover{ color:var(--accent); }
     nav a:hover::after{ width:100%; }
+    nav a[aria-current="page"]{ color:var(--accent); }
+    nav a[aria-current="page"]::after{ width:100%; }
 
-    nav a[aria-current="page"]{
-      color:var(--accent);
-    }
-    nav a[aria-current="page"]::after{
-      width:100%;
-    }
-
-    /* focus ring */
     a:focus-visible, button:focus-visible{
       outline:2px solid rgba(17,17,17,0.55);
       outline-offset:3px;
@@ -179,7 +171,7 @@
       transform-origin:left;
     }
 
-    /* CONTINUITY: single surface wrapper */
+    /* surface wrapper */
     .surface{
       margin-top:1.5rem;
       background:var(--bg-surface);
@@ -193,8 +185,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background:
-        radial-gradient(900px 520px at 20% 0%, rgba(17,17,17,0.05), transparent 60%);
+      background: radial-gradient(900px 520px at 20% 0%, rgba(17,17,17,0.05), transparent 60%);
       pointer-events:none;
     }
 
@@ -205,16 +196,14 @@
     }
     @media(min-width:768px){ .block{ padding:2.6rem 2.2rem; } }
 
-    /* offset for sticky header when navigating to anchors */
-    [data-section], #storia, #servizi, #strumenti, #metodo, #contatti, #top{
+    /* sticky offset for anchors */
+    [data-section], #top, #panoramica, #servizi, #strumenti, #metodo, #contatti{
       scroll-margin-top: calc(var(--header-h) + 18px);
     }
 
-    /* soft separators between blocks */
     .block + .block{
       border-top:1px solid rgba(0,0,0,0.06);
-      background:
-        linear-gradient(180deg, rgba(250,250,250,0.85), rgba(255,255,255,0.88));
+      background: linear-gradient(180deg, rgba(250,250,250,0.85), rgba(255,255,255,0.88));
     }
 
     .tagline{
@@ -232,8 +221,8 @@
     .sub{
       font-size:0.98rem;
       color:var(--text-soft);
-      max-width:720px;
-      line-height:1.8;
+      max-width:760px;
+      line-height:1.85;
     }
 
     /* HERO */
@@ -266,8 +255,8 @@
     .hero-sub{
       font-size:1rem;
       color:var(--text-soft);
-      line-height:1.9;
-      max-width:600px;
+      line-height:1.95;
+      max-width:620px;
     }
     .hero-sub strong{ color:var(--accent); font-weight:600; }
 
@@ -313,6 +302,7 @@
       user-select:none;
       transition:transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
       will-change:transform;
+      white-space:nowrap;
     }
     .btn-primary{
       background:#111111;
@@ -363,7 +353,7 @@
     .hero-side p{
       font-size:0.92rem;
       color:var(--text-soft);
-      line-height:1.8;
+      line-height:1.85;
       margin-bottom:0.45rem;
     }
     .hero-side ul{
@@ -375,125 +365,52 @@
     }
     .hero-side li{ margin:0.22rem 0; }
 
-    /* SCROLL GALLERY */
-    .gallery-wrap{
+    /* PANORAMICA (clean 3 cards) */
+    .overview{
+      margin-top:1.2rem;
       display:grid;
-      grid-template-columns:1fr;
-      gap:1.4rem;
-      align-items:start;
-      margin-top:1.1rem;
+      grid-template-columns: minmax(0,1fr);
+      gap:1rem;
     }
-    @media(min-width:960px){
-      .gallery-wrap{
-        grid-template-columns: 1.05fr 0.95fr;
-        gap:2.1rem;
-        align-items:center;
-      }
+    @media(min-width:880px){
+      .overview{ grid-template-columns: repeat(3, minmax(0,1fr)); gap:1.05rem; }
     }
-
-    .gallery-lead p{
-      font-size:0.98rem;
-      color:var(--text-soft);
-      line-height:1.9;
-      margin-top:0.6rem;
-      max-width:640px;
-    }
-    .gallery-lead strong{ color:var(--accent); font-weight:650; }
-
-    /* new: step tabs + hint */
-    .steps-ui{
-      margin-top:0.85rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:0.8rem;
-      flex-wrap:wrap;
-    }
-    .steps-tabs{
-      display:inline-flex;
-      border:1px solid rgba(0,0,0,0.10);
-      background:rgba(255,255,255,0.65);
-      border-radius:999px;
-      padding:0.22rem;
-      box-shadow:0 10px 24px rgba(0,0,0,0.03);
-    }
-    .tab{
-      border:0;
-      background:transparent;
-      padding:0.48rem 0.8rem;
-      border-radius:999px;
-      cursor:pointer;
-      color:var(--text-soft);
-      font-size:0.78rem;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      font-weight:700;
-      transition: background var(--transition), color var(--transition), transform var(--transition);
-    }
-    .tab:hover{ transform:translateY(-1px); }
-    .tab[aria-selected="true"]{
-      background:#111;
-      color:#fff;
-    }
-    .steps-hint{
-      color:var(--text-mute);
-      font-size:0.88rem;
-      line-height:1.5;
-      display:flex;
-      align-items:center;
-      gap:0.55rem;
-    }
-    .steps-hint .mini{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px; height:26px;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,0.10);
-      background:rgba(255,255,255,0.70);
-      box-shadow:0 10px 24px rgba(0,0,0,0.03);
-      color:rgba(17,17,17,0.75);
-      font-weight:800;
-      font-size:0.82rem;
-    }
-
-    .gallery{
-      height:78vh;
-      max-height:680px;
-      border-radius:var(--radius-lg);
+    .overview-card{
+      border-radius:22px;
       border:1px solid rgba(0,0,0,0.08);
-      background:linear-gradient(180deg, rgba(250,250,250,0.92), rgba(255,255,255,0.92));
-      box-shadow:0 18px 60px rgba(0,0,0,0.08);
-      overflow:auto;
-      scroll-snap-type:y mandatory;
-      -webkit-overflow-scrolling: touch;
+      background:linear-gradient(180deg, rgba(250,250,250,0.86), rgba(255,255,255,0.92));
+      padding:1.25rem 1.15rem;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
       position:relative;
-      perspective: 1200px;
+      overflow:hidden;
+      min-height: 210px;
     }
-
-    .slide{
-      scroll-snap-align:start;
-      min-height:78vh;
-      padding:1.35rem 1.25rem;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:0.9rem;
-      border-bottom:1px solid rgba(0,0,0,0.06);
-      transform-style:preserve-3d;
-      will-change: transform, opacity;
+    .overview-card::before{
+      content:"";
+      position:absolute; inset:-45%;
+      background: radial-gradient(540px 240px at 20% 15%, rgba(17,17,17,0.08), transparent 62%);
+      opacity:0;
+      transition: opacity var(--transition);
+      pointer-events:none;
     }
-    .slide:last-child{ border-bottom:none; }
-
-    .slide .top{
+    .overview-card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(0,0,0,0.14);
+      box-shadow:0 18px 44px rgba(0,0,0,0.08);
+    }
+    .overview-card:hover::before{ opacity:1; }
+    .overview-top{
       display:flex;
-      gap:0.6rem;
       align-items:center;
+      gap:0.6rem;
       flex-wrap:wrap;
       color:var(--text-mute);
       font-size:0.78rem;
       text-transform:uppercase;
       letter-spacing:0.18em;
+      margin-bottom:0.7rem;
+      position:relative; z-index:1;
     }
     .pill{
       padding:0.2rem 0.7rem;
@@ -503,27 +420,30 @@
       font-size:0.74rem;
       letter-spacing:0.16em;
     }
-    .slide h3{
-      font-size:1.28rem;
+    .overview-card h3{
+      font-size:1.18rem;
       letter-spacing:-0.02em;
-      margin-top:0.1rem;
+      margin-bottom:0.5rem;
+      position:relative; z-index:1;
     }
-    .slide p{
-      font-size:0.96rem;
+    .overview-card p{
+      font-size:0.94rem;
       color:var(--text-soft);
-      line-height:1.9;
-      max-width:520px;
+      line-height:1.85;
+      position:relative; z-index:1;
+      max-width: 520px;
     }
-    .slide ul{
+    .overview-card ul{
+      margin-top:0.65rem;
       padding-left:1.05rem;
       color:var(--text-soft);
-      line-height:1.75;
-      font-size:0.92rem;
-      max-width:540px;
+      line-height:1.7;
+      font-size:0.9rem;
+      position:relative; z-index:1;
     }
-    .slide li{ margin:0.22rem 0; }
+    .overview-card li{ margin:0.2rem 0; }
 
-    /* SERVICES grid (still smooth, not “staccato”) */
+    /* SERVICES grid */
     .grid{
       margin-top:1.1rem;
       display:grid;
@@ -543,6 +463,7 @@
       box-shadow:0 10px 30px rgba(0,0,0,0.05);
       position:relative;
       overflow:hidden;
+      min-height: 140px;
     }
     .card::before{
       content:"";
@@ -570,7 +491,7 @@
       position:relative; z-index:1;
     }
 
-    /* STRUMENTI: continuous list (no cards) */
+    /* TOOLS list */
     .tools{
       margin-top:1.2rem;
       border-radius:var(--radius-lg);
@@ -659,7 +580,7 @@
       border-bottom-color:var(--accent);
     }
 
-    /* APPROACH */
+    /* METHOD */
     .cols{
       margin-top:1.1rem;
       display:flex;
@@ -740,21 +661,18 @@
     .reveal{
       opacity:0;
       transform:translateY(14px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
     }
     .reveal.visible{
       opacity:1;
       transform:translateY(0);
     }
 
-    /* Motion safety */
     @media (prefers-reduced-motion: reduce){
       html,body{ scroll-behavior:auto; }
       .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
-      .btn,.card{ transition:none !important; transform:none !important; }
+      .btn,.card,.overview-card{ transition:none !important; transform:none !important; }
       .scrollbar{ display:none; }
-      .gallery{ scroll-snap-type:none; }
-      .slide{ transform:none !important; opacity:1 !important; }
     }
   </style>
 </head>
@@ -769,7 +687,7 @@
     </a>
     <nav id="nav" aria-label="Navigazione principale">
       <a href="#top" data-navlink="top" aria-current="page">Home</a>
-      <a href="#storia" data-navlink="storia">Panoramica</a>
+      <a href="#panoramica" data-navlink="panoramica">Panoramica</a>
       <a href="#servizi" data-navlink="servizi">Servizi</a>
       <a href="#strumenti" data-navlink="strumenti">Strumenti</a>
       <a href="#metodo" data-navlink="metodo">Metodo</a>
@@ -782,6 +700,7 @@
 <main id="main">
   <div id="top" class="shell">
     <div class="surface">
+
       <!-- HERO -->
       <section class="block" data-section="top">
         <div class="hero">
@@ -795,124 +714,100 @@
 
             <p class="hero-sub">
               Lavoriamo con <strong>aziende</strong>, <strong>liberi professionisti</strong> e <strong>startup</strong>
-              che vogliono una presenza online credibile e coerente.
-              Prima mettiamo a posto le fondamenta (struttura, contenuti, tecnica), poi curiamo la continuità:
-              arrivare in alto conta, <strong>restarci</strong> è ciò che fa la differenza.
+              che vogliono una presenza online <strong>seria</strong> e coerente.
+              Prima mettiamo a posto le fondamenta, poi facciamo continuità: aggiornamenti, miglioramenti mirati,
+              e lavoro costante per tenere stabile il risultato.
             </p>
 
             <div class="chips" role="list" aria-label="Punti chiave">
               <span class="chip"><span class="dot"></span>SEO e posizionamento</span>
               <span class="chip"><span class="dot"></span>Domini e naming</span>
-              <span class="chip"><span class="dot"></span>Email hygiene e deliverability</span>
-              <span class="chip"><span class="dot"></span>AI workspace per team</span>
+              <span class="chip"><span class="dot"></span>Email deliverability</span>
+              <span class="chip"><span class="dot"></span>Workspace e strumenti</span>
             </div>
 
             <div class="actions">
               <a href="#contatti" class="btn btn-primary">Parliamone</a>
-              <a href="#strumenti" class="btn btn-ghost">Cosa stiamo costruendo</a>
+              <a href="#strumenti" class="btn btn-ghost">Vedi cosa stiamo costruendo</a>
             </div>
           </div>
 
           <aside class="hero-side reveal">
             <div class="k">In breve</div>
-            <h3>Dettagli curati, output concreti.</h3>
+            <h3>Scelte chiare, niente fuffa.</h3>
             <p>
-              Mettiamo ordine dove spesso si perde tempo: nome, dominio, struttura,
-              reputazione email e contenuti progettati per farsi trovare.
+              Quando c’è confusione online, di solito non serve “fare di più”:
+              serve <strong>mettere ordine</strong> e togliere attrito.
             </p>
             <ul>
-              <li>Output chiari: shortlist, scelte motivate, priorità.</li>
-              <li>Design pulito e credibile, senza rumore.</li>
-              <li>Supporto nel tempo, quando serve continuità vera.</li>
+              <li>Shortlist e scelte motivate (non liste infinite).</li>
+              <li>Struttura pulita, pagine che si capiscono.</li>
+              <li>Supporto continuativo solo se ha senso.</li>
             </ul>
           </aside>
         </div>
       </section>
 
-      <!-- SCROLL GALLERY -->
-      <section id="storia" class="block reveal" data-section="storia">
+      <!-- PANORAMICA -->
+      <section id="panoramica" class="block reveal" data-section="panoramica">
         <div class="tagline">Panoramica</div>
-        <h2 class="title">3 step che spiegano cosa cambia davvero.</h2>
+        <h2 class="title">Tre aree su cui si vince (o si perde) tempo.</h2>
         <p class="sub">
-          Una mini-storia in 3 passaggi: <strong>SEO</strong>, <strong>Domini</strong>, <strong>AI Workspace</strong>.
-          Puoi <strong>scorrere</strong> nel riquadro oppure usare i pulsanti qui sotto.
+          SEO, dominio/naming, e operatività. Se queste tre cose sono allineate, la presenza online smette di essere fragile.
+          Qui sotto vedi cosa facciamo, in modo semplice.
         </p>
 
-        <div class="steps-ui" aria-label="Controlli panoramica">
-          <div class="steps-tabs" role="tablist" aria-label="Seleziona step">
-            <button class="tab" role="tab" aria-selected="true" aria-controls="slide-1" data-tab="0">01</button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="slide-2" data-tab="1">02</button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="slide-3" data-tab="2">03</button>
-          </div>
-          <div class="steps-hint">
-            <span class="mini">↕</span>
-            <span>Scorri • oppure usa i pulsanti</span>
-          </div>
-        </div>
-
-        <div class="gallery-wrap">
-          <div class="gallery-lead">
+        <div class="overview">
+          <article class="overview-card">
+            <div class="overview-top">
+              <span class="pill">01 • SEO</span>
+              <span>Struttura + contenuti</span>
+            </div>
+            <h3>SEO che non crolla al primo update.</h3>
             <p>
-              Quando tutto è coerente, il sito non è “una pagina”, ma un sistema:
-              messaggio, struttura, reputazione e strumenti lavorano insieme.
+              Mettiamo in ordine struttura, contenuti e parte tecnica. Poi lavoriamo per piccoli step:
+              meno “rivoluzioni”, più continuità.
             </p>
+            <ul>
+              <li>Pagine costruite sulle query giuste.</li>
+              <li>Performance e pulizia tecnica.</li>
+              <li>Mantenimento con interventi mirati.</li>
+            </ul>
+          </article>
+
+          <article class="overview-card">
+            <div class="overview-top">
+              <span class="pill">02 • Domini</span>
+              <span>Naming e scelta</span>
+            </div>
+            <h3>Nome e dominio che fanno una buona prima impressione.</h3>
             <p>
-              È l’effetto che cerchiamo: <strong>continuità</strong> tra scelte, sezioni e crescita.
+              Il punto non è “trovarne uno”: è scegliere un nome che funzioni per brand e mercato,
+              e che non ti rallenti tra 6 mesi.
             </p>
-          </div>
+            <ul>
+              <li>Shortlist corta e presentabile.</li>
+              <li>Valutazione reale (lunghezza, pattern, brandabilità).</li>
+              <li>Supporto con strumenti proprietari.</li>
+            </ul>
+          </article>
 
-          <div class="gallery" id="gallery" tabindex="0" aria-label="Panoramica a scorrimento (3 step)">
-            <article class="slide" data-slide id="slide-1">
-              <div class="top">
-                <span class="pill">01 • SEO</span>
-                <span>Struttura e contenuti</span>
-              </div>
-              <h3>SEO che regge nel tempo.</h3>
-              <p>
-                Prima si mettono le basi: architettura, performance, contenuti e tracking.
-                Poi si rifinisce: interventi mirati, coerenza, miglioramenti continui.
-              </p>
-              <ul>
-                <li>Struttura chiara e pagine che rispondono alle query giuste.</li>
-                <li>Performance e pulizia tecnica.</li>
-                <li>Piccoli miglioramenti costanti, senza stravolgere ogni mese.</li>
-              </ul>
-            </article>
-
-            <article class="slide" data-slide id="slide-2">
-              <div class="top">
-                <span class="pill">02 • Domini</span>
-                <span>Naming e scelta</span>
-              </div>
-              <h3>Nome e dominio: la prima impressione è strategia.</h3>
-              <p>
-                Non è solo “è disponibile?”.
-                Serve una scelta che funzioni per brand, comunicazione e mercato.
-              </p>
-              <ul>
-                <li>Shortlist presentabile e motivata.</li>
-                <li>Valutazione di pattern, lunghezza e brandabilità.</li>
-                <li>Scansioni e analisi con strumenti proprietari.</li>
-              </ul>
-            </article>
-
-            <article class="slide" data-slide id="slide-3">
-              <div class="top">
-                <span class="pill">03 • AI Workspace</span>
-                <span>Operatività</span>
-              </div>
-              <h3>AI utile, per lavorare meglio.</h3>
-              <p>
-                Un layer AI pensato per ricerca, sintesi e operatività.
-                Con spazio personale e workspace, così il team resta allineato.
-              </p>
-              <ul>
-                <li>Workflow pronti per naming, audit rapidi e check tecnici.</li>
-                <li>Output compatti: decisioni, checklist, riassunti da condividere.</li>
-                <li>Accesso privato e brandizzato, quando serve.</li>
-              </ul>
-            </article>
-          </div>
+          <article class="overview-card">
+            <div class="overview-top">
+              <span class="pill">03 • Operatività</span>
+              <span>Strumenti + workspace</span>
+            </div>
+            <h3>Velocità nelle decisioni, ordine nei processi.</h3>
+            <p>
+              Mettiamo insieme checklist, report brevi e strumenti che aiutano davvero
+              a fare scelte rapide e condivisibili.
+            </p>
+            <ul>
+              <li>Check rapidi (naming, email, setup, audit).</li>
+              <li>Output compatti e condivisibili.</li>
+              <li>Workspace quando serve al team.</li>
+            </ul>
+          </article>
         </div>
       </section>
 
@@ -921,34 +816,34 @@
         <div class="tagline">Servizi</div>
         <h2 class="title">Per aziende, freelance, startup e piccoli team.</h2>
         <p class="sub">
-          Lavoriamo dove si crea valore: visibilità, credibilità e continuità.
-          Quando ha senso, uniamo consulenza e strumenti proprietari per accelerare.
+          Ci concentriamo su quello che ha impatto: visibilità, credibilità e continuità.
+          Se serve, uniamo consulenza e strumenti interni per accorciare i tempi.
         </p>
 
         <div class="grid">
           <article class="card">
             <h4>SEO e posizionamento</h4>
-            <p>Struttura, contenuti e tecnica per salire e restare stabili. Approccio pulito, senza scorciatoie.</p>
+            <p>Struttura, contenuti e tecnica per salire e restare stabili. Niente scorciatoie.</p>
           </article>
           <article class="card">
             <h4>Domini e naming</h4>
-            <p>Scelta nome e dominio con vincoli reali. Risultato: shortlist chiara, pronta da presentare.</p>
+            <p>Scelta nome e dominio con vincoli reali. Shortlist chiara, pronta da usare.</p>
           </article>
           <article class="card">
-            <h4>Email hygiene</h4>
-            <p>Deliverability, reputazione e struttura. Se l’email non arriva, tutto il resto perde forza.</p>
+            <h4>Email deliverability</h4>
+            <p>Reputazione, impostazioni e igiene. Se l’email non arriva, il resto perde valore.</p>
           </article>
           <article class="card">
-            <h4>AI per il lavoro</h4>
-            <p>Ricerca, sintesi, checklist e supporto alle decisioni. Spazio personale e workspace per team.</p>
+            <h4>AI e strumenti operativi</h4>
+            <p>Supporto a ricerca e decisioni: checklist, sintesi e report brevi.</p>
           </article>
           <article class="card">
             <h4>Landing e prime impressioni</h4>
-            <p>Copy, CTA, layout e micro-interazioni. Una presenza che comunica solidità fin dal primo click.</p>
+            <p>Copy, CTA, layout e micro-interazioni. Una pagina che sembra solida, davvero.</p>
           </article>
           <article class="card">
             <h4>Mantenimento</h4>
-            <p>Interventi continui: contenuti, performance, ottimizzazioni e report brevi. È qui che si resta in alto.</p>
+            <p>Piccoli interventi continui: contenuti, performance e ottimizzazioni.</p>
           </article>
         </div>
       </section>
@@ -958,11 +853,12 @@
         <div class="tagline">In sviluppo</div>
         <h2 class="title">Strumenti che stiamo costruendo (e usando).</h2>
         <p class="sub">
-          Progetti concreti in corso: Domain Scout e Analyzer, Wordlist Generator integrato nel flusso,
-          e il nostro AI chatbot con spazio personale e workspace.
+          Progetti in corso: Domain Scout e Analyzer, Wordlist Generator integrato nel flusso,
+          e amamau AI con spazio personale e workspace.
         </p>
 
         <div class="tools" role="list">
+
           <!-- Domain Scout -->
           <div class="tool-row" role="listitem">
             <div class="tool-meta">
@@ -973,10 +869,10 @@
             <div>
               <div class="tool-title">Domain Scout</div>
               <div class="tool-desc">
-                Scoperta avanzata domini per .com, .it e .ch quando serve fare una scelta davvero buona, non solo “trovare qualcosa”.
+                Scoperta avanzata domini (.com, .it, .ch) quando devi fare una scelta buona, non “prendere il primo disponibile”.
               </div>
               <ul class="tool-points">
-                <li>Engine multi-TLD con controlli DNS e verifiche robuste.</li>
+                <li>Engine multi-TLD con controlli DNS.</li>
                 <li>Scoring 0–100 (lunghezza, pattern, brandabilità).</li>
                 <li>Export TXT/CSV e report pulito.</li>
               </ul>
@@ -991,18 +887,18 @@
           <div class="tool-row" role="listitem">
             <div class="tool-meta">
               <div class="phase"><span class="pill">Fase • Alpha interna</span></div>
-              <div class="tool-k">02 • Wordlist AI</div>
+              <div class="tool-k">02 • Wordlist</div>
             </div>
 
             <div>
               <div class="tool-title">Wordlist Generator</div>
               <div class="tool-desc">
-                Wordlist curate a partire da poche keyword, con un <strong>motore AI</strong> che spinge qualità e coerenza.
-                Nasce per alimentare Domain Scout e velocizzare gli sprint di naming.
+                Wordlist curate a partire da poche keyword, pensate per naming e domini.
+                Serve per velocizzare gli sprint e ridurre il rumore.
               </div>
               <ul class="tool-points">
-                <li>Generazione e ranking ottimizzati per naming e domini.</li>
-                <li>Filtri anti-rumore (struttura, pattern indesiderati, lunghezze).</li>
+                <li>Generazione + ranking per naming.</li>
+                <li>Filtri anti-rumore (pattern, lunghezze, struttura).</li>
                 <li>Export riutilizzabili su più progetti.</li>
               </ul>
             </div>
@@ -1015,20 +911,19 @@
           <!-- AI Chatbot -->
           <div class="tool-row" role="listitem">
             <div class="tool-meta">
-              <div class="phase"><span class="pill">Fase • Design e prototyping</span></div>
+              <div class="phase"><span class="pill">Fase • Prototyping</span></div>
               <div class="tool-k">03 • AI</div>
             </div>
 
             <div>
-              <div class="tool-title">amamau AI Chatbot</div>
+              <div class="tool-title">amamau AI</div>
               <div class="tool-desc">
-                Un’AI pensata per strategia, ricerca e operatività, con <strong>spazio personale</strong> e <strong>workspace</strong>.
-                L’obiettivo è far risparmiare tempo e rendere più chiari i passaggi.
+                Un’AI pensata per lavoro e decisioni: ricerca, sintesi e operatività, con spazio personale e workspace.
               </div>
               <ul class="tool-points">
                 <li>Workflow per naming, audit rapidi e check tecnici.</li>
-                <li>Output compatti: decisioni, checklist, sintesi condivisibili.</li>
-                <li>Accesso privato e brandizzato per team e clienti selezionati.</li>
+                <li>Output compatti: checklist, sintesi, punti decisione.</li>
+                <li>Accesso privato e brandizzato per team selezionati.</li>
               </ul>
             </div>
 
@@ -1060,26 +955,27 @@
               <a class="link" href="mailto:hello@amamau.com?subject=Domain%20Scout%20Analyzer">Info Analyzer</a>
             </div>
           </div>
+
         </div>
       </section>
 
       <!-- METODO -->
       <section id="metodo" class="block reveal" data-section="metodo">
         <div class="tagline">Metodo</div>
-        <h2 class="title">Scope chiaro, consegne pulite, aspettative oneste.</h2>
+        <h2 class="title">Poche cose fatte bene, con consegne pulite.</h2>
         <p class="sub">
-          Preferiamo poche cose fatte bene: output concreti e riutilizzabili.
-          L’obiettivo è rendere più semplice decidere e andare avanti.
+          Preferiamo scope chiaro, priorità e risultati leggibili.
+          Se una cosa non serve, non la vendiamo.
         </p>
 
         <div class="cols">
           <div>
             <p>
               Partiamo dal contesto reale: target, mercato, query, vincoli e obiettivo.
-              Poi scegliamo cosa conta davvero, prima di aggiungere dettagli.
+              Poi decidiamo cosa muove davvero il risultato — prima di “abbellire”.
             </p>
             <p>
-              Ogni passo produce qualcosa che resta: una shortlist, una struttura, un set di priorità,
+              Ogni passo lascia qualcosa di utile: una shortlist, una struttura, un set di priorità,
               o un report breve che si capisce al volo.
             </p>
           </div>
@@ -1089,12 +985,12 @@
               <p>Prima sistemiamo ciò che sposta il risultato. Poi rifiniamo.</p>
             </div>
             <div class="item">
-              <h4>02 • Vincoli espliciti</h4>
-              <p>Budget, tempi e scope chiari. Così non si spreca energia.</p>
+              <h4>02 • Vincoli chiari</h4>
+              <p>Budget, tempi e scope scritti nero su bianco.</p>
             </div>
             <div class="item">
               <h4>03 • Continuità</h4>
-              <p>Se serve, restiamo in supporto per mantenimento e miglioramenti.</p>
+              <p>Se serve, restiamo in supporto per mantenere e migliorare.</p>
             </div>
           </div>
         </div>
@@ -1105,17 +1001,17 @@
         <div class="tagline">Contatti</div>
         <h2 class="title">Scrivici due righe e capiamo se ha senso.</h2>
         <p class="sub">
-          Contesto, obiettivo, vincoli. Ti rispondiamo con una proposta chiara.
+          Contesto, obiettivo, vincoli. Ti rispondiamo in modo diretto, con una proposta chiara.
         </p>
 
         <div class="contact">
           <div>
             <p>
               Se vuoi migliorare visibilità, credibilità e continuità, scrivici.
-              Ci piacciono i messaggi diretti: poche righe, ma buone.
+              Poche righe vanno benissimo — basta che siano precise.
             </p>
             <p class="note">
-              
+              Canali: email e telefono. Il <strong>+39 379 112 8232</strong> va bene anche per WhatsApp e Telegram.
             </p>
             <div style="margin-top:1.2rem;">
               <a href="mailto:hello@amamau.com?subject=Richiesta%20progetto%20amamau" class="btn btn-primary">
@@ -1138,7 +1034,7 @@
             <ul>
               <li>1–2 frasi su prodotto/servizio e target.</li>
               <li>Dominio e sito attuale (se esiste).</li>
-              <li>Obiettivo: SEO, naming, email, AI workspace.</li>
+              <li>Obiettivo: SEO, naming, email, strumenti/workspace.</li>
               <li>Tempistiche e range budget.</li>
             </ul>
           </div>
@@ -1148,12 +1044,13 @@
       <footer>
         © 2025–2026 amamau — All rights reserved.
       </footer>
+
     </div>
   </div>
 </main>
 
 <script>
-  // Reveal (once)
+  // Reveal (one-shot)
   const reveals = document.querySelectorAll('.reveal');
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -1165,7 +1062,7 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => revealObs.observe(el));
 
-  // Scrollbar (robusto su browser diversi)
+  // Scrollbar progress (robust)
   const bar = document.getElementById('scrollbarFill');
   function updateBar(){
     const doc = document.documentElement;
@@ -1177,11 +1074,10 @@
   window.addEventListener('scroll', updateBar, { passive:true });
   window.addEventListener('resize', updateBar);
 
-  // Active section highlight (aria-current) - meno flicker
+  // Active section highlight (stable)
   const navLinks = Array.from(document.querySelectorAll('[data-navlink]'));
   const sections = Array.from(document.querySelectorAll('[data-section]'));
   let currentId = 'top';
-  let rafPending = false;
 
   function setCurrent(id){
     if (!id || id === currentId) return;
@@ -1193,121 +1089,16 @@
   }
 
   const sectionObs = new IntersectionObserver((entries) => {
-    if (rafPending) return;
-    rafPending = true;
-    requestAnimationFrame(() => {
-      rafPending = false;
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .map(e => ({ id: e.target.dataset.section, top: Math.abs(e.boundingClientRect.top) }))
-        .sort((a,b) => a.top - b.top);
+    // pick the closest to top within a safe band
+    const candidates = entries
+      .filter(e => e.isIntersecting)
+      .map(e => ({ id: e.target.dataset.section, top: Math.abs(e.boundingClientRect.top) }))
+      .sort((a,b) => a.top - b.top);
 
-      if (visible.length) setCurrent(visible[0].id);
-    });
-  }, { root:null, threshold:[0.25, 0.35, 0.5], rootMargin: "-20% 0px -55% 0px" });
+    if (candidates.length) setCurrent(candidates[0].id);
+  }, { threshold:[0.28, 0.45, 0.6], rootMargin: "-20% 0px -55% 0px" });
 
   sections.forEach(s => sectionObs.observe(s));
-
-  // Scroll gallery: snap + 3D rotate based on container scroll
-  const gallery = document.getElementById('gallery');
-  const slides = Array.from(document.querySelectorAll('[data-slide]'));
-  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const clamp = (n,min,max) => Math.max(min, Math.min(max, n));
-  const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
-
-  function updateSlides3D(){
-    if (!gallery || prefersReduced) return;
-
-    const gRect = gallery.getBoundingClientRect();
-    const gMid = gRect.top + gRect.height * 0.5;
-
-    slides.forEach(slide => {
-      const r = slide.getBoundingClientRect();
-      const sMid = r.top + r.height * 0.5;
-
-      const d = (sMid - gMid) / (gRect.height * 0.5);
-      const dist = clamp(d, -1, 1);
-      const t = 1 - Math.min(1, Math.abs(dist));
-
-      const p = easeOutCubic(clamp(t, 0, 1));
-      const rotY = dist * -10;
-      const rotX = dist * 4;
-      const tz = p * 28;
-      const op = 0.55 + p * 0.45;
-
-      slide.style.opacity = op.toFixed(3);
-      slide.style.transform =
-        `translateZ(${tz.toFixed(1)}px) rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg)`;
-    });
-  }
-
-  // Tabs for "3 step" (fix: più intuitivo delle “3 pagine”)
-  const tabs = Array.from(document.querySelectorAll('.tab'));
-  function setTabActive(index){
-    tabs.forEach((t,i) => t.setAttribute('aria-selected', i === index ? 'true' : 'false'));
-  }
-  function scrollToSlide(index){
-    const target = slides[index];
-    if (!target) return;
-    setTabActive(index);
-    target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
-  }
-  tabs.forEach(btn => {
-    btn.addEventListener('click', () => scrollToSlide(Number(btn.dataset.tab)));
-  });
-
-  function inferActiveSlide(){
-    if (!gallery) return 0;
-    const gRect = gallery.getBoundingClientRect();
-    const gMid = gRect.top + gRect.height * 0.5;
-
-    let best = { idx:0, dist: Infinity };
-    slides.forEach((s, idx) => {
-      const r = s.getBoundingClientRect();
-      const mid = r.top + r.height * 0.5;
-      const d = Math.abs(mid - gMid);
-      if (d < best.dist) best = { idx, dist: d };
-    });
-    return best.idx;
-  }
-
-  let galleryRaf = false;
-  function onGalleryScroll(){
-    if (galleryRaf) return;
-    galleryRaf = true;
-    requestAnimationFrame(() => {
-      galleryRaf = false;
-      updateSlides3D();
-      setTabActive(inferActiveSlide());
-    });
-  }
-
-  if (gallery && !prefersReduced){
-    updateSlides3D();
-    gallery.addEventListener('scroll', onGalleryScroll, { passive:true });
-    window.addEventListener('resize', () => requestAnimationFrame(updateSlides3D));
-  } else if (gallery){
-    // reduced motion: aggiorna solo tabs
-    gallery.addEventListener('scroll', () => setTabActive(inferActiveSlide()), { passive:true });
-  }
-
-  // Keyboard nav inside gallery
-  if (gallery){
-    gallery.addEventListener('keydown', (e) => {
-      const active = inferActiveSlide();
-      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-        e.preventDefault();
-        scrollToSlide(Math.min(active + 1, slides.length - 1));
-      }
-      if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-        e.preventDefault();
-        scrollToSlide(Math.max(active - 1, 0));
-      }
-      if (e.key === 'Home') { e.preventDefault(); scrollToSlide(0); }
-      if (e.key === 'End') { e.preventDefault(); scrollToSlide(slides.length - 1); }
-    });
-  }
 </script>
 </body>
 </html>
